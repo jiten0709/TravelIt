@@ -1,0 +1,1087 @@
+<html>
+    <head>
+        <title>Game Development</title>
+
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+        <style>
+        
+a{
+background-color: transparent;
+color: white;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+  color: red;
+}
+   .card4{
+  font-family: 'Poppins', sans-serif;
+  margin-bottom:15px;
+  text-align: left;
+  padding: 30px;
+  font-size: 17px;
+  margin-left: 10%;
+}
+.container4{
+  margin-left: 0%;
+
+  }
+
+.card4{
+    font-family: 'Poppins', sans-serif;
+  position:relative;
+  display:-ms-flexbox;
+  display:flex;
+  -ms-flex-direction:column;
+  flex-direction:column;
+  word-wrap:break-word;
+}
+ .card4{
+  margin-bottom:15px
+}
+
+@media (min-width:576px){
+  .card-deck1{
+    display:-ms-flexbox;
+    display:flex;
+    -ms-flex-flow:row wrap;
+    flex-flow:row wrap;
+    }
+    .card-deck1 .card4{
+      -ms-flex:1 0 0%;
+      flex: 0.2 0%;}
+    }
+@media (min-width:576px){
+.card4{
+  display:inline-block;
+  width:100%
+  }
+}
+  ul{
+  font-family: 'Poppins', sans-serif;
+    font-size: 38px;
+  }
+ .card4 li {
+    list-style-type: square;
+     font-size: 15px;
+    font-weight: bold;
+    padding: 6px;
+    font-family: 'Raleway', sans-serif;
+ }
+.card-text:last-child{
+  margin-bottom:0}
+
+ /* width */
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(34, 30, 30); 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #3d3a3a; 
+}  
+
+    
+.accordion a {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  padding: 2rem 6rem 1rem 1rem;
+  color: #7288a2;
+  font-size: 1.15rem;
+  font-weight: 400;
+  border-bottom: 1px solid #e5e5e5;
+}
+.accordion a:hover,
+.accordion a:hover::after {
+  cursor: pointer;
+  color: #ff5353;
+}
+.accordion a:hover::after {
+  border: 1px solid #ff5353;
+}
+.accordion a.active {
+  color: #ff5353;
+  border-bottom: 1px solid #ff5353;
+}
+.accordion a::after {
+  font-family: 'Ionicons';
+  content: '\f218';
+  position: absolute;
+  float: right;
+  right: 1rem;
+  font-size: 1rem;
+  color: #7288a2;
+  padding: 2px;
+  width: 20px;
+  height: 20px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  border: 1px solid #7288a2;
+  text-align: center;
+}
+.accordion a.active::after {
+  font-family: 'Ionicons';
+  content: '\f209';
+  color: #ff5353;
+  border: 1px solid #ff5353;
+}
+.accordion .content {
+  opacity: 0;
+  padding: 0 1rem;
+  max-height: 0;
+  border-bottom: 1px solid #e5e5e5;
+  overflow: hidden;
+  clear: both;
+  -webkit-transition: all 0.2s ease 0.15s;
+  -o-transition: all 0.2s ease 0.15s;
+  transition: all 0.2s ease 0.15s;
+}
+.accordion .content p {
+  font-size: 1rem;
+  font-family: 'Source Sans Pro', sans-serif;
+  color:white;
+  font-weight: 300;
+}
+.accordion .content.active {
+  opacity: 1;
+  padding: 1rem;
+  max-height: 100%;
+  -webkit-transition: all 0.35s ease 0.15s;
+  -o-transition: all 0.35s ease 0.15s;
+  transition: all 0.35s ease 0.15s;
+}
+.parallax2 {
+  background-image: url("https://images.squarespace-cdn.com/content/v1/546406e3e4b024e8934b93cb/1420265853622-VJON1X53JR2WQN6PQBUY/background.png?format=1500w");
+  min-height: 30%; 
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+  background-attachment: fixed;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 3rem;
+}
+
+ .card {
+  display: inline-block;
+  box-shadow: 2px solid black;
+  color: white;
+  width: 25%;
+  height:  20%;
+  margin-left: 2rem;
+  padding-bottom: 12rem;
+}
+.card-main{
+    margin-left: 15%;
+}
+@media(max-width: 945px)
+{
+  .card {
+  display: relative;
+  background-color:black;
+  box-shadow: 2px solid black;
+  color: white;
+  width: 20%;
+  height:  10%;
+  margin: 10px;
+}
+.card-main{
+    margin-left: 0%;
+}
+}
+
+   .card3{
+  font-family: 'Poppins', sans-serif;
+  margin-bottom:15px;
+  text-align: left;
+  padding: 7px;
+  padding-left: 10px;
+}
+.container{
+  margin-left: 20%;
+  color: white;
+  }
+
+.card3{
+    font-family: 'Poppins', sans-serif;
+  position:relative;
+  display:-ms-flexbox;
+  display:flex;
+  -ms-flex-direction:column;
+  flex-direction:column;
+  word-wrap:break-word;
+}
+ .card3{
+  margin-bottom:15px
+}
+
+@media (min-width:576px){
+  .card-deck{
+    display:-ms-flexbox;
+    display:flex;
+    -ms-flex-flow:row wrap;
+    flex-flow:row wrap;
+    }
+    .card-deck .card3{
+      -ms-flex:1 0 0%;
+      flex: 0.2 0%;}
+    }
+@media (min-width:576px){
+.card3{
+  display:inline-block;
+  width:100%
+  }
+}
+  ul{
+  font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+  }
+ .card li {
+    list-style-type: square;
+     font-size: 15px;
+    font-weight: bold;
+    padding:6px;
+    font-family: 'Raleway', sans-serif;
+ }
+.card-text:last-child{
+  margin-bottom:0}
+
+            .box {
+	width: 300px;
+	height: 260px;
+	position: relative;
+	background: rgba(255,255,255,1);
+	display: inline-block;
+	margin: 0 10px;
+	cursor: pointer;
+	color: #2c3e50;
+	box-shadow: inset 0 0 0 3px #2c3e50;
+	-webkit-transition: background 0.4s 0.5s;
+	transition: background 0.4s 0.5s;
+}
+
+.box:hover {
+	background: black;
+	-webkit-transition-delay: 0s;
+	transition-delay: 0s;
+}
+
+.box h3 {
+	font-family: "Ruthie", cursive;
+	font-size: 180px;
+	line-height: 370px;
+	margin: 0;
+	font-weight: 400;
+	width: 100%;
+}
+
+.box span {
+	display: block;
+	font-weight: 400;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-size: 13px;
+	padding: 5px;
+}
+
+.box h3,
+.box span {
+	-webkit-transition: color 0.4s 0.5s;
+	transition: color 0.4s 0.5s;
+}
+
+.box:hover h3,
+.box:hover span {
+	color: #fff;
+	-webkit-transition-delay: 0s;
+	transition-delay: 0s;
+}
+
+.box svg {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.box svg line {
+	stroke-width: 3;
+	stroke: #ecf0f1;
+	fill: none;
+	-webkit-transition: all .8s ease-in-out;
+	transition: all .8s ease-in-out;
+}
+
+.box:hover svg line {
+	-webkit-transition-delay: 0.1s;
+	transition-delay: 0.1s;
+}
+
+.box svg line.top,
+.box svg line.bottom {
+	stroke-dasharray: 330 240; 
+}
+
+.box svg line.left,
+.box svg line.right {
+	stroke-dasharray: 490 400;
+}
+
+.box:hover svg line.top {
+	-webkit-transform: translateX(-600px);
+	transform: translateX(-600px);
+}
+
+.box:hover svg line.bottom {
+	-webkit-transform: translateX(600px);
+	transform: translateX(600px);
+}
+
+.box:hover svg line.left {
+	-webkit-transform: translateY(920px);
+	transform: translateY(920px);
+}
+
+.box:hover svg line.right {
+	-webkit-transform: translateY(-920px);
+	transform: translateY(-920px);
+}
+
+/* Alternatives */
+
+/* Color */
+.demo-2 .box {
+	box-shadow: inset 0 0 0 10px #2c3e50;
+}
+
+.demo-2 .box:hover h3,
+.demo-2 .box:hover span {
+	color: #fe6f83;
+}
+
+.demo-2 .box svg line {
+	stroke-width: 8;
+}
+
+.demo-2 .box:hover svg line {
+	stroke: #fe6f83;
+}
+
+/* Frame */
+.demo-3 .box {
+	background: rgba(0,0,0,0);
+	color: #fff;
+	box-shadow: none;
+	-webkit-transition: background 0.3s;
+	transition: background 0.3s;
+}
+
+.demo-3 .box:hover {
+	background: rgba(0,0,0,0.4);
+}
+
+.demo-3 .box h3,
+.demo-3 .box span {
+	-webkit-transition: none;
+	transition: none;
+}
+
+.demo-3 .box svg line {
+	-webkit-transition: all .5s;
+	transition: all .5s;
+}
+
+.demo-3 .box:hover svg line {
+	stroke-width: 10;
+	-webkit-transition-delay: 0s;
+	transition-delay: 0s;
+}
+
+.demo-3 .box:hover svg line.top {
+	-webkit-transform: translateX(-300px);
+	transform: translateX(-300px);
+}
+
+.demo-3 .box:hover svg line.bottom {
+	-webkit-transform: translateX(300px);
+	transform: translateX(300px);
+}
+
+.demo-3 .box:hover svg line.left {
+	-webkit-transform: translateY(460px);
+	transform: translateY(460px);
+}
+
+.demo-3 .box:hover svg line.right {
+	-webkit-transform: translateY(-460px);
+	transform: translateY(-460px);
+}
+
+/* Spin */
+.demo-4 .box {
+	box-shadow: none;
+	background: rgba(0,0,0,0.4);
+	-webkit-transition: none;
+	transition: none;
+	color: #fff;
+}
+
+.demo-4 .box h3,
+.demo-4 .box span {
+	-webkit-transform: scale(0.9);
+	transform: scale(0.9);
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-transition: -webkit-transform 0.5s;
+	transition: transform 0.5s;
+}
+
+.demo-4 .box:hover h3,
+.demo-4 .box:hover span {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+
+.demo-4 .box svg line {
+	stroke-width: 30;
+	-webkit-transition: all .4s;
+	transition: all .4s;
+}
+
+.demo-4 .box:hover svg line {
+	-webkit-transition-delay: 0s;
+	transition-delay: 0s;
+}
+
+.demo-4 .box:hover svg line {
+	stroke-width: 0;
+}
+
+.demo-4 .box svg line.top,
+.demo-4 .box svg line.bottom {
+	stroke-dasharray: 300; 
+}
+
+.demo-4 .box svg line.left,
+.demo-4 .box svg line.right {
+	stroke-dasharray: 460;
+}
+
+.demo-4 .box:hover svg line.top {
+	-webkit-transform: translateX(-300px);
+	transform: translateX(-300px);
+}
+
+.demo-4 .box:hover svg line.bottom {
+	-webkit-transform: translateX(300px);
+	transform: translateX(300px);
+}
+
+.demo-4 .box:hover svg line.left {
+	-webkit-transform: translateY(460px);
+	transform: translateY(460px);
+}
+
+.demo-4 .box:hover svg line.right {
+	-webkit-transform: translateY(-460px);
+	transform: translateY(-460px);
+}
+            body{
+                margin: 0;
+                font-family: 'Montserrat', sans-serif;
+    background-color:#202020;
+            }
+.gfg {
+    position: relative;
+}
+.first-txt {
+    color:white;
+    position: absolute;
+    font-size: 120;
+    top: 17px;
+    left: 50px;
+}
+    .parallax {
+  background-image: url("http://www.theappguruz.com/public/assets/new_site/images/home_page_banner.jpg");
+  min-height: 120%; 
+  width: 100%;
+  opacity: 10;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+  .parallax1 {
+  background-image: url("https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/ps4-controller-darryl-brooks.jpg");
+  min-height: 40%; 
+  opacity: 10;
+  width: 100%;
+  color:white;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+ .card {
+  display: inline-block;
+  box-shadow: 2px solid black;
+  color: white;
+  width: 30%;
+  height:  20%;
+  padding: 1rem;
+}
+.card-main{
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    text-align: center;
+    float: auto;
+}
+@media(max-width: 945px)
+{
+  .card {
+  display: relative;
+  background-color:black;
+  box-shadow: 2px solid black;
+  color: white;
+  width: 20%;
+  height:  10%;
+  margin: 10px;
+}
+.card-main{
+    margin-left: 0%;
+}
+}
+.gfg {
+    position: relative;
+}
+
+
+.contact{
+  background-color: transparent; 
+   padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+   border-radius: 25px;
+  color: white; 
+  border: 4px solid #f44336;
+}
+.contact:hover {
+  background-color: red;
+}
+.circle-wrapper {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  float: left;
+  margin: 10px;
+}
+
+.icon {
+  position: absolute;
+  color: #fff;
+  font-size: 55px;
+  top: 45px;
+  left: 50px;
+  transform: translate(-50%, -50%);
+}
+
+.circle {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  padding: 2.5px;
+  background-clip: content-box;
+  animation: spin 10s linear infinite;
+}
+
+.circle-wrapper:active .circle {
+  animation: spin 2s linear infinite;
+}
+
+.success {
+  background-color: #4BB543;
+  border: 2.5px dashed #4BB543;
+}
+
+.error {
+  background-color: #CA0B00;
+  border: 2.5px dashed #CA0B00;
+}
+
+.warning {
+  background-color: #F0D500;
+  border: 2.5px dashed #F0D500;
+}
+
+@keyframes spin { 
+  100% { 
+    transform: rotateZ(360deg);
+  }
+}
+
+.page-wrapper { background-color:#202020;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.canvas{
+  position:relative;
+  padding: 10 30px;
+}
+
+.object{
+  border:1px solid #fff;
+  background-color: black;
+  height: 80px;
+  width:80%;
+  margin: 40px 0;
+  display:table;
+  color: #fff;
+}
+
+
+.centered{
+  display:table-cell;
+  vertical-align:middle;
+  text-align:center;
+}
+
+svg.simple-flow-line{
+  position: absolute;
+  top: 0;
+  bottom:0;
+  left:0;
+  right:0;
+  width:100%;
+  height:100%;
+}
+
+.head{
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 40px;
+    text-align: center;
+    color: white;
+    padding-bottom: 2rem;
+}
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+</style>
+
+
+    </head>
+
+    <body translate="no">
+          <link rel='stylesheet' href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&family=Roboto:wght@900&display=swap"
+        rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&family=Roboto:wght@900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&family=Roboto:wght@900&display=swap" rel="stylesheet">
+    <div class="gfg">
+        <div class="parallax"></div>
+        <h3 class="first-txt">
+            Game<br>
+            Development<br>
+            <div style="color: grey;">and</div>
+            Game<br>
+            Desiging
+        </h3>
+    </div>
+
+
+<div class="card-main" style="padding-top: 5rem;">
+ <div class="card"><table style="color: white;">
+<tr">
+<th rowspan="5" style="padding-right:1.2rem;">
+    <div class="page-wrapper">
+  <div class="circle-wrapper">
+    <div class="success circle"></div>
+    <div class="icon">
+      <i class="fa fa-users"></i>
+    </div>
+  </div>
+<td>DEDICATED TEAM</td>
+</th>
+</tr>
+<tr>
+<td style="color: grey;">If your project scope is large and clearly defined, create a mobile game by hiring this pay-as-you go model. Here, you only pay for the work done on a strict timeline basis</td>
+</tr>
+</table>
+</div>
+ <div class="card"><table style="color: white;">
+<tr">
+<th rowspan="5" style="padding-right:1.2rem;">
+      <div class="circle-wrapper">
+    <div class="warning circle"></div>
+    <div class="icon">
+      <i class="fa fa-dollar"></i>
+    </div>
+  </div>
+<td>FIXED PRICE</td>
+</th>
+</tr>
+<tr>
+<td style="color: grey;">Hire android game developers and iOS game developers through a fixed price model that works on a limited budget and changing conditions with the web development team.</td>
+</tr>
+</table>
+</div>
+ <div class="card"><table style="color: white;">
+<tr">
+<th rowspan="5" style="padding-right:1.2rem;">
+<div class="circle-wrapper">
+    <div class="error circle"></div>
+    <div class="icon">
+      <i class="fa fa-hand-point-up"></i>
+    </div>
+  </div>
+<td>ON-DEMAND MODEL</td>
+</th>
+</tr>
+<tr>
+<td style="color: grey;">Your dynamic project requirements with wavering timelines can be catered with our On-demand model. Hire mobile game developers at hourly payments module.</td>
+</tr>
+</table>
+</div>
+<div class="head">Our App making Process</div>
+
+
+  <section class="container canvas">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="object">
+        <div class="centered">Concepting and strategy</div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="object">
+        <div class="centered">UI and UX design</div>
+      </div>
+    </div>
+     <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="object">
+        <div class="centered">Development</div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="object">
+        <div class="centered">QA and testing</div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="object">
+        <div class="centered">Launch</div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="object">
+        <div class="centered">Ongoing enhancement</div>
+      </div>
+    </div>
+  </div>
+  </section>
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+      <script id="rendered-js" >
+;(function ($, window, document, undefined) {
+  "use strict";
+
+  var pluginName = "SimpleFlow",
+  defaults = {
+    lineWidth: 2,
+    lineSpacerWidth: 15,
+    lineColour: 'white',
+    canvasElm: '.canvas' };
+
+
+  function Plugin(element, options) {
+    this.element = element;
+    this.settings = $.extend({}, defaults, options);
+    this._defaults = defaults;
+    this._name = pluginName;
+    this.init();
+  }
+
+  $.extend(Plugin.prototype, {
+    init: function () {
+      this.drawLines();
+
+      var that = this;
+
+      $(window).resize(function () {
+        that.drawLines();
+      });
+    },
+
+    drawLines: function () {
+      // remove old svgs
+      $('svg.simple-flow-line').remove();
+
+      var $elements = $(this.element);
+
+      for (var i = 0; i < $elements.length; i++) {if (window.CP.shouldStopExecution(0)) break;
+        var thisElm = $elements.eq(i),
+        nextElm = $elements.eq(i + 1);
+        this.drawLine(thisElm, nextElm);
+      }window.CP.exitedLoop(0);;
+    },
+
+    drawLine: function (thisElm, nextElm) {
+      var thisElmParent = thisElm.parent(),
+      nextElmParent = nextElm.parent();
+
+      // only continue if there's a next element.
+      if (typeof nextElm.position() !== 'undefined') {
+        // calculate all of the positions relative to the two objects
+        var thisElmMiddle = thisElm.outerHeight(true) / 2,
+        nextElmMiddle = nextElm.outerHeight(true) / 2;
+
+        var thisElmY = thisElmMiddle + thisElmParent.position().top,
+        nextElmY = nextElmMiddle + nextElmParent.position().top;
+
+        var thisParentPadding = (thisElmParent.outerWidth(true) - thisElmParent.width()) / 2,
+        nextParentPadding = (nextElmParent.outerWidth(true) - nextElmParent.width()) / 2;
+
+        var thisRight = thisElmParent.position().left + thisElm.outerWidth(true) + thisParentPadding,
+        nextLeft = nextElmParent.position().left + nextParentPadding;
+
+        var farLeftX = nextLeft - this.settings['lineSpacerWidth'],
+        farRightX = thisRight + this.settings['lineSpacerWidth'],
+        lineInBetweenY = (thisElmY + nextElmY) / 2;
+
+        // if the object is on the same line, the the coords are different
+        // to if they're on separate lines.
+        if (thisElmY == nextElmY) {
+          // same row
+          var coords = thisRight + ',' + thisElmY + ' ' + nextLeft + ',' + nextElmY;
+
+        } else {
+          // differernt rows
+          var coords = thisRight + ',' + thisElmY + ' ' + farRightX + ',' + thisElmY +
+          ' ' + farRightX + ',' + lineInBetweenY + ' ' + farLeftX + ',' +
+          lineInBetweenY + ' ' + farLeftX + ',' + nextElmY + ' ' + nextLeft +
+          ',' + nextElmY;
+        }
+
+        // create line svg 
+        var line = '<svg class="simple-flow-line">' +
+        '<defs>' +
+        '<marker id="arrowhead" viewBox="0 0 10 10" refX="8" refY="5"' +
+        'markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto">' +
+        '<path d="M 0 0 L 10 5 L 0 10 z" stroke="none" fill="' + this.settings['lineColour'] + '"/>' +
+        '</marker>' +
+        '</defs>' +
+        '<path d="M' + coords +
+        '"style="fill:none;stroke:' + this.settings['lineColour'] + ';stroke-width:' + this.settings['lineWidth'] +
+        ';marker-end:url(#arrowhead);" />' +
+        '</svg>';
+
+        // append to canvas
+        $(this.settings['canvasElm']).append(line);
+      }
+    } });
+
+
+  $.fn[pluginName] = function (options) {
+    if (!$.data(this, "plugin_" + pluginName)) {
+      $.data(this, "plugin_" +
+      pluginName, new Plugin(this, options));
+    }
+  };
+
+})(jQuery, window, document);
+
+
+$('.object').SimpleFlow();
+    </script>
+
+<div class="head" style="padding-top: 2rem;">WHY CHOOSE US?</diV>
+        <section class="demo-1">
+				<div class="grid">
+					<div class="box">
+						<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+							<line class="top" x1="0" y1="0" x2="900" y2="0"/>
+							<line class="left" x1="0" y1="460" x2="0" y2="-920"/>
+							<line class="bottom" x1="300" y1="460" x2="-600" y2="460"/>
+							<line class="right" x1="300" y1="0" x2="300" y2="1380"/>
+						</svg>
+						<span style="font-size:large;padding-top: 40px;"><i class="fa fa-hourglass-start" style="font-size:100px;color:red"></i></span>
+						<span style="font-size:large;padding-top: 20px;">Proven experience</span>
+					</div>
+					<div class="box">
+						<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+							<line class="top" x1="0" y1="0" x2="900" y2="0"/>
+							<line class="left" x1="0" y1="460" x2="0" y2="-920"/>
+							<line class="bottom" x1="300" y1="460" x2="-600" y2="460"/>
+							<line class="right" x1="300" y1="0" x2="300" y2="1380"/>
+						</svg>
+						<span style="font-size:large;padding-top: 40px;"><i class="fa fa-star" style="font-size:100px;color:red"></i></span>
+						<span style="font-size:large;padding-top: 20px;">A proactive approach</span>
+					</div>
+					<div class="box">
+						<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+							<line class="top" x1="0" y1="0" x2="900" y2="0"/>
+							<line class="left" x1="0" y1="460" x2="0" y2="-920"/>
+							<line class="bottom" x1="300" y1="460" x2="-600" y2="460"/>
+							<line class="right" x1="300" y1="0" x2="300" y2="1380"/>
+						</svg>
+						<span style="font-size:large;padding-top: 40px;"><i class="fa fa-mobile" style="font-size:100px;color:red"></i></span>
+						<span style="font-size:large;padding-top: 20px;">Mobile-first team</span>
+					</div>
+				</div>
+                <div class="grid" style="margin-top: 2rem;">
+					<div class="box">
+						<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+							<line class="top" x1="0" y1="0" x2="900" y2="0"/>
+							<line class="left" x1="0" y1="460" x2="0" y2="-920"/>
+							<line class="bottom" x1="300" y1="460" x2="-600" y2="460"/>
+							<line class="right" x1="300" y1="0" x2="300" y2="1380"/>
+						</svg>
+						<span style="font-size:large;padding-top: 40px;"><i class="fab fa-unity" style="font-size:100px;color:red"></i></span>
+						<span style="font-size:large;padding-top: 20px;">UNITY GAMES FOR ANDRIOD</span>
+					</div>
+                    <div class="box">
+						<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+							<line class="top" x1="0" y1="0" x2="900" y2="0"/>
+							<line class="left" x1="0" y1="460" x2="0" y2="-920"/>
+							<line class="bottom" x1="300" y1="460" x2="-600" y2="460"/>
+							<line class="right" x1="300" y1="0" x2="300" y2="1380"/>
+						</svg>
+						<span style="font-size:large;padding-top: 40px;"><i class="fab fa-android" style="font-size:100px;color:red"></i></span>
+						<span style="font-size:large;padding-top: 20px;">CREATE ANDRIOD APPLICATIONS</span>
+					</div>
+					<div class="box">
+						<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+							<line class="top" x1="0" y1="0" x2="900" y2="0"/>
+							<line class="left" x1="0" y1="460" x2="0" y2="-920"/>
+							<line class="bottom" x1="300" y1="460" x2="-600" y2="460"/>
+							<line class="right" x1="300" y1="0" x2="300" y2="1380"/>
+						</svg>
+						<span style="font-size:large;padding-top: 40px;"><i class="fab fa-searchengin" style="font-size:100px;color:red"></i></span>
+						<span style="font-size:large;padding-top: 20px;">UNREAL ENGINE ANDRIOID GAMES</span>
+					</div>
+				</div><!-- /grid -->
+			</section>
+   </div>
+
+<div class="gfg">
+       <div class="parallax2"></div>
+        <h3 class="first-txt" style="color:white;text-shadow: 2px 2px 4px black;">  
+Let the game begin.<br>
+<button class="contact">Contact</button>
+        </h3>
+    </div>
+
+   <div class="container4" style="background-color:#182124;;color: white;">
+  <div class="card-deck1">
+    <div class="card4">
+      <div>
+       <a href="file:///D:/Prinkal/Cybil%20InfoTech/Homepage.html"><h1><strong>CIBILL INFOTECH</strong></a>
+      </h1></div>
+    </div> 
+       <div class="card4">
+      <div>
+        <h1><strong>Links</strong></h1>
+     <p style="font-family: 'Raleway', sans-serif;line-height: 30px;">
+              <a href="file:///D:/Prinkal/Cybil%20InfoTech/Homepage.html"> Homepage</a>
+          <br>  Contact Us
+            </p>
+      </div>
+    </div> 
+       <div class="card4">
+      <div>
+        <h1><strong>Services</strong></h1>
+      <p style="font-family: 'Raleway', sans-serif;line-height: 30px;">
+          <a href="file:///D:/Prinkal/Cybil%20InfoTech/SocialMedia.html">   Social Media Marketing
+           <a href="file:///D:/Prinkal/Cybil%20InfoTech/WebsiteDevelopment.html">  <br>Web Development
+           <a href="file:///D:/Prinkal/Cybil%20InfoTech/GameDevelopment.html">  <br>Game Development
+          <a href="file:///D:/Prinkal/Cybil%20InfoTech/ITConsultancy.html">   <br>IT Consultancy
+       <a href="file:///D:/Prinkal/Cybil%20InfoTech/IOT.html">   <br>IOT</a> 
+          <a href="file:///D:/Prinkal/Cybil%20InfoTech/AppDevelopment.html">  <br>App Development</a>
+          <a href="file:///D:/Prinkal/Cybil%20InfoTech/DigitalMarket.html">  <br>DigitalMarketing</a>
+        </p>
+      </div>
+    </div> 
+        <div class="card4">
+      <div>
+        <h1><strong>Follow Us</strong></h1>
+           <p style="font-family: 'Raleway', sans-serif;line-height: 30px;">
+          <a href="https://instagram.com/cybillinfotech?utm_medium=copy_link">Instagram</a> 
+          <br><a href="https://www.linkedin.com/company/cybill-infotech/">Linkedin</a>
+          <a href="mailto:[support@cybillinfotech.com]"><br>Gmail</a>
+          <a href="tel:97689 81298"><br>+91 97689 81298</a>
+          <a href="tel:99874 47527"><br>+91 99874 47527</a>
+    </p>
+      </div>
+  </div>
+</div>
+</div>
+
+</div>
+
+</body>
+</html>  
+
+
+    

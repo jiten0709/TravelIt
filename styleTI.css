@@ -1,0 +1,179 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', sans-serif;
+}
+/*----------------header---------------------------*/
+.header {
+    min-height: 100vh;
+    width: 100%;
+    background-image: url("/TravelWebsite/Assets/pngtree-tourism-travel-lighthouse-cloud-image_14516.jpg");
+    /* background-image: linear-gradient(rgba(148, 161, 212, 0.7), rgba(79, 89, 132, 0.7)), url("/TravelWebsite/Assets/bg-4.jpg"); */
+    /* url is im gfile path */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+nav {
+    display: flex;
+    padding: 2% 6%;
+    /* padding will add internal space */
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* for hat logo */
+nav img {
+    width: 150px;
+}
+
+.nav-links {
+    flex: 1;
+    text-align: right;
+    /* text eill be on right side */
+}
+
+/* this is for menu bar(home n all) */
+.nav-links ul li {
+    list-style: none;
+    /* list style is none so that there will be no bullet */
+    display: inline-block;
+    /* display inline-block so it will come horizontally */
+    padding: 8px 12px;
+    position: relative;
+}
+
+/* this for text in menu bar */
+.nav-links ul li a {
+    color: firebrick;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+/* this is for the undereline */
+.nav-links ul li::after {
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: darkorange;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+
+/* this for when we get our cursor over any menu */
+.nav-links ul li:hover::after {
+    width: 100%;
+}
+
+.textbox {
+    width: 90%;
+    color: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* so that text will be at the center of div */
+    text-align: left;
+}
+
+.textbox h1 {
+    font-size: 60px;
+}
+
+.textbox p {
+    margin: 10px 0 40px;
+    /* 10 from top, 0 from left and right, 40 from bottom */
+    font-size: 14px;
+    color: aliceblue;
+}
+
+/* this is for visit button */
+.hero-btn {
+    display: inline-block;
+    text-decoration: none;
+    color: rosybrown;
+    border: 2px solid burlywood;
+    padding: 12px 34px;
+    font-size: 20px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+}
+
+
+.hero-btn:hover {
+    border: 2px solid royalblue;
+    background: lightgreen;
+    transition: 0.7s;
+}
+/*-------------------------------------------*/
+/*------------------choices--------------------*/
+.choices{
+    width: 80%;
+    padding-top: 50px;
+    margin: auto;
+    text-align: center;
+}
+.choices-col{
+    flex-basis: 32%;
+    border-radius: 10px;    /* so that corners will be round */
+    margin-bottom: 30px;
+    overflow: hidden;
+    position: relative;
+}
+.choices-col img{
+    width: 100%;
+    display: block;
+}
+.layer{
+    background: transparent;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    transition: 0.5s;
+}
+.layer:hover{
+    background: rgba(227, 53, 53, 0.7);
+}
+.layer h3{
+    width: 100%;
+    bottom: 0;
+    left: 50%;
+    font-weight: 500;
+    font-size: 26px;
+    position: absolute;
+    color: azure;
+    transform: translateX(-50%);  /* so that it will be at bottom and center from X-axis */
+    opacity: 0;
+    transition: 0.5s;
+}
+.layer:hover h3{
+    opacity: 1;
+    bottom: 49%;
+}
+/*---------------------------------------------------*/
+/*----------------footer---------------------------*/
+.footer{
+    text-align: center;
+    width: 100%;
+    padding: 30px 0;
+}
+.footer h4{
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.icons .fa{
+    padding: 18px 0;
+    margin: 0 12px;
+    cursor: pointer;
+    color: blue;
+}
+.fa-heart{
+    color: red;
+}
+/*-------------------------------------------*/

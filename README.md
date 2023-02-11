@@ -10,7 +10,7 @@ git clone https://github.com/jiten0709/TravelIt.git
 git status
 
 ## To add the file
-git add *.*
+git add <filename>
 
 
 ## To commit the file 

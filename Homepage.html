@@ -6,14 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="style.css">
-  <script>src="myscripts.js"</script>
- 
+  <script>src = "myscripts.js"</script>
+
   <script>
     if (document.location.search.match(/type=embed/gi)) {
       window.parent.postMessage("resize", "*");
     }
   </script>
-  
+
 </head>
 
 <body>
@@ -71,21 +71,21 @@
 
     <h2 id="text">TRAVEL IT!</h2>
     <img src="/assets/monutain_01.png" id="m1">
-    
+
     <img src="/assets/trees_02.png" id="t2">
-    
+
     <img src="/assets/monutain_02.png" id="m2">
-    
+
     <img src="/assets/trees_01.png" id="t1">
-    
+
     <img src="/assets/man.png" id="man">
-    
+
     <img src="/assets/plants.png" id="plants">
-    
-    </section>
+
+  </section>
   <script
     src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
-   <script id="rendered-js">
+  <script id="rendered-js">
     var $loader = document.querySelector('.loader');
 
     window.onload = function () {
@@ -98,56 +98,56 @@
         $loader.classList.remove('loader--active');
       }, 5000);
     });
-  </script> 
+  </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
-    <script>
-       gsap.from("#m1", {
-           scrollTrigger :{
-            scrub:true
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+  <script>
+    gsap.from("#m1", {
+      scrollTrigger: {
+        scrub: true
 
-        },
-        
-        y: 200,
+      },
+
+      y: 200,
     })
     gsap.from("#m2", {
-       scrollTrigger : {
-        scrub:true
-        },
-        y: 100,
-    })  
+      scrollTrigger: {
+        scrub: true
+      },
+      y: 100,
+    })
     gsap.from("#t2", {
-       scrollTrigger : {
-        scrub:true
-        },
-        x:-50,
-    })  
+      scrollTrigger: {
+        scrub: true
+      },
+      x: -50,
+    })
     gsap.from("#t1", {
-       scrollTrigger : {
+      scrollTrigger: {
         scrub: true
-        },
-        x: 50,
-    })  
+      },
+      x: 50,
+    })
     gsap.from("#man", {
-       scrollTrigger : {
+      scrollTrigger: {
         scrub: true
-        },
-        x: -250,
-    })  
+      },
+      x: -250,
+    })
     gsap.from("#text", {
-       scrollTrigger : {
+      scrollTrigger: {
         scrub: true
-        },
-        x: 400,
-    })  
+      },
+      x: 400,
+    })
     gsap.from("#plants", {
-       scrollTrigger : {
+      scrollTrigger: {
         scrub: true
-        },
-        x: -50,
+      },
+      x: -50,
     })  
-    </Script>
- 
+  </Script>
+
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -175,13 +175,10 @@
             <h1
               style="margin-top: 0%; padding: 22px; background-color: black; color: white; font-family: 'Poppins', sans-serif;">
               Mumbai</h1>
-            <img class="mySlides1" src="destinations\img\adventure\imagicaa1.jpg" height="256px"
+            <img class="mySlides1" src="destinations\img\adventure\imagicaa1.jpg" height="256px" width="700px">
+            <img class="mySlides1" src="destinations\img\historical\MUMBAI\gateway-india3_lg.jpg" height="256px"
               width="700px">
-            <img class="mySlides1"
-              src="destinations\img\historical\MUMBAI\gateway-india3_lg.jpg" height="256px"
-              width="700px">
-            <img class="mySlides1" src="destinations\img\adventure\Della2.jpg" height="256px"
-              width="700px">
+            <img class="mySlides1" src="destinations\img\adventure\Della2.jpg" height="256px" width="700px">
 
             <script>
               var myIndex1 = 0;
@@ -225,13 +222,11 @@
                 style="margin-top: 0%; padding: 22px; background-color: black; color: white; font-family: 'Poppins', sans-serif;">
                 Kolkata</h1>
 
-              <img class="mySlides"
-                src="/destinations/img/historical/KOLKATA/05648444-7dc7-4c71-9a25-656e98a6a0a0.jpg"
+              <img class="mySlides" src="/destinations/img/historical/KOLKATA/05648444-7dc7-4c71-9a25-656e98a6a0a0.jpg"
                 height="256px" width="700px">
-              <img class="mySlides" src="/destinations/img/adventure/tp3.jpg" height="256px"
+              <img class="mySlides" src="/destinations/img/adventure/tp3.jpg" height="256px" width="700px">
+              <img class="mySlides" src="/destinations/img/historical/KOLKATA/howrah-1.jpg" height="256px"
                 width="700px">
-              <img class="mySlides" src="/destinations/img/historical/KOLKATA/howrah-1.jpg"
-                height="256px" width="700px">
 
               <script>
                 var myIndex = 0;
@@ -273,8 +268,7 @@
                 style="margin-top: 0%; padding: 22px; background-color: black; color: white; font-family: 'Poppins', sans-serif;">
                 Delhi</h1>
 
-              <img class="mySlides2" src="/destinations/img/adventure/nicopark5.jpg"
-                height="256px" width="700px">
+              <img class="mySlides2" src="/destinations/img/adventure/nicopark5.jpg" height="256px" width="700px">
               <img class="mySlides2" src="destinations\img\redfort2.png" height="256px" width="700px">
               <img class="mySlides2" src="destinations\img\minar1.jpg" height="256px" width="700px">
 

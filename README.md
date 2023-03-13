@@ -18,3 +18,6 @@ git commit -m "message"
 
 ## To push the file on server
 git push
+
+## to revert 
+git revret -n <id>

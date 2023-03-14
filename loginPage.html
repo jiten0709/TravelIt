@@ -127,7 +127,10 @@
             } 
             else {
               if (result[0].username != '') {
-                alert("Welcome " + result[0].username);
+                // alert("Welcome " + result[0].username);
+                sessionStorage.setItem("lastname", result[0].username);
+
+                window.location = "Homepage.html"
               }
             }
 

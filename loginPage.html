@@ -5,12 +5,10 @@
   <link rel="stylesheet" href="loginPage.css" />
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"
     integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-
 </head>
 
 <body>
   <div class="container" id="container">
-
     <div class="form-container sign-up-container">
       <!-- <form > -->
       <div class="box">
@@ -21,17 +19,15 @@
             <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
           </div>
           <span>or use your email for registration</span> -->
-        <input type="email" placeholder="Email" />
-        <input type="text" placeholder="Username" />
-        <input type="password" placeholder="Create Password" />
-        <button>Sign Up</button>
+        <input type="email" placeholder="Email" id="addemail" />
+        <input type="text" placeholder="Username" id="addusername" />
+        <input type="password" placeholder="Create Password" id="addpassword" />
+        <button id="signup">Sign Up</button>
       </div>
       <!-- </form> -->
     </div>
 
-
     <div class="form-container sign-in-container">
-
       <!-- <form> -->
       <div class="box">
         <h1>Sign in</h1>
@@ -49,10 +45,8 @@
       <!-- </form> -->
     </div>
 
-
     <div class="overlay-container">
       <div class="overlay">
-
         <div class="overlay-panel overlay-left">
           <h1>Welcome Back!</h1>
           <p>
@@ -71,40 +65,38 @@
   </div>
 
   <script>
-    const signUpButton = document.getElementById('signUp');
-    const signInButton = document.getElementById('signIn');
-    const container = document.getElementById('container');
+    const signUpButton = document.getElementById("signUp");
+    const signInButton = document.getElementById("signIn");
+    const container = document.getElementById("container");
 
-    signUpButton.addEventListener('click', () => {
+    signUpButton.addEventListener("click", () => {
       container.classList.add("right-panel-active");
     });
 
-
-    signInButton.addEventListener('click', () => {
+    signInButton.addEventListener("click", () => {
       container.classList.remove("right-panel-active");
     });
 
     $(document).ready(function () {
-
       $.ajaxSetup({
         headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        }
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
       });
       $("#signin").click(function () {
         //alert("The paragraph was clicked.");
-        if ($("#username").val() == '') {
+        if ($("#username").val() == "") {
           alert("Enter username");
           return false;
         }
 
-        if ($("#userpassword").val() == '') {
+        if ($("#userpassword").val() == "") {
           alert("Enter password.");
           return false;
         }
 
-        jsonData = {}
+        jsonData = {};
         jsonData["username"] = $("#username").val();
         jsonData["user_password"] = $("#userpassword").val();
 
@@ -114,9 +106,9 @@
           url: "http://127.0.0.1:3000/isValidUser",
           contentType: "application/json",
           headers: {
-            'Access-Control-Allow-Origin': '*',
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "application/json",
+            Accept: "application/json",
           },
 
           data: JSON.stringify(jsonData),
@@ -124,25 +116,76 @@
             console.log(result);
             if (result.errors != undefined) {
               alert("Invalid UserName / Password.");
-            } 
-            else {
-              if (result[0].username != '') {
+            } else {
+              if (result[0].username != "") {
                 // alert("Welcome " + result[0].username);
-                sessionStorage.setItem("lastname", result[0].username);
+                sessionStorage.setItem("username", result[0].username);
 
-                window.location = "Homepage.html"
+                window.location = "Homepage.html";
               }
             }
-
           },
           error: function (result) {
-            alert('error');
-          }
+            alert("error");
+          },
         });
+      });
+      //---------------------------------------------------
+      $("#signup").click(function () {
+        //alert("The paragraph was clicked.");
+        if ($("#addemail").val() == "") {
+          alert("Enter email.");
+          return false;
+        }
 
+        if ($("#addusername").val() == "") {
+          alert("Enter username");
+          return false;
+        }
+
+        if ($("#addpassword").val() == "") {
+          alert("Enter password.");
+          return false;
+        }
+
+
+        jsonData = {};
+        jsonData["username"] = $("#addusername").val();
+        jsonData["user_password"] = $("#addpassword").val();
+        jsonData["user_email"] = $("#addemail").val();
+
+        console.log(jsonData);
+        $.ajax({
+          type: "POST",
+          url: "http://127.0.0.1:3000/addNewUser",
+          contentType: "application/json",
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+
+          data: JSON.stringify(jsonData),
+          success: function (result) {
+            console.log(result);
+            if (result.errors != undefined) {
+              alert(result.errors);
+              //alert("Enter Email / UserName / Password.");
+            } else {
+              if (result[0].username != "") {
+                alert("Welcome new user -> " + result[0].username);
+                sessionStorage.setItem("username", result[0].username);
+
+                // window.location = "Homepage.html";
+              }
+            }
+          },
+          error: function (result) {
+            alert("error");
+          },
+        });
       });
     }); //ready
-
   </script>
 </body>
 

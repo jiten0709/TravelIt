@@ -4,6 +4,9 @@
   <meta charset="utf-8">
   <title>Travel It</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+    integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="style.css">
   <script>src = "myscripts.js"</script>
@@ -12,6 +15,11 @@
     if (document.location.search.match(/type=embed/gi)) {
       window.parent.postMessage("resize", "*");
     }
+
+    $(document).ready(function () {
+      $("#sname").html(sessionStorage.getItem("username"));
+    });
+    
   </script>
 
 </head>
@@ -22,7 +30,7 @@
     <label for="check" class="checkbtn">
       <i class="fas fa-bars"></i>
     </label>
-    <label class="logo">Travel It</label>
+    <label class="logo">Travel It Welcome <label id="sname"></label></label> 
     <ul>
       <li><a class="active" href="#">Home</a></li>
       <li><a href="#">Destinations</a></li>
@@ -204,11 +212,11 @@
 
               <div id="outer">
                 <div class="inner">
-                  <a href="destinations/mumbaiHist.html" target="_blank">
+                  <a href="destinations/mumbaiHist.html" target="_self">
                     <button type="submit" class="msgBtn">Historical</button></a>
                 </div>
                 <div class="inner">
-                  <a href="destinations/mumbaiAdv.html" target="_blank">
+                  <a href="destinations/mumbaiAdv.html" target="_self">
                     <button type="submit" class="msgBtn2">Adventurous</button>
                   </a>
                 </div>
@@ -252,11 +260,11 @@
 
                 <div id="outer">
                   <div class="inner">
-                    <a href="destinations/kolkataHist.html" target="_blank">
+                    <a href="destinations/kolkataHist.html" target="_self">
                       <button type="submit" class="msgBtn">Historical</button></a>
                   </div>
                   <div class="inner">
-                    <a href="destinations/kolkataAdv.html" target="_blank">
+                    <a href="destinations/kolkataAdv.html" target="_self">
                       <button type="submit" class="msgBtn2">Adventurous</button>
                     </a>
                   </div>
@@ -296,11 +304,11 @@
 
                 <div id="outer">
                   <div class="inner">
-                    <a href="destinations/delhiHist.html" target="_blank">
+                    <a href="destinations/delhiHist.html" target="_self">
                       <button type="submit" class="msgBtn">Historical</button></a>
                   </div>
                   <div class="inner">
-                    <a href="destinations/delhiAdv.html" target="_blank">
+                    <a href="destinations/delhiAdv.html" target="_self">
                       <button type="submit" class="msgBtn2">Adventurous</button>
                     </a>
                   </div>
@@ -524,6 +532,7 @@
             <i class="fa fa-linkedin"></i>
         </div> -->
         <p>~Made with <i class="fa fa-heart"></i> by Travel It.</p>
+        <p>~Developed by Jiten, Vyom, Soham, Shubham</p>
       </section>
 
     </div>

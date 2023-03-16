@@ -3,22 +3,15 @@
 <head>
   <title>Login Page</title>
   <link rel="stylesheet" href="loginPage.css" />
-<<<<<<< HEAD
-=======
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"
     integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
->>>>>>> 8f1652884ff6aa65b8a7c9d58b5226978f3adc3b
 </head>
 
 <body>
   <div class="container" id="container">
     <div class="form-container sign-up-container">
-<<<<<<< HEAD
-      <form action="#">
-=======
       <!-- <form > -->
       <div class="box">
->>>>>>> 8f1652884ff6aa65b8a7c9d58b5226978f3adc3b
         <h1>Create Account</h1>
         <!-- <div class="social-container">
             <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -26,16 +19,6 @@
             <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
           </div>
           <span>or use your email for registration</span> -->
-<<<<<<< HEAD
-        <input type="text" placeholder="Name" />
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Password" />
-        <button>Sign Up</button>
-      </form>
-    </div>
-    <div class="form-container sign-in-container">
-      <form action="#">
-=======
         <input type="email" placeholder="Email" id="addemail" />
         <input type="text" placeholder="Username" id="addusername" />
         <input type="password" placeholder="Create Password" id="addpassword" />
@@ -47,7 +30,6 @@
     <div class="form-container sign-in-container">
       <!-- <form> -->
       <div class="box">
->>>>>>> 8f1652884ff6aa65b8a7c9d58b5226978f3adc3b
         <h1>Sign in</h1>
         <!-- <div class="social-container">
             <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -55,14 +37,6 @@
             <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
           </div> -->
         <!-- <span>or use your account</span> -->
-<<<<<<< HEAD
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Password" />
-        <a href="#">Forgot your password?</a>
-        <button>Sign In</button>
-      </form>
-    </div>
-=======
         <input type="text" placeholder="Username" name="username" id="username" />
         <input type="password" placeholder="Password" name="user_password" id="userpassword" />
         <a href="#">Forgot your password?</a>
@@ -71,7 +45,6 @@
       <!-- </form> -->
     </div>
 
->>>>>>> 8f1652884ff6aa65b8a7c9d58b5226978f3adc3b
     <div class="overlay-container">
       <div class="overlay">
         <div class="overlay-panel overlay-left">
@@ -81,10 +54,7 @@
           </p>
           <button class="ghost" id="signIn">Sign In</button>
         </div>
-<<<<<<< HEAD
-=======
 
->>>>>>> 8f1652884ff6aa65b8a7c9d58b5226978f3adc3b
         <div class="overlay-panel overlay-right">
           <h1>Hello, Friend!</h1>
           <p>Enter your personal details and start journey with us</p>
@@ -93,20 +63,6 @@
       </div>
     </div>
   </div>
-<<<<<<< HEAD
-  <script>
-    const signUpButton = document.getElementById('signUp');
-    const signInButton = document.getElementById('signIn');
-    const container = document.getElementById('container');
-
-    signUpButton.addEventListener('click', () => {
-      container.classList.add("right-panel-active");
-    });
-
-    signInButton.addEventListener('click', () => {
-      container.classList.remove("right-panel-active");
-    });
-=======
 
   <script>
     const signUpButton = document.getElementById("signUp");
@@ -220,7 +176,7 @@
                 alert("Welcome new user -> " + result[0].username);
                 sessionStorage.setItem("username", result[0].username);
 
-                // window.location = "Homepage.html";
+                window.location = "Homepage.html";
               }
             }
           },
@@ -230,7 +186,6 @@
         });
       });
     }); //ready
->>>>>>> 8f1652884ff6aa65b8a7c9d58b5226978f3adc3b
   </script>
 </body>
 

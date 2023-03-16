@@ -2,11 +2,8 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Travel It sample</title>
+  <title>Travel It</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js"
-    integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="style.css">
   <script>src = "myscripts.js"</script>
@@ -15,11 +12,6 @@
     if (document.location.search.match(/type=embed/gi)) {
       window.parent.postMessage("resize", "*");
     }
-
-    $(document).ready(function () {
-      $("#sname").html(sessionStorage.getItem("username"));
-    });
-    
   </script>
 
 </head>
@@ -30,20 +22,15 @@
     <label for="check" class="checkbtn">
       <i class="fas fa-bars"></i>
     </label>
-    <label class="logo">Travel It Welcome <label id="sname"></label></label> 
+    <label class="logo">Travel It</label>
     <ul>
       <li><a class="active" href="#">Home</a></li>
       <li><a href="#">Destinations</a></li>
       <li><a href="#">About Us</a></li>
-<<<<<<< HEAD
       <li><a href="#">Contact Us</a></li>
-=======
-      <li><a href="#">Contact</a></li>
->>>>>>> 0917cca21785f61e68e8d5895496df8451c5837c
     </ul>
   </nav>
   </div>
-  
   <div class="loader loader--active">
     <div class="loader__icon">
       <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -518,214 +505,8 @@
       </div>
 
     </div>
-<<<<<<< HEAD
     <section class="footer">
       <!-- <h4>About Us</h4>
-=======
-    <div style="padding: 0px">
-      <div class="card">
-        <h1 style="color: black; padding-top: 0%; text-align: center; font-size: 80px;">Discover Top Destinations</h1>
-        <!-- <p style="text-align: center; font-size:20px ;font-family: 'Raleway', sans-serif; padding-bottom: 30px;">
-          <strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, nisi beatae voluptates temporibus cumque
-            dolorum. Tempore omnis reiciendis sunt quos!</strong>
-        </p> -->
-        <div class="content">
-          <div class="grid">
-  
-            <figure class="effect-chico">
-              <h1
-                style="margin-top: 0%; padding: 22px; background-color: black; color: white; font-family: 'Poppins', sans-serif;">
-                Mumbai</h1>
-              <img class="mySlides1" src="destinations\img\adventure\imagicaa1.jpg" height="256px" width="700px">
-              <img class="mySlides1" src="destinations\img\historical\MUMBAI\gateway-india3_lg.jpg" height="256px"
-                width="700px">
-              <img class="mySlides1" src="destinations\img\adventure\Della2.jpg" height="256px" width="700px">
-  
-              <script>
-                var myIndex1 = 0;
-                carousel1();
-  
-                function carousel1() {
-                  var i;
-                  var x = document.getElementsByClassName("mySlides1");
-                  for (i = 0; i < x.length; i++) {
-                    x[i].style.display = "none";
-                  }
-                  myIndex1++;
-                  if (myIndex1 > x.length) { myIndex1 = 1 }
-                  x[myIndex1 - 1].style.display = "block";
-                  setTimeout(carousel1, 2000); // Change image every 2 seconds
-                }
-              </script>
-              <!-- <figcaption>
-                <p style="font-size: 100px;padding-top: 30px;"><i class="fa fa-plus" aria-hidden="true"></i></p>
-              </figcaption> file:///G:/JitenWorkSpace/jitenHtml/TravelWebsite/TravelIt/destinations/delhi.html-->
-              <div style="margin-bottom: 0%; background-color: black;">
-  
-                <div id="outer">
-                  <div class="inner">
-                    <a href="destinations/mumbaiHist.html" target="_blank">
-                      <button type="submit" class="msgBtn">Historical</button></a>
-                  </div>
-                  <div class="inner">
-                    <a href="destinations/mumbaiAdv.html" target="_blank">
-                      <button type="submit" class="msgBtn2">Adventurous</button>
-                    </a>
-                  </div>
-                </div>
-  
-              </div>
-            </figure>
-            </a>
-            <a href="">
-              <figure class="effect-chico">
-                <h1
-                  style="margin-top: 0%; padding: 22px; background-color: black; color: white; font-family: 'Poppins', sans-serif;">
-                  Kolkata</h1>
-  
-                <img class="mySlides" src="/destinations/img/historical/KOLKATA/05648444-7dc7-4c71-9a25-656e98a6a0a0.jpg"
-                  height="256px" width="700px">
-                <img class="mySlides" src="/destinations/img/adventure/tp3.jpg" height="256px" width="700px">
-                <img class="mySlides" src="/destinations/img/historical/KOLKATA/howrah-1.jpg" height="256px"
-                  width="700px">
-  
-                <script>
-                  var myIndex = 0;
-                  carousel();
-  
-                  function carousel() {
-                    var i;
-                    var x = document.getElementsByClassName("mySlides");
-                    for (i = 0; i < x.length; i++) {
-                      x[i].style.display = "none";
-                    }
-                    myIndex++;
-                    if (myIndex > x.length) { myIndex = 1 }
-                    x[myIndex - 1].style.display = "block";
-                    setTimeout(carousel, 2000); // Change image every 2 seconds
-                  }
-                </script>
-                <!-- <figcaption>
-                  <p style="font-size: 100px;padding-top: 30px;"><i class="fa fa-plus" aria-hidden="true"></i></p>
-                </figcaption> -->
-                <div style="margin-bottom: 0%; background-color: black;">
-  
-                  <div id="outer">
-                    <div class="inner">
-                      <a href="destinations/kolkataHist.html" target="_blank">
-                        <button type="submit" class="msgBtn">Historical</button></a>
-                    </div>
-                    <div class="inner">
-                      <a href="destinations/kolkataAdv.html" target="_blank">
-                        <button type="submit" class="msgBtn2">Adventurous</button>
-                      </a>
-                    </div>
-                  </div>
-  
-                </div>
-              </figure>
-              <figure class="effect-chico">
-                <h1
-                  style="margin-top: 0%; padding: 22px; background-color: black; color: white; font-family: 'Poppins', sans-serif;">
-                  Delhi</h1>
-  
-                <img class="mySlides2" src="/destinations/img/adventure/nicopark5.jpg" height="256px" width="700px">
-                <img class="mySlides2" src="destinations\img\redfort2.png" height="256px" width="700px">
-                <img class="mySlides2" src="destinations\img\minar1.jpg" height="256px" width="700px">
-  
-                <script>
-                  var myIndex2 = 0;
-                  carousel2();
-  
-                  function carousel2() {
-                    var i;
-                    var x = document.getElementsByClassName("mySlides2");
-                    for (i = 0; i < x.length; i++) {
-                      x[i].style.display = "none";
-                    }
-                    myIndex2++;
-                    if (myIndex2 > x.length) { myIndex2 = 1 }
-                    x[myIndex2 - 1].style.display = "block";
-                    setTimeout(carousel2, 2000); // Change image every 2 seconds
-                  }
-                </script>
-                <!-- <figcaption>
-                  <p style="font-size: 100px;padding-top: 30px;"><i class="fa fa-plus" aria-hidden="true"></i></p>
-                </figcaption> -->
-                <div style="margin-bottom: 0%; background-color: black;">
-  
-                  <div id="outer">
-                    <div class="inner">
-                      <a href="destinations/delhiHist.html" target="_blank">
-                        <button type="submit" class="msgBtn">Historical</button></a>
-                    </div>
-                    <div class="inner">
-                      <a href="destinations/delhiAdv.html" target="_blank">
-                        <button type="submit" class="msgBtn2">Adventurous</button>
-                      </a>
-                    </div>
-                  </div>
-  
-                </div>
-              </figure>
-            </a>
-          </div>
-        </div>
-  
-      </div>
-      
-    
-    <div class="container1" style="background-color:#142227;;color: white;">
-      <div class="card-deck1">
-        <div class="card1">
-          <div>
-            <h1>TRAVEL IT !!!
-            </h1>
-          </div>
-        </div>
-
-        <div class="card1">
-          <div>
-            <h1>Links</h1>
-            <p style="font-family: 'Raleway', sans-serif;line-height: 30px;">
-              <a href="" style="text-decoration: none;"> Homepage</a>
-              <br><a href="" style="text-decoration: none;">Contact Us</a>
-            </p>
-          </div>
-        </div>
-
-        <div class="card1">
-          <div>
-            <h1>Cities</h1>
-            <p style="font-family: 'Raleway', sans-serif;line-height: 30px;">
-              <a href="#"> Mumbai
-                <!-- <a href="file:///D:/Prinkal/Cybil%20InfoTech/WebsiteDevelopment.html">  <br>Mumbai -->
-                <a href="#"> <br>Delhi
-                  <a href="#"> <br>Kolkata
-                    <!-- <a href="file:///D:/Prinkal/Cybil%20InfoTech/IOT.html">   <br>IOT</a>  -->
-                    <!-- <a href="file:///D:/Prinkal/Cybil%20InfoTech/AppDevelopment.html">  <br>App Development</a> -->
-            </p>
-          </div>
-        </div>
-        <div class="card1">
-          <div>
-            <h1>Follow Us</h1>
-            <p style="font-family: 'Raleway', sans-serif;line-height: 30px;">
-              <a href="" style="text-decoration: none;"> Instagram</a>
-              <br><a href="" style="text-decoration: none;">Facebook</a>
-              <br><a href="" style="text-decoration: none;">Twitter</a>
-              <br><a href="" style="text-decoration: none;">Linkedin</a>
-              <a href=""><br>Gmail</a>
-              <!-- <a href="tel:97689 81298"><br>+91 97689 81298</a>
-               <a href="tel:99874 47527"><br>+91 99874 47527</a> -->
-            </p>
-          </div>
-        </div>
-
-      </div>
-      <section class="footer">
-        <!-- <h4>About Us</h4>
->>>>>>> 0917cca21785f61e68e8d5895496df8451c5837c
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, velit saepe! Voluptates repellendus ab eum.</p> -->
       <!-- <div class="icons">
             <i class="fa fa-facebook"></i>
@@ -733,14 +514,8 @@
             <i class="fa fa-twitter"></i>
             <i class="fa fa-linkedin"></i>
         </div> -->
-<<<<<<< HEAD
       <p>~Made with <i class="fa fa-heart"></i> by Travel It.</p>
     </section>
-=======
-        <p>~Made with <i class="fa fa-heart"></i> by Travel It.</p>
-        <p>~Developed by Jiten, Vyom, Soham, Shubham</p>
-      </section>
->>>>>>> 0917cca21785f61e68e8d5895496df8451c5837c
 
   </div>
 

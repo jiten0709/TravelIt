@@ -6,7 +6,17 @@
   box-sizing: border-box;
 }
 
-body {}
+/* body {} */
+body {
+  display: grid;
+  background: #e6ded7;
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
+/* review */
+
+
+/* review */
 
 nav {
   background: black;
@@ -710,10 +720,7 @@ figure.effect-chico2:hover p {
   background-size: cover;
 }
 
-body {
-  display: grid;
-  background: #e6ded7;
-}
+
 
 @import url("https://fonts.googleapis.com/css2?family=Prata&display=swap");
 
@@ -1067,6 +1074,8 @@ ul {
 .mySlides5 {
   display: none;
 }
+
+/*-------------------footer-------------------*/
 
 .footer {
   text-align: center;

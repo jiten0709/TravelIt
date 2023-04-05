@@ -86,7 +86,7 @@
     });
 
     $("#submit").click(function () {
-      alert("Review submitted ");
+      // alert("Review submitted ");
       // if ($("#addfname").val() == "") {
       //   alert("Enter first name.");
       //   return false;
@@ -105,7 +105,7 @@
       jsonData = {};
       // jsonData["first_name"] = $("#addfname").val();
       // jsonData["last_name"] = $("#addlname").val();
-      jsonData["review"] = $("#addreview").val();
+      jsonData["user_review"] = $("#addreview").val();
       jsonData["name_review"] = $("#addname").val();
 
       console.log(jsonData);
@@ -126,7 +126,8 @@
             alert(result.errors);
             //alert("Enter Email / UserName / Password.");
           } else {
-            alert("unable to add review...")
+            // alert("unable to add review...")
+            alert("thank you for ur feedbak :)")
           }
         },
         // error: function (result) {

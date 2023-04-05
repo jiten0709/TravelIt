@@ -52,7 +52,7 @@ body{
   height: 250px;
 }
 
-.wrapper .btn input[type="submit"]{
+.submitbtn{
   font-size: large;
   border: 0px;
   margin-top: 15px;

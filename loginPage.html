@@ -121,7 +121,7 @@
                 // alert("Welcome " + result[0].username);
                 sessionStorage.setItem("username", result[0].username);
 
-                window.location = "Homepage.html";
+                // window.location = "Homepage.html";
               }
             }
           },
@@ -175,8 +175,9 @@
               if (result[0].username != "") {
                 alert("Welcome new user -> " + result[0].username);
                 sessionStorage.setItem("username", result[0].username);
+                sessionStorage.setItem("user_id", result[0].user);
 
-                window.location = "Homepage.html";
+                // window.location = "Homepage.html";
               }
             }
           },

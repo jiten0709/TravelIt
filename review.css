@@ -5,9 +5,9 @@
 	background: #0a69ed; 
 } */
 .carousel{
-    height: 720px; 
+    height: 750px; 
     perspective: 250px;
-	background: #0a69ed; 
+	background: #519eba; 
 }
 .carousel .carousel-item {
 	width: 450px;
@@ -23,7 +23,7 @@
 	margin: 0 auto;
 	overflow: hidden;
 	border-radius: 50%;
-	border: inset 8px deepskyblue;
+	border: inset 8px rgb(176, 223, 238);
 }
 .img-area img{
 	width: 100%;

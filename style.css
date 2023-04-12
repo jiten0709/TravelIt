@@ -287,7 +287,7 @@ a:hover {
   padding-top: 10px;
   line-height: 100px;
   margin-right: 1px;
-  cursor: pointer;
+  /* cursor: pointer; */
   display: none;
 }
 
@@ -405,7 +405,7 @@ a:hover {
   width: 90%;
   background: #3085a3;
   text-align: center;
-  cursor: pointer;
+ 
 }
 
 .grid figure img {
@@ -537,7 +537,7 @@ justify-content: center;
   width: 90%;
   background: #3085a3;
   text-align: center;
-  cursor: pointer;
+
 }
 
 .grid2 figure img {
@@ -1093,12 +1093,12 @@ ul {
   margin-bottom: 20px;
 }
 
-.icons .fa {
+/* .icons .fa {
   padding: 18px 0;
   margin: 0 12px;
   cursor: pointer;
   color: blue;
-}
+} */
 
 .fa-heart {
   color: red;
@@ -1117,11 +1117,12 @@ ul {
 .msgBtn {
   margin-bottom: 0%;
   padding: 20px;
-  background-color: black;
+  background-color: #152328;
   font-size: larger;
   color: white;
   text-decoration: none;
   font-family: 'Poppins', sans-serif;
+  cursor: pointer;
 }
 
 .msgBtn:hover {
@@ -1131,11 +1132,12 @@ ul {
  .msgBtn2 {
   margin-bottom: 0%;
   padding: 20px;
-  background-color: black;
+  background-color: #152328;
   text-decoration: none;
   font-size: larger;
   color: white;
   font-family: 'Poppins', sans-serif;
+  cursor: pointer;
 } 
 
 .msgBtn2:hover {

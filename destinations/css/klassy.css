@@ -44,6 +44,21 @@ figure, header, nav, section, article, aside, footer, figcaption {
   outline: 0;
 }
 
+/* .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10;
+}
+
+.box {
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+  margin: 20px;
+}  */
+
+
 .clearfix:after {
   content: ".";
   display: block;
@@ -108,6 +123,28 @@ p {
   line-height: 25px;
   color: #2a2a2a;
 }
+.mBtn{
+
+  background: darkslategray;
+  border-radius: 999px;
+  box-shadow: darkslategray 0 10px 20px -10px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 8px 18px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+}
 
 /* 
 ---------------------------------------------
@@ -153,7 +190,7 @@ body {
   margin-bottom: 25px; 
   font-size: 26px;
   font-weight: 600;
-  color: #2a2a2a;
+  color: darkslategray;
 }
 
 
@@ -176,14 +213,14 @@ chefs
 
 #chefs .chef-item {  
   text-align: center;
-  border: 5px solid #afafaf;
+  border: 6px solid #afafaf;
   padding: 15px;
   transition: all .5s;
-  border-radius: 3px;
+  border-radius: 10px;
 }
 
 #chefs .chef-item:hover {
-  border-color: #fb5849;
+  border-color: darkslategray;
 }
 
 #chefs .chef-item:hover .down-content h4 {
@@ -195,6 +232,7 @@ chefs
 }
 
 #chefs .chef-item .thumb img {
+  border-radius: 10px;
   width: 100%;
   overflow: hidden;
   position: relative;

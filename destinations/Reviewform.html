@@ -6,22 +6,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
+
         REVIEW FORM
     </title>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"
-    integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
- 
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+
     <style>
         /* Styling the Body element i.e. Color,
         Font, Alignment */
+        @import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
         body {
-            background-color: #2e8ec2;
-            font-family: Verdana;
+  background: #00ccff;
+            font-family: 'Josefin Sans', sans-serif;
             text-align: center;
         }
 
         /* Styling the Form (Color, Padding, Shadow) */
         form {
+            border-radius: 10px;
             background-color: #fff;
             max-width: 500px;
             margin: 50px auto;
@@ -31,13 +34,15 @@
 
         /* Styling form-control Class */
         .form-control {
+            font-size: 16px;
             text-align: left;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         /* Styling form-control Label */
         .form-control label {
-            display: block;
+
+            display: inline-block;
             margin-bottom: 10px;
         }
 
@@ -46,10 +51,11 @@
         .form-control input,
         .form-control select,
         .form-control textarea {
+            font-size: 14px;
             border: 1px solid #777;
-            border-radius: 2px;
+            border-radius: 5px;
             font-family: inherit;
-            padding: 10px;
+            padding: 5px;
             display: block;
             width: 95%;
         }
@@ -64,15 +70,28 @@
 
         /* Styling Button */
         button {
-            background-color: #2e8ec2;
-            border: 1px solid #777;
-            border-radius: 2px;
-            font-family: inherit;
-            font-size: 21px;
-            display: block;
+            font-weight: bold;
+            background-image: linear-gradient(-180deg, #37AEE2 0%, #1E96C8 100%);
+            border-radius: .5rem;
+            /* box-sizing: border-box; */
+            color: black;
+            display: flex;
+            font-size: 18px;
+            justify-content: center;
+            padding: 1rem 1.75rem;
+            text-decoration: none;
             width: 100%;
-            margin-top: 50px;
-            margin-bottom: 20px;
+            border: 0;
+            cursor: pointer;
+            touch-action: manipulation;
+            margin-top: 30px;
+        }
+
+        button:hover {
+            background-image: linear-gradient(-180deg, #1D95C9 0%, #17759C 100%);
+        }
+        h1{
+            padding-top: 25px;
         }
     </style>
 </head>
@@ -164,7 +183,7 @@
 
         <!-- Multi-line Text Input Control -->
         <button type="submit" id="submitb">
-            Submit
+            SUBMIT
         </button>
     </form>
 

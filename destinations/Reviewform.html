@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-  
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content=
-        "width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
         REVIEW FORM
     </title>
- 
+
     <style>
- 
         /* Styling the Body element i.e. Color,
         Font, Alignment */
         body {
@@ -19,7 +17,7 @@
             font-family: Verdana;
             text-align: center;
         }
- 
+
         /* Styling the Form (Color, Padding, Shadow) */
         form {
             background-color: #fff;
@@ -28,19 +26,19 @@
             padding: 30px 20px;
             box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
         }
- 
+
         /* Styling form-control Class */
         .form-control {
             text-align: left;
             margin-bottom: 25px;
         }
- 
+
         /* Styling form-control Label */
         .form-control label {
             display: block;
             margin-bottom: 10px;
         }
- 
+
         /* Styling form-control input,
         select, textarea */
         .form-control input,
@@ -53,7 +51,7 @@
             display: block;
             width: 95%;
         }
- 
+
         /* Styling form-control Radio
         button and Checkbox */
         .form-control input[type="radio"],
@@ -61,7 +59,7 @@
             display: inline-block;
             width: auto;
         }
- 
+
         /* Styling Button */
         button {
             background-color: #2e8ec2;
@@ -74,124 +72,152 @@
             margin-top: 50px;
             margin-bottom: 20px;
         }
-
-        
     </style>
 </head>
-  
+
 <body>
-    
-    <h1>  REVIEW FORM </h1>
-  
+
+    <h1> REVIEW FORM </h1>
+
     <!-- Create Form -->
     <form id="form">
- 
+
         <!-- Details -->
         <div class="form-control">
-            <label for="name" id="label-name">
-                First Name
+            <label for="name">
+                Name
             </label>
- 
+
             <!-- Input Type Text -->
-            <input type="text"
-                   id="name"
-                   placeholder="Enter your name" />
+            <input type="text" id="name" placeholder="Enter your name" />
         </div>
-  
-        <div class="form-control">
-            <label for="email" id="label-email">
-                Last Name
-            </label>
- 
-            <!-- Input Type Email-->
-            <input type="email"
-                   id="email"
-                   placeholder="Enter your email" />
-        </div>
-  
+
+        <!-- <div class="form-control">
+            <label for="email">
+                Email
+            </label> -->
+
+        <!-- Input Type Email-->
+        <!-- <input type="email" id="email" placeholder="Enter your email" />
+        </div> -->
+
 
         <div class="form-control">
-            <label for="age" id="label-age">
-
+            <label for="age">
                 Rating
             </label>
- 
+
             <!-- Input Type Text -->
-            <select name="role" id="role">
-                <option value="student">1</option>
-                <option value="intern">2</option>
-                <option value="professional">
-                    3
-                </option>
-                <option value="other">4</option>
-                <option value="other">5</option>
-            
-            </select>
-        </div>
-  
-        <div class="form-control">
-            <label for="role" id="label-role">
-                Which City ?
-            </label>
-             
-            <!-- Dropdown options -->
-            <select name="role" id="role">
-                <option value="student">MUMBAI</option>
-                <option value="intern">DELHI</option>
-                <option value="professional">
-                    MANALI
-                </option>
-                <option value="other">KOKATA</option>
-                <option value="other">AHEMDABAD</option>
-                <option value="other">RAJASTHAN</option>
+            <select name="rating" id="rating">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
             </select>
         </div>
 
         <div class="form-control">
-            <label>
-                Is it a Historical place or Aventurous place ?
+            <label for="role">
+                Which City ?
             </label>
- 
-            <!-- Input Type Radio Button -->
-            <label for="recommed-1">
-                <input type="radio"
-                       id="recommed-1"
-                       name="recommed"> Historical</input>
-            </label>
-            <label for="recommed-2">
-                <input type="radio"
-                       id="recommed-2"
-                       name="recommed">Adventurous</input>
-            </label>
+
+            <!-- Dropdown options -->
+            <select name="city" id="city">
+                <option value="mumbai">MUMBAI</option>
+                <option value="delhi">DELHI</option>
+                <option value="manali">MANALI</option>
+                <option value="kolkata">KOLKATA</option>
+                <option value="ahemdabad">AHEMDABAD</option>
+                <option value="rajasthan">RAJASTHAN</option>
+            </select>
         </div>
-  
+
+        <div class="form-control">
+            <label>Is it a Historical place or Adventurous place ?</label>
+
+            <!-- Input Type Radio Button -->
+            <select name="kind" id="kind">
+                <option value="Historical">Historical</option>
+                <option value="Adventurous">Adventurous</option>
+
+            </select>
+        </div>
+
         <div class="form-control">
             <label for="comment">
                 Which place did you travel ?
             </label>
- 
+
             <!-- multi-line text input control -->
-            <textarea name="comment" id="comment"
-                placeholder="Enter your comment here">
-            </textarea>
+            <textarea name="place" id="place" placeholder="Enter place name here"></textarea>
         </div>
 
         <div class="form-control">
-            <label for="comment">
-                Any comments or suggestions ?
-            </label>
- 
+            <label for="comment">Any comments or suggestions ?</label>
+
             <!-- multi-line text input control -->
-            <textarea name="comment" id="comment"
-                placeholder="Enter your comment here">
-            </textarea>
+            <textarea name="comment" id="comment" placeholder="Enter your comment here"></textarea>
         </div>
-  
+
         <!-- Multi-line Text Input Control -->
-        <button type="submit" value="submit">
+        <button type="submit" id="submitb">
             Submit
         </button>
     </form>
+
+    <script>
+        const submitButton = document.getElementById("submitb");
+        $(document).ready(function () {
+            $.ajaxSetup({
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                },
+            });
+        });
+        $("#submitb").click(function () {
+
+            jsonData = {};
+            // jsonData["first_name"] = $("#addfname").val();
+            // jsonData["last_name"] = $("#addlname").val();
+            jsonData["name"] = $("#name").val();
+            jsonData["kind"] = $("#kind").val();
+            jsonData["place"] = $("#place").val();
+            jsonData["city"] = $("#city").val();
+            jsonData["rating"] = $("#rating").val();
+            jsonData["comment"] = $("#comment").val();
+
+            console.log(jsonData);
+            $.ajax({
+                type: "POST",
+                url: "http://127.0.0.1:3000/addFeedback",
+                contentType: "application/json",
+                headers: {
+                    "Access-Control-Allow-Origin": "*",
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                },
+
+                data: JSON.stringify(jsonData),
+                success: function (result) {
+                    console.log(result);
+                    if (result.errors != undefined) {
+                        alert(result.errors);
+                        //alert("Enter Email / UserName / Password.");
+                    } else {
+                        // alert("unable to add review...")
+                        alert("Thank you for your feedback!")
+                        window.location = "Homepage.html"
+                    }
+                },
+                // error: function (result) {
+                //   alert("error");
+                // },
+            });
+        });
+
+    </script>
 </body>
-  
+
 </html>

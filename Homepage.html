@@ -27,9 +27,20 @@
       <li><a class="active" href="">Home</a></li>
       <li><a href="">Destinations</a></li>
       <li><a href="loginPage.html">Login</a></li>
-      <li><a href="feedback.html">Review</a></li>
+      <li><a class="review" style="cursor: pointer;">Review</a></li>
     </ul>
   </nav>
+
+  <script>
+    const reviewButton = document.querySelector('.review');
+    reviewButton.addEventListener('click', showAlert);
+
+    function showAlert() {
+      alert('SignUp First!');
+      window.location.href = "loginPage.html";
+    }
+  </script>
+
   </div>
   <div class="loader loader--active">
     <div class="loader__icon">
@@ -461,7 +472,7 @@
 
   </div>
 
-  <iframe src="review.html" class="rev"></iframe>
+  <iframe src="reviewDisplay.html" class="rev"></iframe>
 
   <div class="container1" style="background-color:#152328;;color: white;">
     <div class="card-deck1">

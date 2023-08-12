@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "axios": "^1.4.0",
+    "cheerio": "^1.0.0-rc.12",
+    "natural": "^6.5.0",
+    "node-fetch": "^2.6.12",
+    "request": "^2.88.2",
+    "sbd": "^1.0.19",
+    "sentence-splitter": "^4.2.1",
+    "sentiment": "^5.0.2"
+  }
+}

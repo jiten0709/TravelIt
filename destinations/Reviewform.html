@@ -150,7 +150,7 @@
                 <option value="manali">MANALI</option>
                 <option value="kolkata">KOLKATA</option>
                 <option value="ahemdabad">AHEMDABAD</option>
-                <option value="rajasthan">RAJASTHAN</option>
+                <option value="rajasthan">JAIPUR</option>
             </select>
         </div>
 
@@ -182,10 +182,12 @@
         </div>
 
         <!-- Multi-line Text Input Control -->
-        <button type="submit" id="submitb">
+        <button class="rev" type="submit" id="submitb">
             SUBMIT
         </button>
+        
     </form>
+
 
     <script>
         const submitButton = document.getElementById("submitb");
@@ -225,11 +227,11 @@
                     console.log(result);
                     if (result.errors != undefined) {
                         alert(result.errors);
-                        //alert("Enter Email / UserName / Password.");
+                        // alert("Enter Email / UserName / Password.");
                     } else {
                         // alert("unable to add review...")
                         alert("Thank you for your feedback!")
-                        window.location = "Homepage.html"
+                        // window.location = "/Users/jitenparmar/jitenStuff/gitTraveIt/TravelIt/Homepage.html"
                     }
                 },
                 // error: function (result) {

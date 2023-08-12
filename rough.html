@@ -1,0 +1,25 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    <title>api test</title>
+</head>
+
+<body>
+    <script>
+        const fetch = require('node-fetch');
+
+        const url = 'https://api.content.tripadvisor.com/api/v1/location/locationId/reviews';
+        const options = { method: 'GET', headers: { accept: 'application/json' } };
+
+        fetch(url, options)
+            .then(res => res.json())
+            .then(json => console.log(json))
+            .catch(err => console.error('error:' + err));
+    </script>
+</body>
+
+</html>

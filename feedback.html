@@ -29,7 +29,7 @@
         <input type="text" placeholder="Your Name" id="addname">
       </div>
       <div class="input_field">
-        <textarea placeholder="Your Feedback" id="addreview"></textarea>
+        <textarea placeholder="Your Feedback" id="addfeed"></textarea>
       </div>
       <button class="submitbtn" id="submit">SUBMIT</button>
     </div>
@@ -105,13 +105,13 @@
       jsonData = {};
       // jsonData["first_name"] = $("#addfname").val();
       // jsonData["last_name"] = $("#addlname").val();
-      jsonData["user_review"] = $("#addreview").val();
-      jsonData["name_review"] = $("#addname").val();
+      jsonData["user_feedback"] = $("#addfeed").val();
+      jsonData["username"] = $("#addname").val();
 
       console.log(jsonData);
       $.ajax({
         type: "POST",
-        url: "http://127.0.0.1:3000/addNewReview",
+        url: "http://127.0.0.1:3000/addFeedback",
         contentType: "application/json",
         headers: {
           "Access-Control-Allow-Origin": "*",

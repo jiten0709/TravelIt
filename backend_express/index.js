@@ -14,12 +14,12 @@ const app = express();
 const Pool = require("pg").Pool;
 
 const pool = new Pool({
-    user: "postgres",
-    host: "localhost",
-    database: "postgres",
-    password: "postgres",
-    dialect: "postgres",
-    port: 5432,
+  user: "postgres",
+  host: "localhost",
+  database: "TravelIt",
+  password: "postgres",
+  dialect: "postgres",
+  port: 5432,
 });
 
 /* To handle the HTTP Methods Body Parser
@@ -34,178 +34,198 @@ const { query } = require("express");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(
-    cors({
-        origin: "*",
-    })
+  cors({
+    origin: "*",
+  })
 );
 
 pool.connect((err, client, release) => {
+  if (err) {
+    return console.error("Error acquiring client", err.stack);
+  }
+  client.query("SELECT NOW()", (err, result) => {
+    release();
     if (err) {
-        return console.error("Error acquiring client", err.stack);
+      return console.error("Error executing query", err.stack);
     }
-    client.query("SELECT NOW()", (err, result) => {
-        release();
-        if (err) {
-            return console.error("Error executing query", err.stack);
-        }
-        console.log("Connected to Database !");
-    });
+    console.log("Connected to Database !");
+  });
 });
 
-// app.get("/testdata", (req, res, next) => {
-//     console.log("TEST DATA :");
-//     pool.query("Select * from travelit.users").then((testData) => {
-//         //console.log(testData);
-//         //res.send(testData.rows);
-//         res.status(200).json(testData.rows);
-//     });
-// });
-
-// app.get("/testdata", (req, res, next) => {
-//     console.log("TEST DATA :");
-//     pool.query("Select * from travelit.review").then((testData) => {
-//         //console.log(testData);
-//         //res.send(testData.rows);
-//         res.status(200).json(testData.rows);
-//     });
-// });
-
+// ---------- USER'S DATA ------------
 app.get("/testdatausers", (req, res, next) => {
-    console.log("TEST DATA :");
-    pool.query("SELECT * FROM travelit.users").then((testData) => {
-        //console.log(testData);
-        //res.send(testData.rows);
-        res.status(200).json(testData.rows);
-    });
-});
-
-app.get("/testdatareview", (req, res, next) => {
-    console.log("TEST DATA :");
-    pool.query("SELECT * FROM travelit.review").then((testData) => {
-        //console.log(testData);
-        //res.send(testData.rows);
-        res.status(200).json(testData.rows);
-    });
+  console.log("TEST DATA :");
+  pool.query("SELECT * FROM travelit.users").then((testData) => {
+    console.log(testData);
+    //res.send(testData.rows);
+    res.status(200).json(testData.rows);
+  });
 });
 
 app.post("/addNewUser", (req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    console.log("Add DATA :");
-    console.log(req.body);
-    const { username, user_password, user_email } = req.body;
-    let count = 0;
+  res.header("Access-Control-Allow-Origin", "*");
+  console.log("Add DATA :");
+  console.log(req.body);
+  const { username, user_password, user_email } = req.body;
+  let count = 0;
 
-    pool.query(
-        "Select count(*) from travelit.users u WHERE u.username = $1",[username],
-        (error, result) => {
-            console.log(result.rows);
-            //console.log(result.rows);
+  pool.query(
+    "Select count(*) from travelit.users u WHERE u.username = $1",
+    [username],
+    (error, result) => {
+      console.log(result.rows);
+      //console.log(result.rows);
 
-            if (error) {
+      if (error) {
+        throw error;
+      } else {
+        count = result.rows[0].count;
+        // console.log("---- " + count);
+        // console.log(" ... " + count);
+        if (count == 0) {
+          // console.log("Add....");
+
+          const instQ =
+            "INSERT INTO travelit.users (username, user_password, user_email) VALUES($1, $2, $3) RETURNING *";
+          pool.query(
+            instQ,
+            [username, user_password, user_email],
+            (error, result) => {
+              if (error) {
                 throw error;
-            } else{
-                count = result.rows[0].count;
-                // console.log("---- " + count);
-                // console.log(" ... " + count);
-                if (count == 0) {
-                    // console.log("Add....");
-
-                    const instQ = "INSERT INTO travelit.users (username, user_password, user_email) VALUES($1, $2, $3) RETURNING *";
-                    pool.query(instQ,[username, user_password, user_email],
-                        (error, result) => {
-                            if (error) {
-                                throw error;
-                            }
-                            res.status(201).send(result.rows);
-                        }
-                    );
-                } else {
-                    // console.log("else....");
-                    res.status(201).send({ "errors": "username already exists" });
-                }
+              }
+              res.status(201).send(result.rows);
             }
-            
+          );
+        } else {
+          // console.log("else....");
+          res.status(201).send({ errors: "username already exists" });
         }
-    );
-
+      }
+    }
+  );
 });
 
 app.post("/isValidUser", (req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    console.log("TEST DATA :");
-    //console.log(req.body);
-    const { username, user_password } = req.body;
+  res.header("Access-Control-Allow-Origin", "*");
+  console.log("TEST DATA :");
+  //console.log(req.body);
+  const { username, user_password } = req.body;
 
-    pool.query(
-        "Select * from travelit.users u WHERE u.username = $1 AND u.user_password = $2",
-        [username, user_password],
-        (error, result) => {
-            console.log(result.rows);
-            //console.log(result.rows);
+  pool.query(
+    "Select * from travelit.users u WHERE u.username = $1 AND u.user_password = $2",
+    [username, user_password],
+    (error, result) => {
+      console.log(result.rows);
+      //console.log(result.rows);
 
-            if (error) {
-                throw error;
-            } else {
-                if (result.rowCount >= 1) {
-                    console.log(" ok .... ");
-                    //res.json({mess:"valid"});
-                    res.status(200).json(result.rows);
-                } else {
-                    res.status(200).json({ errors: "Invalid User/Password." });
-                }
-            }
+      if (error) {
+        throw error;
+      } else {
+        if (result.rowCount >= 1) {
+          console.log(" ok .... ");
+          //res.json({mess:"valid"});
+          res.status(200).json(result.rows);
+        } else {
+          res.status(200).json({ errors: "Invalid User/Password." });
         }
-    );
-
-    /*
-      pool.query('Select * from travelit.users WHERE username = $1 AND user_password = $2',[username,user_password])
-      	
-      .then(testData => {
-              //console.log(testData);
-              //res.send(testData.rows);
-             // if (error) {
-              //    throw error
-              //  }
-              res.status(200).json(testData.rows)
-          })
-          */
+      }
+    }
+  );
 });
 
-
-
-app.post("/addNewReview", (req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    console.log("Add DATA :");
-    console.log(req.body);
-    const {user_review, name_review} = req.body;
-    const instQ = "INSERT INTO travelit.review (user_review, name_review) VALUES($1, $2) RETURNING * ";
-    pool.query(instQ,[user_review, name_review],(error) => {
-        if(error){
-            throw error;
-        }
-        res.status(201).send()
-    })
-});
-
+// ---------- FEEBACK'S DATA ------------
 app.post("/addFeedback", (req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    console.log("Add DATA :");
-    console.log(req.body);
-    const {name, kind, place, city, rating, comment} = req.body;
-    const instQ = "INSERT INTO travelit.feedback (name, kind, place, city, rating, comment) VALUES($1, $2, $3, $4, $5, $6) RETURNING * ";
-    pool.query(instQ,[name, kind, place, city, rating, comment],(error) => {
-        if(error){
-            throw error;
-        }
-        res.status(201).send()
-    })
+  res.header("Access-Control-Allow-Origin", "*");
+  console.log("Add DATA :");
+  console.log(req.body);
+  const { username, user_feedback } = req.body;
+  const instQ =
+    "INSERT INTO travelit.feedback (username, user_feedback) VALUES($1, $2) RETURNING * ";
+  pool.query(instQ, [username, user_feedback], (error) => {
+    if (error) {
+      throw error;
+    }
+    res.status(201).send();
+  });
 });
 
+// ---------- REVIEW'S DATA ------------
+app.get("/getreviews", async (req, res) => {
+  try {
+    const query = "SELECT * FROM travelit.review;"; // Update with your query
+    const { rows } = await pool.query(query);
+    // Analyze sentiment for each review and update the database
+    const natural = require("natural");
+    const tokenizer = new natural.WordTokenizer();
+
+    const SentimentAnalyzer = natural.SentimentAnalyzer;
+    const stemmer = natural.PorterStemmer;
+
+    const analyzer = new SentimentAnalyzer("English", stemmer, "afinn");
+
+    for (const review of rows) {
+      const words = tokenizer.tokenize(review.comment);
+      const sentimentScore = analyzer.getSentiment(words);
+      let sentimentLabel;
+
+      if (sentimentScore > 0) {
+        sentimentLabel = "positive";
+      } else if (sentimentScore < 0) {
+        sentimentLabel = "negative";
+      } else {
+        sentimentLabel = "neutral";
+      }
+
+      // Update the sentiment column in the database
+      const updateQuery = `
+        UPDATE travelit.review
+        SET sentiment = $1
+        WHERE rev_id = $2;
+      `;
+      await pool.query(updateQuery, [sentimentLabel, review.rev_id]);
+    }
+    res.json(rows); // Return data as JSON
+  } catch (error) {
+    console.error("Error fetching reviews:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+app.post("/action", (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  var action = req.body.action;
+  if (action == "fetch") {
+    var query = "SELECT * FROM travelit.review";
+    pool.query(query, function (error, data) {
+      res.json({
+        data: data,
+      });
+    });
+  }
+});
+
+app.post("/addReview", (req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  console.log("Add DATA :");
+  console.log(req.body);
+  const { name, kind, place, city, rating, comment } = req.body;
+  const instQ =
+    "INSERT INTO travelit.review (name, kind, place, city, rating, comment) VALUES($1, $2, $3, $4, $5, $6) RETURNING * ";
+  pool.query(instQ, [name, kind, place, city, rating, comment], (error) => {
+    if (error) {
+      throw error;
+    }
+    res.status(201).send();
+  });
+});
+
+// ----------------------
 // Require the Routes API
 // Create a Server and run it on the port 3000
 const server = app.listen(3000, function () {
-    let host = server.address().address;
-    let port = server.address().port;
-    // Starting the Server at the port 3000
+  let host = server.address().address;
+  let port = server.address().port;
+  // Starting the Server at the port 3000
+  console.log("Server is running on port 3000");
 });
-

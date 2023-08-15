@@ -26,7 +26,7 @@ const stemmer = natural.PorterStemmer;
 
 const analyzer = new SentimentAnalyzer('English', stemmer, 'afinn');
 
-const text = "I am leaving this poor review because I signed up for a tour, paid and was never contacted.Before using this company see if you can find an email, an address or a phone number that works, I challenge you.Luckily I realized this and made other plans, now I am left to try to figure out how to get my money back.";
+const text = "bad place";
 const words = tokenizer.tokenize(text);
 
 const sentimentScore = analyzer.getSentiment(words);

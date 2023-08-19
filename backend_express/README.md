@@ -1,3 +1,5 @@
+-------------------------------------------------
+
 Install express using npm
 npm install --save express
 
@@ -15,3 +17,9 @@ npm install --save body-parser
 after writing content in index.js
 Now, start the backend server using:
 node index.js
+
+-------------------------------------------------
+
+other installs...
+python -m pip install requests
+pip install psycopg2

@@ -1,9 +1,19 @@
- /* .containerr{
-	width: 100%;
-	margin: 0;
-	padding: 0;
-	background: #57bddd;  
-} */
+
+
+ .boxr{
+    margin-top: 70px;
+    margin-left: 200px;
+    height: 700px;
+    width: 1110px;
+    text-align: center;
+    border: 6px solid #afafaf;
+    padding: 15px;
+    transition: all .5s;
+    border-radius: 10px;
+} 
+.boxr:hover {
+    border-color: darkslategray;
+  }
 .carousel{
     height: 550px; 
     perspective: 250px;
@@ -13,7 +23,7 @@
 .carousel .carousel-item {
 	
 	width: 480px;
-	background: #519eba; 
+	background: darkslategray; 
 	padding: 50px;
 	height: 400px;
 	text-align: center;
@@ -31,14 +41,14 @@
 	width: 100%;
 }
 .testi p {
-	color: #262626;
+	color: white;
 	font-size: 18px;
 	line-height: 1.9;
 }
 .testi h4 {
 	font-size: 20px;
 	margin: 0;
-	color: #000;
+	color: white;
 }
 .testi h5 {
 	font-size: 14px;

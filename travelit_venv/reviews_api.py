@@ -6,7 +6,7 @@
 import requests
 
 apikey = "9DEEA1A6E2D245D096703C3F2B4274BC"
-search_location = "LOTUS TEMPLE"
+search_location = "QUTUB MINAR"
 search_category = "attractions"
 
 url_searchid = f"https://api.content.tripadvisor.com/api/v1/location/search?key={apikey}&searchQuery={search_location}&category={search_category}&language=en"

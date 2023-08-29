@@ -8,21 +8,18 @@
     <link rel="stylesheet" href="roughrev.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="rough.js"></script>
 </head>
 
 <body>
-    <!-- <button style="margin-left: 450px;margin-top: 200px;" type="button" class="positive-btn rBtn" id="positiveBtn">POSITIVE REVIEWS</button> -->
-    <!-- <button style="margin-left: 200px;"  type="button" class="negative-btn rBtn" id="negativeBtn">NEGATIVE REVIEWS</button> -->
-
     <div class="boxr">
         <div>
-            
-            <button style="margin-top: 50px;" type="button" class="positive-btn rBtn" id="positiveBtn">POSITIVE REVIEWS</button>
-            <button style="margin-left: 100px;"  type="button" class="negative-btn rBtn" id="negativeBtn">NEGATIVE REVIEWS</button>
+            <button style="margin-top: 50px;" type="button" class="positive-btn rBtn" id="positiveBtn">POSITIVE
+                REVIEWS</button>
+            <button style="margin-left: 100px;" type="button" class="negative-btn rBtn" id="negativeBtn">NEGATIVE
+                REVIEWS</button>
         </div>
         <div class="carousel" id="reviews-container">
-            
+
         </div>
         <!-- Reviews will be dynamically added here -->
     </div>
@@ -54,7 +51,7 @@
                     Accept: "application/json",
                 },
                 success: function (response) {
-                    console.log("Received data from display.js:", response);
+                    console.log("Received all reviews", response);
                     displayReviews(response);
                 },
                 error: function (error) {
@@ -69,7 +66,7 @@
                 contentType: "application/json",
                 data: JSON.stringify({ action: action }),
                 success: function (response) {
-                    console.log("Received reviews:", response);
+                    console.log("Received specific reviews:", response);
                     displayReviews(response.data);
                 },
                 error: function (error) {
@@ -104,10 +101,11 @@
             });
             // autoplay();
         }
-        function autoplay() {
-            $(".carousel").carousel("next");
-            setTimeout(autoplay, 5000);
-        }
+        // function autoplay() {
+        //     $(".carousel").carousel("next");
+        //     setTimeout(autoplay, 5000);
+        // }
+
         // Call the fetchAndDisplayReviews function to load reviews when the page loads
         fetchAndDisplayReviews();
     </script>

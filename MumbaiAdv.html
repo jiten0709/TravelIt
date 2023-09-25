@@ -2,139 +2,77 @@
 <html lang="en">
 
 <head>
-
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
         rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap"
         rel="stylesheet" />
-
-    <title>Adventurous </title>
-
+    <title>Adventurous</title>
     <!-- Additional CSS Files -->
     <link rel="stylesheet" type="text/css" href="destinations/css/bootstrap.css" />
     <link rel="stylesheet" href="style2.css">
-
 </head>
 
 <body>
-   
-        <section class="text-center pt-5">
-            <div class="section-heading pt-5">
-                <h2>  Adventurous Destinations</h2>
-            </div>
-        </section>
-        <section class="section" id="chefs">
-            <div class="container">
-                
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="chef-item">
-                            <div class="thumb">
-                                <!-- <div class="overlay"></div> -->
-    
-                                <img src="destinations/img/adventure/imgicaaaaaaaaa.jpg" alt="Place #1" width="600" height="300" />
-                            </div>
-                            <div class="down-content">
-                                <a href="destinations/imagica.html" target="_self">
-                                    <button type="submit" class="btn">IMAGICAA</button></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="chef-item">
-                            <div class="thumb">
-                                <!-- <div class="overlay"></div> -->
-    
-                                <img src="destinations/img/adventure/del.jpg" alt="Place #2" width="600" height="300" />
-                            </div>
-                            <div class="down-content">
-                                <a href="destinations/della.html" target="_self">
-                                    <button type="submit" class="btn">DELLA  ADVENTURES</button></a>
-    
-    
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="chef-item">
-                            <div class="thumb">
-                                <!-- <div class="overlay"></div> -->
-    
-                                <img src="destinations/img/historical/MUMBAI/Pawna Lake Camping..jpg" alt="Place #2" width="600" height="300" />
-                            </div>
-                            <div class="down-content">
-                                <a href="destinations/pawna.html" target="_self">
-                                    <button type="submit" class="btn">PAWANA LAKE CAMPING</button></a>
-    
-    
-                            </div>
-                        </div>
-                    </div>
-    
-                </div>
-            </div>
-        </section>
-        
-</body>
-
-<!-- second grid -->
-<body>
+    <section class="text-center pt-5">
+        <div class="section-heading pt-5">
+            <h2>Adventurous Destinations</h2>
+        </div>
+    </section>
     <section class="section" id="chefs">
         <div class="container">
-            
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="chef-item">
-                        <div class="thumb">
-                            <!-- <div class="overlay"></div> -->
-
-                            <img src="destinations/img/historical/MUMBAI/Essel World..jpg" alt="Place #1" width="600" height="300" />
-                        </div>
-                        <div class="down-content">
-                            <a href="destinations/essel.html" target="_self">
-                                <button type="submit" class="btn">ESSEL WORLD &WATER KINGDOM</button></a>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="chef-item">
-                        <div class="thumb">
-                            <!-- <div class="overlay"></div> -->
-
-                            <img src="destinations/img/historical/MUMBAI/Hakone-machi..jpg" alt="Place #2" width="600" height="300" />
-                        </div>
-                        <div class="down-content">
-                            <a href="destinations/Hakone.html" target="_self">
-                                <button type="submit" class="btn">HAKONE</button></a>
-
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="chef-item">
-                        <div class="thumb">
-                            <!-- <div class="overlay"></div> -->
-
-                            <img src="destinations/img/historical/MUMBAI/Sanjay Gandhi National Park..jpg" alt="Place #2" width="600" height="300" />
-                        </div>
-                        <div class="down-content">
-                            <a href="destinations/sgnp.html" target="_self">
-                                <button type="submit" class="btn">SANJAY GANDHI NATIONAL PARK</button></a>
-
-
-                        </div>
-                    </div>
-                </div>
-
+            <div class="row" id="places-container">
+                <!-- Placeholder for places and positive counts -->
             </div>
         </div>
     </section>
-    <iframe style="height: 900px;width:1500px;padding-left: 0px;margin-top:0px;" src="rough.html"></iframe>
-</body>
 
-</html>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Function to fetch and display places based on the selected city and kind
+            function fetchAndDisplayPlaces(city, kind) {
+                const url = `http://127.0.0.1:3000/getPlacesByCity?city=${city}&kind=${kind}`;
+                $.ajax({
+                    type: 'GET',
+                    url: url,
+                    contentType: 'application/json',
+                    success: function (places) {
+                        // Clear the existing places
+                        $('#places-container').empty();
+
+                        // Iterate through the fetched places and create HTML elements
+                        places.forEach((place) => {
+                            const placeItem = `
+                                <div class="col-lg-4">
+                                    <div class="chef-item">
+                                        <div class="thumb">
+                                            <img src="destinations/img/adventure/${place.place}.jpg" alt="${place.place}" width="600" height="300" />
+                                        </div>
+                                        <div class="down-content">
+                                            <a href="destinations/${place.place}.html" target="_self">
+                                                <button type="submit" class="btn">${place.place}</button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                            $('#places-container').append(placeItem);
+                        });
+                        console.log('Data got from db: ', places);
+                    },
+                    error: function (error) {
+                        console.log('Error fetching places:', error);
+                    }
+                });
+            }
+
+            // Add event listener for the "Fetch Places" button
+            const selectedCity = 'Mumbai'; // Change this to your desired city
+            const selectedKind = 'Adventurous'; // Change this to 'Adventurous' or 'Historical'
+            fetchAndDisplayPlaces(selectedCity, selectedKind);
+        });
+    </script>
+
 </body>
 
 </html>

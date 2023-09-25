@@ -1,145 +1,78 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
 
-    <link
-      href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
     <title>Historical</title>
-    
     <!-- Additional CSS Files -->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="destinations/css/bootstrap.css"
-    />
+    <link rel="stylesheet" type="text/css" href="destinations/css/bootstrap.css" />
+    <link rel="stylesheet" href="style2.css">
+</head>
 
-    <link rel="stylesheet" href="destinations/css/klassy.css" />
-
-  
-  </head>
-
-  <body>
-    <section class="section" id="chefs">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4 offset-lg-4 text-center">
-            <div class="section-heading">
-
-              <h2>Historical Destinations</h2>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="chef-item">
-              <div class="thumb">
-                <!-- <div class="overlay"></div> -->
-          
-                <img src="destinations/img/historical/Jaipur/jal mahal 2.jpeg" alt="Place #1" width="500" height="300" />
-              </div>
-              <div class="down-content">
-                <a href="destinations/jalmahalHist.html" target="_self">
-                  <button type="submit" class="mBtn">JAL MAHAL</button></a>
-
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="chef-item">
-              <div class="thumb">
-                 <!-- <div class="overlay"></div> -->
-           
-                <img src="destinations/img/historical/Jaipur/jaigarh-fort.webp" alt="Place #2" width="600" height="300"/>
-              </div>
-              <div class="down-content">
-                <a href="destinations/jfortHist.html" target="_self">
-                  <button type="submit" class="mBtn">JAIGARH FORT</button></a>
-
-            
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="chef-item">
-              <div class="thumb">
-                <!-- <div class="overlay"></div> -->
-                
-                <img src="destinations/img/historical/Jaipur/bm.jpg" alt="Place #3" width="600"  height="300"/>
-              </div>
-              <div class="down-content">
-                <a href="destinations/bmHist.html" target="_self">
-                  <button type="submit" class="mBtn">BIRLA MANDIR</button></a>
-
-     
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </body>
-<!-- second grid  -->
 <body>
-  <section class="section" id="chefs">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4">
-          <div class="chef-item">
-            <div class="thumb">
-              <!-- <div class="overlay"></div> -->
-              <img src="destinations/img/historical/MUMBAI/Hawa Mahal - Palace of Wind..jpg" alt="Place #1" width="500" height="300" />
-            </div>
-            <div class="down-content">
-              <a href="destinations/hawahist.html" target="_self">
-                <button type="submit" class="mBtn">HAWA MAHAL</button></a>
-
-            </div>
-          </div>
+    <section class="text-center pt-5">
+        <div class="section-heading pt-5">
+            <h2>Historical Destinations</h2>
         </div>
-        <div class="col-lg-4">
-          <div class="chef-item">
-            <div class="thumb">
-               <!-- <div class="overlay"></div> -->
-         
-              <img src="destinations/img/historical/MUMBAI/Albert Hall Museum..jpg" alt="Place #2" width="500" height="300"/>
+    </section>
+    <section class="section" id="chefs">
+        <div class="container">
+            <div class="row" id="places-container">
+                <!-- Placeholder for places and positive counts -->
             </div>
-            <div class="down-content">
-              <a href="destinations/alberthist.html" target="_self">
-                <button type="submit" class="mBtn">ALBERT HALL MUSEUM</button></a>
-
-          
-            </div>
-          </div>
         </div>
-        <div class="col-lg-4">
-          <div class="chef-item">
-            <div class="thumb">
-              <!-- <div class="overlay"></div> -->
-              
-              <img src="destinations/img/historical/MUMBAI/City Palace of Jaipur..jpg" alt="Place #3" width="500"  height="300"/>
-            </div>
-            <div class="down-content">
-              <a href="destinations/cityhist.html" target="_self">
-                <button type="submit" class="mBtn">CITY PALACE</button></a>
+    </section>
 
-   
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-    <iframe style="height: 900px;width:1500px;padding-left: 0px; padding-top: 30px;" src="rough.html"></iframe>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Function to fetch and display places based on the selected city and kind
+            function fetchAndDisplayPlaces(city, kind) {
+                const url = `http://127.0.0.1:3000/getPlacesByCity?city=${city}&kind=${kind}`;
+                $.ajax({
+                    type: 'GET',
+                    url: url,
+                    contentType: 'application/json',
+                    success: function (places) {
+                        // Clear the existing places
+                        $('#places-container').empty();
+
+                        // Iterate through the fetched places and create HTML elements
+                        places.forEach((place) => {
+                            const placeItem = `
+                                <div class="col-lg-4">
+                                    <div class="chef-item">
+                                        <div class="thumb">
+                                            <img src="destinations/img/adventure/${place.place}.jpg" alt="${place.place}" width="600" height="300" />
+                                        </div>
+                                        <div class="down-content">
+                                            <a href="destinations/${place.place}.html" target="_self">
+                                                <button type="submit" class="btn">${place.place}</button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                            $('#places-container').append(placeItem);
+                        });
+                        console.log('Data got from db: ', places);
+                    },
+                    error: function (error) {
+                        console.log('Error fetching places:', error);
+                    }
+                });
+            }
+
+            // Add event listener for the "Fetch Places" button
+            const selectedCity = 'Jaipur'; // Change this to your desired city
+            const selectedKind = 'Historical'; // Change this to 'Adventurous' or 'Historical'
+            fetchAndDisplayPlaces(selectedCity, selectedKind);
+        });
+    </script>
+
 </body>
-</html>
-</body>
-</html>
 
+</html>

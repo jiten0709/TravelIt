@@ -2035,10 +2035,9 @@ hr {
 /* -------------------- */
 
 
-
-
 .boxr{
     margin-top: 70px;
+    margin-bottom: 0px;
     margin-left: 200px;
     height: 700px;
     width: 1110px;
@@ -2052,19 +2051,20 @@ hr {
     border-color: darkslategray;
   }
 .carousel{
-    height: 550px; 
-    perspective: 250px;
+     height: 550px;  
+     perspective: 250px; 
 	 
 }
 
 .carousel .carousel-item {
-	
-	width: 480px;
+	width: 380px;
+  margin-bottom: 0px;
 	background: darkslategray; 
-	padding: 50px;
+  padding: 30px; 
 	height: 400px;
 	text-align: center;
-    border-radius: 15px;
+  border-radius: 15px;
+  margin-top: 50px;
 }
 .img-area {
 	width: 100px;

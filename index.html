@@ -7,11 +7,48 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="style.css">
   <script>src = "myscripts.js"</script>
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
   <script>
     if (document.location.search.match(/type=embed/gi)) {
       window.parent.postMessage("resize", "*");
     }
+  </script>
+  <script>
+    $(document).ready(function () {
+      function addSentiment() {
+        const url = 'http://127.0.0.1:3000/addSentiment';
+        $.ajax({
+          type: 'GET',
+          url: url,
+          contentType: 'application/json',
+          success: function (response) {
+            console.log("sentient added: ", response);
+          },
+          error: function (error) {
+            console.log(error)
+          }
+        });
+      }
+      function getPositiveCount() {
+        const url = 'http://127.0.0.1:3000/getPositiveCount';
+        $.ajax({
+          type: 'GET',
+          url: url,
+          contentType: 'application/json',
+          success: function (response) {
+            console.log("positive count added: ", response);
+          },
+          error: function (error) {
+            console.log(error)
+          }
+        });
+      }
+      addSentiment();
+      getPositiveCount();
+    });
   </script>
 
 </head>
@@ -229,96 +266,95 @@
           </figure>
           <!-- </a> -->
           <!-- <a href=""> -->
-            <figure class="effect-chico">
-              <h1
-                style="margin-top: 0%; padding: 22px; background-color: #152328; color: white; font-family: 'Poppins', sans-serif;">
-                Kolkata</h1>
+          <figure class="effect-chico">
+            <h1
+              style="margin-top: 0%; padding: 22px; background-color: #152328; color: white; font-family: 'Poppins', sans-serif;">
+              Kolkata</h1>
 
-              <img class="mySlides" src="destinations/img/historical/KOLKATA/05648444-7dc7-4c71-9a25-656e98a6a0a0.jpg"
-                height="256px" width="700px">
-              <img class="mySlides" src="destinations/img/adventure/tp3.jpg" height="256px" width="700px">
-              <img class="mySlides" src="destinations/img/historical/KOLKATA/howrah-1.jpg" height="256px"
-                width="700px">
+            <img class="mySlides" src="destinations/img/historical/KOLKATA/05648444-7dc7-4c71-9a25-656e98a6a0a0.jpg"
+              height="256px" width="700px">
+            <img class="mySlides" src="destinations/img/adventure/tp3.jpg" height="256px" width="700px">
+            <img class="mySlides" src="destinations/img/historical/KOLKATA/howrah-1.jpg" height="256px" width="700px">
 
-              <script>
-                var myIndex = 0;
-                carousel0();
+            <script>
+              var myIndex = 0;
+              carousel0();
 
-                function carousel0() {
-                  var i;
-                  var x = document.getElementsByClassName("mySlides");
-                  for (i = 0; i < x.length; i++) {
-                    x[i].style.display = "none";
-                  }
-                  myIndex++;
-                  if (myIndex > x.length) { myIndex = 1 }
-                  x[myIndex - 1].style.display = "block";
-                  setTimeout(carousel0, 2000); // Change image every 2 seconds
+              function carousel0() {
+                var i;
+                var x = document.getElementsByClassName("mySlides");
+                for (i = 0; i < x.length; i++) {
+                  x[i].style.display = "none";
                 }
-              </script>
-              <!-- <figcaption>
+                myIndex++;
+                if (myIndex > x.length) { myIndex = 1 }
+                x[myIndex - 1].style.display = "block";
+                setTimeout(carousel0, 2000); // Change image every 2 seconds
+              }
+            </script>
+            <!-- <figcaption>
                 <p style="font-size: 100px;padding-top: 30px;"><i class="fa fa-plus" aria-hidden="true"></i></p>
               </figcaption> -->
-              <div style="margin-bottom: 0%; background-color: #152328;">
+            <div style="margin-bottom: 0%; background-color: #152328;">
 
-                <div id="outer">
-                  <div class="inner">
-                    <a href="KolkataHist.html" target="_self">
-                      <button type="submit" class="msgBtn">Historical</button></a>
-                  </div>
-                  <div class="inner">
-                    <a href="KolkataAdv.html" target="_self">
-                      <button type="submit" class="msgBtn2">Adventurous</button>
-                    </a>
-                  </div>
+              <div id="outer">
+                <div class="inner">
+                  <a href="KolkataHist.html" target="_self">
+                    <button type="submit" class="msgBtn">Historical</button></a>
                 </div>
-
+                <div class="inner">
+                  <a href="KolkataAdv.html" target="_self">
+                    <button type="submit" class="msgBtn2">Adventurous</button>
+                  </a>
+                </div>
               </div>
-            </figure>
-            <figure class="effect-chico">
-              <h1
-                style="margin-top: 0%; padding: 22px; background-color: #152328; color: white; font-family: 'Poppins', sans-serif;">
-                Delhi</h1>
 
-              <img class="mySlides2" src="destinations/img/adventure/nicopark5.jpg" height="256px" width="700px">
-              <img class="mySlides2" src="destinations\img\redfort2.png" height="256px" width="700px">
-              <img class="mySlides2" src="destinations\img\minar1.jpg" height="256px" width="700px">
+            </div>
+          </figure>
+          <figure class="effect-chico">
+            <h1
+              style="margin-top: 0%; padding: 22px; background-color: #152328; color: white; font-family: 'Poppins', sans-serif;">
+              Delhi</h1>
 
-              <script>
-                var myIndex2 = 0;
-                carousel2();
+            <img class="mySlides2" src="destinations/img/adventure/nicopark5.jpg" height="256px" width="700px">
+            <img class="mySlides2" src="destinations\img\redfort2.png" height="256px" width="700px">
+            <img class="mySlides2" src="destinations\img\minar1.jpg" height="256px" width="700px">
 
-                function carousel2() {
-                  var i;
-                  var x = document.getElementsByClassName("mySlides2");
-                  for (i = 0; i < x.length; i++) {
-                    x[i].style.display = "none";
-                  }
-                  myIndex2++;
-                  if (myIndex2 > x.length) { myIndex2 = 1 }
-                  x[myIndex2 - 1].style.display = "block";
-                  setTimeout(carousel2, 2000); // Change image every 2 seconds
+            <script>
+              var myIndex2 = 0;
+              carousel2();
+
+              function carousel2() {
+                var i;
+                var x = document.getElementsByClassName("mySlides2");
+                for (i = 0; i < x.length; i++) {
+                  x[i].style.display = "none";
                 }
-              </script>
-              <!-- <figcaption>
+                myIndex2++;
+                if (myIndex2 > x.length) { myIndex2 = 1 }
+                x[myIndex2 - 1].style.display = "block";
+                setTimeout(carousel2, 2000); // Change image every 2 seconds
+              }
+            </script>
+            <!-- <figcaption>
                 <p style="font-size: 100px;padding-top: 30px;"><i class="fa fa-plus" aria-hidden="true"></i></p>
               </figcaption> -->
-              <div style="margin-bottom: 0%; background-color: #152328;">
+            <div style="margin-bottom: 0%; background-color: #152328;">
 
-                <div id="outer">
-                  <div class="inner">
-                    <a href="DelhiHist.html" target="_self">
-                      <button type="submit" class="msgBtn">Historical</button></a>
-                  </div>
-                  <div class="inner">
-                    <a href="DelhiAdv.html" target="_self">
-                      <button type="submit" class="msgBtn2">Adventurous</button>
-                    </a>
-                  </div>
+              <div id="outer">
+                <div class="inner">
+                  <a href="DelhiHist.html" target="_self">
+                    <button type="submit" class="msgBtn">Historical</button></a>
                 </div>
-
+                <div class="inner">
+                  <a href="DelhiAdv.html" target="_self">
+                    <button type="submit" class="msgBtn2">Adventurous</button>
+                  </a>
+                </div>
               </div>
-            </figure>
+
+            </div>
+          </figure>
           <!-- </a> -->
         </div>
       </div>
@@ -373,98 +409,97 @@
           </figure>
           <!-- </a> -->
           <!-- <a href=""> -->
-            <figure class="effect-chico2">
-              <h1
-                style="margin-top: 0%; padding: 22px; background-color: #152328; color: white; font-family: 'Poppins', sans-serif;">
-                Jaipur</h1>
+          <figure class="effect-chico2">
+            <h1
+              style="margin-top: 0%; padding: 22px; background-color: #152328; color: white; font-family: 'Poppins', sans-serif;">
+              Jaipur</h1>
 
-              <img class="mySlides4" src="destinations/img/historical/Jaipur/birla mandir 2.jpg" height="256px"
-                width="700px">
-              <img class="mySlides4" src="destinations/img/adventure/river rafting 1.jpg" height="256px" width="700px">
-              <img class="mySlides4" src="destinations/img/historical/Jaipur/jal mahal 1.jpg" height="256px"
-                width="700px">
+            <img class="mySlides4" src="destinations/img/historical/Jaipur/birla mandir 2.jpg" height="256px"
+              width="700px">
+            <img class="mySlides4" src="destinations/img/adventure/river rafting 1.jpg" height="256px" width="700px">
+            <img class="mySlides4" src="destinations/img/historical/Jaipur/jal mahal 1.jpg" height="256px"
+              width="700px">
 
-              <script>
-                var myIndex4 = 0;
-                carousel4();
+            <script>
+              var myIndex4 = 0;
+              carousel4();
 
-                function carousel4() {
-                  var i;
-                  var x = document.getElementsByClassName("mySlides4");
-                  for (i = 0; i < x.length; i++) {
-                    x[i].style.display = "none";
-                  }
-                  myIndex4++;
-                  if (myIndex4 > x.length) { myIndex4 = 1 }
-                  x[myIndex4 - 1].style.display = "block";
-                  setTimeout(carousel4, 2000); // Change image every 2 seconds
+              function carousel4() {
+                var i;
+                var x = document.getElementsByClassName("mySlides4");
+                for (i = 0; i < x.length; i++) {
+                  x[i].style.display = "none";
                 }
-              </script>
-              <!-- <figcaption>
+                myIndex4++;
+                if (myIndex4 > x.length) { myIndex4 = 1 }
+                x[myIndex4 - 1].style.display = "block";
+                setTimeout(carousel4, 2000); // Change image every 2 seconds
+              }
+            </script>
+            <!-- <figcaption>
                 <p style="font-size: 100px;padding-top: 30px;"><i class="fa fa-plus" aria-hidden="true"></i></p>
               </figcaption> -->
-              <div style="margin-bottom: 0%; background-color: #152328;">
+            <div style="margin-bottom: 0%; background-color: #152328;">
 
-                <div id="outer">
-                  <div class="inner">
-                    <a href="jaipurHist.html" target="_self">
-                      <button type="submit" class="msgBtn">Historical</button></a>
-                  </div>
-                  <div class="inner">
-                    <a href="jaipurAdv.html" target="_self">
-                      <button type="submit" class="msgBtn2">Adventurous</button>
-                    </a>
-                  </div>
+              <div id="outer">
+                <div class="inner">
+                  <a href="jaipurHist.html" target="_self">
+                    <button type="submit" class="msgBtn">Historical</button></a>
                 </div>
-
+                <div class="inner">
+                  <a href="jaipurAdv.html" target="_self">
+                    <button type="submit" class="msgBtn2">Adventurous</button>
+                  </a>
+                </div>
               </div>
-            </figure>
-            <figure class="effect-chico2">
-              <h1
-                style="margin-top: 0%; padding: 22px; background-color: #152328; color: white; font-family: 'Poppins', sans-serif;">
-                Manali</h1>
 
-              <img class="mySlides5" src="destinations/img/adventure/Solang_valley_3.jpg" height="256px" width="700px">
-              <img class="mySlides5" src="destinations/img/historical/Manali/beas river 1.jpg" height="256px"
-                width="700px">
-              <img class="mySlides5" src="destinations/img/historical/Manali/hidimba 3.jpg" height="256px"
-                width="700px">
+            </div>
+          </figure>
+          <figure class="effect-chico2">
+            <h1
+              style="margin-top: 0%; padding: 22px; background-color: #152328; color: white; font-family: 'Poppins', sans-serif;">
+              Manali</h1>
 
-              <script>
-                var myIndex5 = 0;
-                carousel5();
+            <img class="mySlides5" src="destinations/img/adventure/Solang_valley_3.jpg" height="256px" width="700px">
+            <img class="mySlides5" src="destinations/img/historical/Manali/beas river 1.jpg" height="256px"
+              width="700px">
+            <img class="mySlides5" src="destinations/img/historical/Manali/hidimba 3.jpg" height="256px" width="700px">
 
-                function carousel5() {
-                  var i;
-                  var x = document.getElementsByClassName("mySlides5");
-                  for (i = 0; i < x.length; i++) {
-                    x[i].style.display = "none";
-                  }
-                  myIndex5++;
-                  if (myIndex5 > x.length) { myIndex5 = 1 }
-                  x[myIndex5 - 1].style.display = "block";
-                  setTimeout(carousel5, 2000); // Change image every 2 seconds
+            <script>
+              var myIndex5 = 0;
+              carousel5();
+
+              function carousel5() {
+                var i;
+                var x = document.getElementsByClassName("mySlides5");
+                for (i = 0; i < x.length; i++) {
+                  x[i].style.display = "none";
                 }
-              </script>
-              <!-- <figcaption>
+                myIndex5++;
+                if (myIndex5 > x.length) { myIndex5 = 1 }
+                x[myIndex5 - 1].style.display = "block";
+                setTimeout(carousel5, 2000); // Change image every 2 seconds
+              }
+            </script>
+            <!-- <figcaption>
                 <p style="font-size: 100px;padding-top: 30px;"><i class="fa fa-plus" aria-hidden="true"></i></p>
               </figcaption> -->
-              <div style="margin-bottom: 0%; background-color: #152328;">
+            <div style="margin-bottom: 0%; background-color: #152328;">
 
-                <div id="outer">
-                  <div class="inner">
-                    <a href="manaliHist.html" target="_self">
-                      <button type="submit" class="msgBtn">Historical</button></a>
-                  </div>
-                  <div class="inner">
-                    <a href="manaliAdv.html" target="_self">
-                      <button type="submit" class="msgBtn2">Adventurous</button>
-                    </a>
-                  </div>
+              <div id="outer">
+                <div class="inner">
+                  <a href="manaliHist.html" target="_self">
+                    <button type="submit" class="msgBtn">Historical</button></a>
                 </div>
-
+                <div class="inner">
+                  <a href="manaliAdv.html" target="_self">
+                    <button type="submit" class="msgBtn2">Adventurous</button>
+                  </a>
+                </div>
               </div>
-            </figure>
+
+            </div>
+          </figure>
           <!-- </a> -->
         </div>
       </div>
@@ -472,7 +507,7 @@
 
   </div>
 
-  <iframe src="reviewDisplay.html" class="rev"></iframe>
+  <!-- <iframe src="reviewDisplay.html" class="rev"></iframe> -->
 
   <div class="container1" style="background-color:#152328;;color: white;">
     <div class="card-deck1">
@@ -537,8 +572,6 @@
     </section>
 
   </div>
-
-
 </body>
 
 </html>

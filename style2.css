@@ -30,19 +30,70 @@ font & reset css
 */
 @import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
 
----------------------------------------------
-reset
---------------------------------------------- 
-
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, div
-pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q,
-s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li,
-figure, header, nav, section, article, aside, footer, figcaption {
+--------------------------------------------- reset --------------------------------------------- html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+div pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+figure,
+header,
+nav,
+section,
+article,
+aside,
+footer,
+figcaption {
   margin: 0;
   padding: 0;
   border: 0;
   outline: 0;
 }
+
 /* .container {
   display: flex;
   justify-content: center;
@@ -85,7 +136,13 @@ html[xmlns] .clearfix {
   list-style: none;
 } */
 
-header, nav, section, article, aside, footer, hgroup {
+header,
+nav,
+section,
+article,
+aside,
+footer,
+hgroup {
   display: block;
 }
 
@@ -93,7 +150,8 @@ header, nav, section, article, aside, footer, hgroup {
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
   background-color: #fff;
@@ -101,14 +159,19 @@ html, body {
   -ms-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
+
 }
 
 a {
   text-decoration: none !important;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin-top: 0px;
   margin-bottom: 0px;
 }
@@ -123,7 +186,7 @@ p {
   color: #2a2a2a;
 }
 
-.btn{
+.btn {
 
   background: darkslategray;
   border-radius: 999px;
@@ -131,7 +194,7 @@ p {
   box-sizing: border-box;
   color: #FFFFFF;
   cursor: pointer;
-  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+  font-family: Inter, Helvetica, "Apple Color Emoji", "Segoe UI Emoji", NotoColorEmoji, "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", EmojiSymbols, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", sans-serif;
   font-size: 16px;
   font-weight: 700;
   line-height: 24px;
@@ -189,7 +252,7 @@ body {
   line-height: 40px;
   margin-top: 20px;
   margin-left: 14px;
-  margin-bottom: 25px; 
+  margin-bottom: 25px;
   font-size: 26px;
   font-weight: 600;
   color: darkslategray;
@@ -201,30 +264,28 @@ body {
 chefs
 ---------------------------------------------
 */
-
+.col-lg-4{
+  padding-bottom: 50px;
+}
 #chefs {
   padding-top: 10px;
- padding-bottom: 100px;
- padding-left: 8px;
-
+  padding-bottom: 100px;
+  padding-left: 8px;
 }
 
 #chefs .section-heading {
   margin-bottom: 40px;
   text-align: center;
 
-  
+
 }
 
-#chefs .chef-item {  
+#chefs .chef-item {
   text-align: center;
   border: 5px solid #afafaf;
   padding: 15px;
   transition: all .5s;
   border-radius: 10px;
-
-  
-
 }
 
 #chefs .chef-item:hover {
@@ -282,4 +343,3 @@ chefs
   font-size: 14px;
   color: #2a2a2a;
 }
-

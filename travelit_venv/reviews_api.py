@@ -6,7 +6,7 @@
 import requests
 
 apikey = "9DEEA1A6E2D245D096703C3F2B4274BC"
-search_location = "QUTUB MINAR"
+search_location = "imagica water park"
 search_category = "attractions"
 
 url_searchid = f"https://api.content.tripadvisor.com/api/v1/location/search?key={apikey}&searchQuery={search_location}&category={search_category}&language=en"
@@ -54,7 +54,7 @@ Base = declarative_base()
 
 
 class Review(Base):
-    __tablename__ = "review"  # Name of your existing table
+    __tablename__ = "test"  # Name of your existing table
     __table_args__ = {'schema': 'travelit'}  # Specify the schema
 
     rev_id = Column(Integer, primary_key=True)
@@ -62,7 +62,7 @@ class Review(Base):
     city = Column(String(length=30))
     place = Column(String(length=30))
     comment = Column(Text(length=500))
-    rating = Column(Integer)
+    # rating = Column(Integer)
 
 
 engine = create_engine(DATABASE_URL)
@@ -73,15 +73,15 @@ for item in data_review['data']:
     text = item['text']
     username = item['user']['username']
     thumbnail = item['user']['avatar']['thumbnail']
-    rating = item['rating']
+    # rating = item['rating']
     city = city1
     place = place1
 
-    existing_data = Review(name=username, city=city, place=place, comment=text, rating=rating)
+    existing_data = Review(name=username, city=city, place=place, comment=text)
     session.add(existing_data)
     session.commit()
 
-    print(f'{text} --> {username} --> {rating} --> {thumbnail}')
+    print(f'{text} --> {username} --> {thumbnail}')
     print()
 
 session.close()

@@ -5,7 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5f1f2ad5-d2ce-42be-9b1a-dc8a9a6da924" name="Changes" comment="api to db">
-      <change beforePath="$PROJECT_DIR$/tempCodeRunnerFile.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MumbaiHist.html" beforeDir="false" afterPath="$PROJECT_DIR$/MumbaiHist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend_express/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/backend_express/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/destinations/css/travel.css" beforeDir="false" afterPath="$PROJECT_DIR$/destinations/css/travel.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/destinations/testplace.html" beforeDir="false" afterPath="$PROJECT_DIR$/destinations/testplace.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reviewDisplay.html" beforeDir="false" afterPath="$PROJECT_DIR$/reviewDisplay.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rough.html" beforeDir="false" afterPath="$PROJECT_DIR$/rough.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rough.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rough2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/roughrev.css" beforeDir="false" afterPath="$PROJECT_DIR$/roughrev.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style2.css" beforeDir="false" afterPath="$PROJECT_DIR$/style2.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testadv.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/travelit_venv/reviews_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/travelit_venv/reviews_api.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,13 +37,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/jitenparmar/jitenStuff/gitTraveIt/TravelIt"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/jitenparmar/jitenStuff/gitTraveIt/TravelIt&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="reviews_api" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="TravelIt" />

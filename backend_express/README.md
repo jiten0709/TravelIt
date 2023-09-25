@@ -1,4 +1,4 @@
--------------------------------------------------
+# -------------------------------------------------
 
 Install express using npm
 npm install --save express
@@ -18,8 +18,25 @@ after writing content in index.js
 Now, start the backend server using:
 node index.js
 
--------------------------------------------------
+# -------------------------------------------------
 
 other installs...
 python -m pip install requests
 pip install psycopg2
+
+
+# -------------------------------------------------
+to get reviews via API ...travelit_venv/reviews_api.py
+to get sentiment of reviews ... on running index.html {head tag script}
+to get total count of positive reviews ... on running index.html {head tag script}
+
+# -------------------------------------------------
+
+current progress...
+rough.html --> test.html on clicking mumbai adventurous
+test_city.html
+test2.js
+
+# -------------------------------------------------
+
+need to name images of places according to place column in db as well as their redirecting html file ... eg. placename.jpg and placename.html

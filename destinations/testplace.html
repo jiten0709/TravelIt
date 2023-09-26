@@ -11,16 +11,20 @@
   <meta name="description" content="" />
 
   <!-- The compiled CSS file -->
-   <link rel="stylesheet" href="css/travel.css" /> 
+  <link rel="stylesheet" href="css/travel.css" />
   <!-- <link rel="stylesheet" href="testrev.css"> -->
-  <!-- <link rel="stylesheet" href="/roughrev.css">  -->
-    
+  <link rel="stylesheet" href="/newrev.css">
+
   <!-- Web fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i|Roboto+Condensed:700" rel="stylesheet" />
 
   <!-- favicon.ico. Place these in the root directory. -->
   <link rel="shortcut icon" href="favicon.ico" />
 
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+  <link rel="stylesheet" href="newrev.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 
 <!-- IMAGICAA -->
@@ -150,9 +154,9 @@
           </div>
         </div>
       </div>
-
-
     </main>
+
+    
 
 
     <!-- Scroll reveal -->
@@ -161,31 +165,35 @@
     <!-- The compiled JavaScript file -->
     <script src="js/production.js"></script>
 
-<!-- -------------sentiment analysis of a place final--------------- -->
-    <div class="boxr">
-      
+    <!-- -------------sentiment analysis of a place final--------------- -->
+    <!-- <div class="boxr">
       <div>
-        <button style="margin-top: 30px;margin-left: 0px;" type="button" class="positive-btn rBtn" id="positiveBtn">POSITIVE
+        <button style="margin-top: 50px;" type="button" class="positive-btn rBtn" id="positiveBtn">POSITIVE
           REVIEWS</button>
-        <button style="margin-top: 30px;margin-left: 100px;" type="button" class="negative-btn rBtn" id="negativeBtn">NEGATIVE
+        <button style="margin-left: 100px;" type="button" class="negative-btn rBtn" id="negativeBtn">NEGATIVE
           REVIEWS</button>
       </div>
       <div class="carousel" id="reviews-container">
 
       </div>
-      <!-- Reviews will be dynamically added here -->
-    </div>
-   
+    </div> -->
+    
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </div>
+  <div class="boxr">
+  <button style="margin-top: 50px;margin-left: 30px;" type="button" class="positive-btn rBtn" id="positiveBtn">POSITIVE
+    REVIEWS</button>
+  <button style="margin-left: 180px;margin-top: 50px;" type="button" class="negative-btn rBtn" id="negativeBtn">NEGATIVE
+    REVIEWS</button>
+  <div class="carousel" id="reviews-container">
+  </div> 
+  </div>
     <script>
       $(document).ready(function () {
         // Get the buttons by their IDs
         const positiveBtn = document.getElementById('positiveBtn');
         const negativeBtn = document.getElementById('negativeBtn');
-        const place = 'Adalaj Step-well';
+        const place = 'Della Adventure Resorts';
 
         // Add click event listeners to the buttons
         positiveBtn.addEventListener('click', function () {
@@ -195,7 +203,7 @@
         negativeBtn.addEventListener('click', function () {
           fetchAndDisplayReviews2('fetchNegative', place);
         });
-        
+
         function fetchAndDisplayReviews(sentiment) {
           const url = `http://127.0.0.1:3000/getreviews?place=${encodeURIComponent(place)}`;
           $.ajax({
@@ -235,16 +243,17 @@
 
           reviews.forEach((review) => {
             const reviewElement = `
-                      <a style="" class="carousel-item" href="#">
-                          <div class="testi">
-                              <div class="img-area">
-                                  <img src="${review.image_url}" alt="img">
-                              </div>
-                              <p>"${review.comment}"</p>
-                              <h4>${review.name}</h4>
+                  <div class="carousel-item" href="#">
+                      <div class="testi">
+                          <div class="img-area">
+                              <img src="${review.image_url}" alt="img">
                           </div>
-                      </a>
-                  `;
+                          <p>"${review.comment}"</p>
+                          <h4>${review.name}</h4>
+                      </div>
+                  </div>
+              `;
+            
             reviewsContainer.append(reviewElement);
           });
 
@@ -262,7 +271,7 @@
       });
     </script>
     <!-- -------------sentiment analysis of a place end--------------- -->
-
+  
 </body>
 
 </html>

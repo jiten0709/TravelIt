@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Reviews3</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="newrev.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+
+<body>
+    <div class="boxr">
+        <div>
+            <button style="margin-top: 50px;" type="button" class="positive-btn rBtn" id="positiveBtn">POSITIVE
+                REVIEWS</button>
+            <button style="margin-left: 100px;" type="button" class="negative-btn rBtn" id="negativeBtn">NEGATIVE
+                REVIEWS</button>
+        </div>
+        <div class="carousel" id="reviews-container">
+
+        </div>
+        <!-- Reviews will be dynamically added here -->
+    </div>
+
+    <script>
+        $(document).ready(function () {
+          // Get the buttons by their IDs
+          const positiveBtn = document.getElementById('positiveBtn');
+          const negativeBtn = document.getElementById('negativeBtn');
+          const place = 'Della Adventure Resorts';
+  
+          // Add click event listeners to the buttons
+          positiveBtn.addEventListener('click', function () {
+            fetchAndDisplayReviews2('fetchPositive', place);
+          });
+  
+          negativeBtn.addEventListener('click', function () {
+            fetchAndDisplayReviews2('fetchNegative', place);
+          });
+          
+          function fetchAndDisplayReviews(sentiment) {
+            const url = `http://127.0.0.1:3000/getreviews?place=${encodeURIComponent(place)}`;
+            $.ajax({
+              type: "GET",
+              url: url,
+              contentType: "application/json",
+              success: function (response) {
+                console.log(`Received reviews for ${place}: `, response);
+                displayReviews(response);
+              },
+              error: function (error) {
+                console.error("Error fetching reviews:", error);
+              },
+            });
+          }
+  
+  
+          function fetchAndDisplayReviews2(action, place) {
+            $.ajax({
+              type: "POST",
+              url: "http://127.0.0.1:3000/action",
+              contentType: "application/json",
+              data: JSON.stringify({ action: action, place: place }),
+              success: function (response) {
+                console.log("Received specific reviews:", place, response);
+                displayReviews(response.data);
+              },
+              error: function (error) {
+                console.error("Error fetching reviews:", error);
+              },
+            });
+          }
+  
+          function displayReviews(reviews) {
+            const reviewsContainer = $("#reviews-container");
+            reviewsContainer.empty();
+  
+            reviews.forEach((review) => {
+              const reviewElement = `
+                        <a class="carousel-item" href="#">
+                            <div class="testi">
+                                <div class="img-area">
+                                    <img src="${review.image_url}" alt="img">
+                                </div>
+                                <p>"${review.comment}"</p>
+                                <h4>${review.name}</h4>
+                            </div>
+                        </a>
+                    `;
+              reviewsContainer.append(reviewElement);
+            });
+  
+            // Initialize the carousel after reviews are loaded
+            $(".carousel").carousel({
+              padding: 200,
+            });
+          }
+  
+          // Call the fetchAndDisplayReviews function to load reviews when the page loads
+  
+          fetchAndDisplayReviews(place);
+          // fetchAndDisplayReviews2('fetchNegative', place)
+          // fetchAndDisplayReviews2('fetchNegativeNPositive', place)
+        });
+      </script>
+
+</body>
+
+</html>

@@ -33,9 +33,8 @@ to get total count of positive reviews ... on running index.html {head tag scrip
 # -------------------------------------------------
 
 current progress...
-rough.html --> test.html on clicking mumbai adventurous
-test_city.html
-test2.js
+rough.html 
+test2.js, test3.js
 
 # -------------------------------------------------
 

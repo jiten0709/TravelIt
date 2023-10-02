@@ -5,13 +5,13 @@
   height: 700px;
   width: 1170px;
   text-align: center;
-  border: 6px solid #afafaf;
+  border: 6px solid #021323;
   padding: 15px;
   transition: all .5s;
   border-radius: 10px;
 } 
 .boxr:hover {
-  border-color: darkslategray;
+  border-color: #021323;
 }
 .carousel{
   height: 550px; 
@@ -42,7 +42,7 @@
 
 margin-bottom: 0px;  
 width: 400px;
-background: darkslategray;; 
+background: #021323;; 
 padding: 50px;
 height: 400px;
 text-align: center;
@@ -77,9 +77,10 @@ margin: 7px 0;
 
 }
 .rBtn{
-background: darkslategray;
+/* background: #FB2576; */
+background: #c2185b;
 border-radius: 999px;
-box-shadow: darkslategray 0 10px 20px -10px;
+box-shadow: #2E0249 0 10px 20px -10px;
 box-sizing: border-box;
 color: #FFFFFF;
 cursor: pointer;
@@ -96,6 +97,10 @@ touch-action: manipulation;
 width: fit-content;
 word-break: break-all;
 border: 0;
+}
+
+.rBtn:hover {
+  background: #021323;
 }
 #reviews-container{
   margin-top: 20px;

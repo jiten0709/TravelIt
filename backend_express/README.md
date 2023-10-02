@@ -34,8 +34,16 @@ to get total count of positive reviews ... on running index.html {head tag scrip
 
 current progress...
 rough.html 
-test2.js, test3.js
+test3.js
 
 # -------------------------------------------------
 
 need to name images of places according to place column in db as well as their redirecting html file ... eg. placename.jpg and placename.html
+
+# -------------------------------------------------
+
+color changes...
+dark color = #021323
+nav
+Parallax
+yo

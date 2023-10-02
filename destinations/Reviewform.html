@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-
         REVIEW FORM
     </title>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"
@@ -17,7 +16,7 @@
         Font, Alignment */
         @import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
         body {
-  background: #00ccff;
+  background: darkgrey;
             font-family: 'Josefin Sans', sans-serif;
             text-align: center;
         }
@@ -71,7 +70,7 @@
         /* Styling Button */
         button {
             font-weight: bold;
-            background-image: linear-gradient(-180deg, #37AEE2 0%, #1E96C8 100%);
+            background-image: linear-gradient(-180deg, #c537e2 0%, #1e48c8 100%);
             border-radius: .5rem;
             /* box-sizing: border-box; */
             color: black;
@@ -88,7 +87,7 @@
         }
 
         button:hover {
-            background-image: linear-gradient(-180deg, #1D95C9 0%, #17759C 100%);
+            background-image: linear-gradient(-180deg, #c91d8d 0%, #9c1719 100%);
         }
         h1{
             padding-top: 25px;
@@ -123,12 +122,10 @@
         </div> -->
 
 
-        <div class="form-control">
+        <!-- <div class="form-control">
             <label for="age">
                 Rating
             </label>
-
-            <!-- Input Type Text -->
             <select name="rating" id="rating">
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -136,7 +133,7 @@
                 <option value="4">4</option>
                 <option value="5">5</option>
             </select>
-        </div>
+        </div> -->
 
         <div class="form-control">
             <label for="role">
@@ -145,12 +142,12 @@
 
             <!-- Dropdown options -->
             <select name="city" id="city">
-                <option value="mumbai">MUMBAI</option>
-                <option value="delhi">DELHI</option>
-                <option value="manali">MANALI</option>
-                <option value="kolkata">KOLKATA</option>
-                <option value="ahemdabad">AHEMDABAD</option>
-                <option value="rajasthan">JAIPUR</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Manali">Manali</option>
+                <option value="Kolkata">Kolkata</option>
+                <option value="Ahemdabad">Ahemdabad</option>
+                <option value="Jaipur">Jaipur</option>
             </select>
         </div>
 
@@ -166,12 +163,8 @@
         </div>
 
         <div class="form-control">
-            <label for="comment">
-                Which place did you travel ?
-            </label>
-
-            <!-- multi-line text input control -->
-            <textarea name="place" id="place" placeholder="Enter place name here"></textarea>
+            <label for="role">Which place did you travel ?</label>
+            <select name="place" id="place"></select>
         </div>
 
         <div class="form-control">
@@ -187,59 +180,88 @@
         </button>
         
     </form>
-
-
+    
     <script>
-        const submitButton = document.getElementById("submitb");
-        $(document).ready(function () {
-            $.ajaxSetup({
-                headers: {
-                    "Content-Type": "application/json",
-                    Accept: "application/json",
+        function getPlaceNames() {
+            const selectedCity = $('#city').val();
+            const selectedKind = $('#kind').val();
+
+            console.log('selected city & kind:', selectedCity, selectedKind);
+
+            $.ajax({
+                type: 'GET',
+                url: `http://127.0.0.1:3000/getplaces?city=${selectedCity}&kind=${selectedKind}`,
+                success: function (placeNames) {
+                    const placeSelect = document.getElementById('place');
+                    placeSelect.innerHTML = '';
+
+                    placeNames.forEach(function (place) {
+                        const option = document.createElement('option')
+                        option.value = place;
+                        option.text = place;
+                        placeSelect.appendChild(option);
+                    });
+                    console.log(placeNames)
+                },
+                error: function (error) {
+                    console.error('Error fetching places: ', error)
                 },
             });
-        });
-        $("#submitb").click(function () {
+        }
 
-            jsonData = {};
-            // jsonData["first_name"] = $("#addfname").val();
-            // jsonData["last_name"] = $("#addlname").val();
-            jsonData["name"] = $("#name").val();
-            jsonData["kind"] = $("#kind").val();
-            jsonData["place"] = $("#place").val();
-            jsonData["city"] = $("#city").val();
-            jsonData["rating"] = $("#rating").val();
-            jsonData["comment"] = $("#comment").val();
-
-            console.log(jsonData);
+        function submitReview() {
+            const jsonData = {
+                name: $('#name').val(),
+                city: $('#city').val(),
+                kind: $('#kind').val(),
+                place: $('#place').val(),
+                comment: $('#comment').val()
+            };
             $.ajax({
-                type: "POST",
-                url: "http://127.0.0.1:3000/addReview",
-                contentType: "application/json",
+                type: 'POST',
+                url: 'http://127.0.0.1:3000/addReview',
+                contentType: 'application/json',
                 headers: {
-                    "Access-Control-Allow-Origin": "*",
-                    "Content-Type": "application/json",
-                    Accept: "application/json",
+                    'Access-Control-Allow-Origin': '*',
+                    'Content-Type': 'application/json',
+                    Accept: 'application/json',
                 },
-
                 data: JSON.stringify(jsonData),
                 success: function (result) {
                     console.log(result);
                     if (result.errors != undefined) {
                         alert(result.errors);
-                        // alert("Enter Email / UserName / Password.");
                     } else {
-                        // alert("unable to add review...")
-                        alert("Thank you for your feedback!")
-                        // window.location = "/Users/jitenparmar/jitenStuff/gitTraveIt/TravelIt/Homepage.html"
+                        alert('Thank you for your feedback 😊')
                     }
                 },
-                // error: function (result) {
-                //   alert("error");
-                // },
+                error: function (result) {
+                    console.error('Error:', result);
+                },
+            });
+        }
+
+        $(document).ready(function () {
+            getPlaceNames();
+
+            $.ajaxSetup({
+                headers: {
+                    "Content-Type": "applications/json",
+                },
+            });
+
+            $('#city').change(function () {
+                getPlaceNames();
+            });
+
+            $('#kind').change(function () {
+                getPlaceNames();
+            });
+
+            $('#submitb').click(function (){
+                submitReview();
             });
         });
-
     </script>
 </body>
 

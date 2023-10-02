@@ -180,60 +180,7 @@
         </button>
         
     </form>
-
-<!-- 
-    <script>
-        const submitButton = document.getElementById("submitb");
-        $(document).ready(function () {
-            $.ajaxSetup({
-                headers: {
-                    "Content-Type": "application/json",
-                    Accept: "application/json",
-                },
-            });
-        });
-        $("#submitb").click(function () {
-
-            jsonData = {};
-            // jsonData["first_name"] = $("#addfname").val();
-            // jsonData["last_name"] = $("#addlname").val();
-            jsonData["name"] = $("#name").val();
-            jsonData["kind"] = $("#kind").val();
-            jsonData["place"] = $("#place").val();
-            jsonData["city"] = $("#city").val();
-            jsonData["rating"] = $("#rating").val();
-            jsonData["comment"] = $("#comment").val();
-
-            console.log(jsonData);
-            $.ajax({
-                type: "POST",
-                url: "http://127.0.0.1:3000/addReview",
-                contentType: "application/json",
-                headers: {
-                    "Access-Control-Allow-Origin": "*",
-                    "Content-Type": "application/json",
-                    Accept: "application/json",
-                },
-
-                data: JSON.stringify(jsonData),
-                success: function (result) {
-                    console.log(result);
-                    if (result.errors != undefined) {
-                        alert(result.errors);
-                        // alert("Enter Email / UserName / Password.");
-                    } else {
-                        // alert("unable to add review...")
-                        alert("Thank you for your feedback!")
-                        // window.location = "/Users/jitenparmar/jitenStuff/gitTraveIt/TravelIt/Homepage.html"
-                    }
-                },
-                // error: function (result) {
-                //   alert("error");
-                // },
-            });
-        });
-
-    </script> -->
+    
     <script>
         function getPlaceNames() {
             const selectedCity = $('#city').val();

@@ -7,13 +7,13 @@
     height: 700px;
     width: 1110px;
     text-align: center;
-    border: 6px solid #afafaf;
+    border: 6px solid #b08968;
     padding: 15px;
     transition: all .5s;
     border-radius: 10px;
 } 
 .boxr:hover {
-    border-color: darkslategray;
+    border-color: #7f5539;
   }
 .carousel{
      height: 550px;  
@@ -24,7 +24,7 @@
  .carousel-item {
 	width: 380px;
   margin-bottom: 0px;
-	background: darkslategray; 
+	background: #b08968; 
   padding: 130px; 
 	height: 400px;
 	text-align: center;
@@ -59,7 +59,7 @@
 
 }
 .rBtn{
-	background: darkslategray;
+	background: #7f5539;
   border-radius: 999px;
   box-shadow: darkslategray 0 10px 20px -10px;
   box-sizing: border-box;

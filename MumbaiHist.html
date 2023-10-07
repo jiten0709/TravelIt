@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
         rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap"
@@ -28,9 +29,61 @@
         </div>
     </section>
 
+    <canvas id="barChart" style="padding-left: 180px;padding-right: 180px;padding-bottom: 60px;padding-top: 1px;"></canvas>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function () {
+            function displayGraph(city, kind) {
+                const url = `http://127.0.0.1:3000/getChartData?city=${city}&kind=${kind}`;
+                $.ajax({
+                    url: url, // Replace with the actual URL for fetching chart data
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (data) {
+                        const places = data.places; // Array of place names
+                        const positiveCounts = data.positiveCounts; // Array of positive review counts for each place
+                        const negativeCounts = data.negativeCounts; // Array of negative review counts for each place
+
+                        const ctx = document.getElementById('barChart').getContext('2d');
+
+                        new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                                labels: places,
+                                datasets: [
+                                    {
+                                        label: 'Positive Reviews',
+                                        data: positiveCounts,
+                                        backgroundColor: 'rgba(75, 192, 192, 0.6)', // Color for positive bars
+                                        borderColor: 'rgba(75, 192, 192, 1)',
+                                        borderWidth: 1,
+                                    },
+                                    {
+                                        label: 'Negative Reviews',
+                                        data: negativeCounts,
+                                        backgroundColor: 'rgba(255, 99, 132, 0.6)', // Color for negative bars
+                                        borderColor: 'rgba(255, 99, 132, 1)',
+                                        borderWidth: 1,
+                                    },
+                                ],
+                            },
+                            options: {
+                                scales: {
+                                    y: {
+                                        beginAtZero: true,
+                                    },
+                                },
+                            },
+                        });
+                        console.log('Data got from db for graph: ', data);
+                    },
+                    
+                    error: function (error) {
+                        console.error('Error fetching chart data:', error);
+                    },
+                });
+            }
             // Function to fetch and display places based on the selected city and kind
             function fetchAndDisplayPlaces(city, kind) {
                 const url = `http://127.0.0.1:3000/getPlacesByCity?city=${city}&kind=${kind}`;
@@ -60,7 +113,7 @@
                             `;
                             $('#places-container').append(placeItem);
                         });
-                        console.log('Data got from db: ', places);
+                        console.log('Data got from db for displaying places in desc order: ', places);
                     },
                     error: function (error) {
                         console.log('Error fetching places:', error);
@@ -71,6 +124,7 @@
             // Add event listener for the "Fetch Places" button
             const selectedCity = 'Mumbai'; // Change this to your desired city
             const selectedKind = 'Historical'; // Change this to 'Adventurous' or 'Historical'
+            displayGraph(selectedCity, selectedKind);
             fetchAndDisplayPlaces(selectedCity, selectedKind);
         });
     </script>

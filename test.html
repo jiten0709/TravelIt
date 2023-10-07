@@ -1,266 +1,131 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        REVIEW FORM
-    </title>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
-        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <title>Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <style>
-        /* Styling the Body element i.e. Color,
-        Font, Alignment */
-        @import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
-        body {
-  background: darkgrey;
-            font-family: 'Josefin Sans', sans-serif;
-            text-align: center;
-        }
-
-        /* Styling the Form (Color, Padding, Shadow) */
-        form {
-            border-radius: 10px;
-            background-color: #fff;
-            max-width: 500px;
-            margin: 50px auto;
-            padding: 30px 20px;
-            box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
-        }
-
-        /* Styling form-control Class */
-        .form-control {
-            font-size: 16px;
-            text-align: left;
-            margin-bottom: 20px;
-        }
-
-        /* Styling form-control Label */
-        .form-control label {
-
-            display: inline-block;
-            margin-bottom: 10px;
-        }
-
-        /* Styling form-control input,
-        select, textarea */
-        .form-control input,
-        .form-control select,
-        .form-control textarea {
-            font-size: 14px;
-            border: 1px solid #777;
-            border-radius: 5px;
-            font-family: inherit;
-            padding: 5px;
-            display: block;
-            width: 95%;
-        }
-
-        /* Styling form-control Radio
-        button and Checkbox */
-        .form-control input[type="radio"],
-        .form-control input[type="checkbox"] {
-            display: inline-block;
-            width: auto;
-        }
-
-        /* Styling Button */
-        button {
-            font-weight: bold;
-            background-image: linear-gradient(-180deg, #c537e2 0%, #1e48c8 100%);
-            border-radius: .5rem;
-            /* box-sizing: border-box; */
-            color: black;
-            display: flex;
-            font-size: 18px;
-            justify-content: center;
-            padding: 1rem 1.75rem;
-            text-decoration: none;
-            width: 100%;
-            border: 0;
-            cursor: pointer;
-            touch-action: manipulation;
-            margin-top: 30px;
-        }
-
-        button:hover {
-            background-image: linear-gradient(-180deg, #c91d8d 0%, #9c1719 100%);
-        }
-        h1{
-            padding-top: 25px;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <title>Historical</title>
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="destinations/css/bootstrap.css" />
+    <link rel="stylesheet" href="style2.css">
 </head>
 
 <body>
-
-    <h1> REVIEW FORM </h1>
-
-    <!-- Create Form -->
-    <form id="form">
-
-        <!-- Details -->
-        <div class="form-control">
-            <label for="name">
-                Name
-            </label>
-
-            <!-- Input Type Text -->
-            <input type="text" id="name" placeholder="Enter your name" />
+    <section class="text-center">
+        <div class="section-heading">
+            <h2>Historical Destinations</h2>
         </div>
-
-        <!-- <div class="form-control">
-            <label for="email">
-                Email
-            </label> -->
-
-        <!-- Input Type Email-->
-        <!-- <input type="email" id="email" placeholder="Enter your email" />
-        </div> -->
-
-
-        <!-- <div class="form-control">
-            <label for="age">
-                Rating
-            </label>
-            <select name="rating" id="rating">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
-        </div> -->
-
-        <div class="form-control">
-            <label for="role">
-                Which City ?
-            </label>
-
-            <!-- Dropdown options -->
-            <select name="city" id="city">
-                <option value="Mumbai">Mumbai</option>
-                <option value="Delhi">Delhi</option>
-                <option value="Manali">Manali</option>
-                <option value="Kolkata">Kolkata</option>
-                <option value="Ahemdabad">Ahemdabad</option>
-                <option value="Jaipur">Jaipur</option>
-            </select>
+    </section>
+    <section class="section" id="chefs">
+        <div class="container">
+            <div class="row" id="places-container">
+                <!-- Placeholder for places and positive counts -->
+            </div>
         </div>
+    </section>
 
-        <div class="form-control">
-            <label>Is it a Historical place or Adventurous place ?</label>
+    <canvas id="barChart" style="padding-left: 180px;padding-right: 180px;padding-bottom: 60px;padding-top: 1px;"></canvas>
 
-            <!-- Input Type Radio Button -->
-            <select name="kind" id="kind">
-                <option value="Historical">Historical</option>
-                <option value="Adventurous">Adventurous</option>
-
-            </select>
-        </div>
-
-        <div class="form-control">
-            <label for="role">Which place did you travel ?</label>
-            <select name="place" id="place"></select>
-        </div>
-
-        <div class="form-control">
-            <label for="comment">Any comments or suggestions ?</label>
-
-            <!-- multi-line text input control -->
-            <textarea name="comment" id="comment" placeholder="Enter your comment here"></textarea>
-        </div>
-
-        <!-- Multi-line Text Input Control -->
-        <button class="rev" type="submit" id="submitb">
-            SUBMIT
-        </button>
-        
-    </form>
-    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        function getPlaceNames() {
-            const selectedCity = $('#city').val();
-            const selectedKind = $('#kind').val();
-
-            console.log('selected city & kind:', selectedCity, selectedKind);
-
-            $.ajax({
-                type: 'GET',
-                url: `http://127.0.0.1:3000/getplaces?city=${selectedCity}&kind=${selectedKind}`,
-                success: function (placeNames) {
-                    const placeSelect = document.getElementById('place');
-                    placeSelect.innerHTML = '';
-
-                    placeNames.forEach(function (place) {
-                        const option = document.createElement('option')
-                        option.value = place;
-                        option.text = place;
-                        placeSelect.appendChild(option);
-                    });
-                    console.log(placeNames)
-                },
-                error: function (error) {
-                    console.error('Error fetching places: ', error)
-                },
-            });
-        }
-
-        function submitReview() {
-            const jsonData = {
-                name: $('#name').val(),
-                city: $('#city').val(),
-                kind: $('#kind').val(),
-                place: $('#place').val(),
-                comment: $('#comment').val()
-            };
-            $.ajax({
-                type: 'POST',
-                url: 'http://127.0.0.1:3000/addReview',
-                contentType: 'application/json',
-                headers: {
-                    'Access-Control-Allow-Origin': '*',
-                    'Content-Type': 'application/json',
-                    Accept: 'application/json',
-                },
-                data: JSON.stringify(jsonData),
-                success: function (result) {
-                    console.log(result);
-                    if (result.errors != undefined) {
-                        alert(result.errors);
-                    } else {
-                        alert('Thank you for your feedback 😊')
-                    }
-                },
-                error: function (result) {
-                    console.error('Error:', result);
-                },
-            });
-        }
-
         $(document).ready(function () {
-            getPlaceNames();
+            function displayGraph(city, kind) {
+                const url = `http://127.0.0.1:3000/getChartData?city=${city}&kind=${kind}`;
+                $.ajax({
+                    url: url, // Replace with the actual URL for fetching chart data
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (data) {
+                        const places = data.places; // Array of place names
+                        const positiveCounts = data.positiveCounts; // Array of positive review counts for each place
+                        const negativeCounts = data.negativeCounts; // Array of negative review counts for each place
 
-            $.ajaxSetup({
-                headers: {
-                    "Content-Type": "applications/json",
-                },
-            });
+                        const ctx = document.getElementById('barChart').getContext('2d');
 
-            $('#city').change(function () {
-                getPlaceNames();
-            });
+                        new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                                labels: places,
+                                datasets: [
+                                    {
+                                        label: 'Positive Reviews',
+                                        data: positiveCounts,
+                                        backgroundColor: '#dec6aa', // Color for positive bars
+                                        borderColor: '#dec6aa',
+                                        borderWidth: 1,
+                                    },
+                                    {
+                                        label: 'Negative Reviews',
+                                        data: negativeCounts,
+                                        backgroundColor: 'black', // Color for negative bars
+                                        borderColor: 'black',
+                                        borderWidth: 1,
+                                    },
+                                ],
+                            },
+                            options: {
+                                scales: {
+                                    y: {
+                                        beginAtZero: true,
+                                    },
+                                },
+                            },
+                        });
+                        console.log('Data got from db for graph: ', data);
+                    },
+                    
+                    error: function (error) {
+                        console.error('Error fetching chart data:', error);
+                    },
+                });
+            }
+            // Function to fetch and display places based on the selected city and kind
+            function fetchAndDisplayPlaces(city, kind) {
+                const url = `http://127.0.0.1:3000/getPlacesByCity?city=${city}&kind=${kind}`;
+                $.ajax({
+                    type: 'GET',
+                    url: url,
+                    contentType: 'application/json',
+                    success: function (places) {
+                        // Clear the existing places
+                        $('#places-container').empty();
 
-            $('#kind').change(function () {
-                getPlaceNames();
-            });
+                        // Iterate through the fetched places and create HTML elements
+                        places.forEach((place) => {
+                            const placeItem = `
+                                <div class="col-lg-4">
+                                    <div class="chef-item">
+                                        <div class="thumb">
+                                            <img src="destinations/img/${place.place}.jpg" alt="${place.place}" width="600" height="300" />
+                                        </div>
+                                        <div class="down-content">
+                                            <a href="destinations/${place.place}.html" target="_self">
+                                                <button type="submit" class="btn">${place.place}</button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                            $('#places-container').append(placeItem);
+                        });
+                        console.log('Data got from db for displaying places in desc order: ', places);
+                    },
+                    error: function (error) {
+                        console.log('Error fetching places:', error);
+                    }
+                });
+            }
 
-            $('#submitb').click(function (){
-                submitReview();
-            });
+            // Add event listener for the "Fetch Places" button
+            const selectedCity = 'Mumbai'; // Change this to your desired city
+            const selectedKind = 'Historical'; // Change this to 'Adventurous' or 'Historical'
+            displayGraph(selectedCity, selectedKind);
+            fetchAndDisplayPlaces(selectedCity, selectedKind);
         });
     </script>
 </body>

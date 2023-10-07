@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="style.css">
+  <!-- <link rel="stylesheet" href="rough.css"> -->
   <script>src = "myscripts.js"</script>
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -46,9 +47,25 @@
           }
         });
       }
+      function getNegativeCount() {
+        const url = 'http://127.0.0.1:3000/getNegativeCount';
+        $.ajax({
+          type: 'GET',
+          url: url,
+          contentType: 'application/json',
+          success: function (response) {
+            console.log("negative count added: ", response);
+          },
+          error: function (error) {
+            console.log(error)
+          }
+        });
+      }
       addSentiment();
       getPositiveCount();
+      getNegativeCount();
     });
+    
   </script>
 
 </head>
@@ -115,7 +132,7 @@
       <img src="/TravelWebsite/TravelIt/assets/loading.gif" width="100%">
     </div>
   </div>  -->
-  <section class="Parallax">
+  <section class="Parallax" style="background-image: linear-gradient(to bottom, #ff8f8f, #fffc99);">
 
     <h2 id="text">TRAVEL IT!</h2>
     <img src="assets/monutain_01.png" id="m1">
@@ -274,7 +291,7 @@
             <img class="mySlides" src="destinations/img/historical/KOLKATA/05648444-7dc7-4c71-9a25-656e98a6a0a0.jpg"
               height="256px" width="700px">
             <img class="mySlides" src="destinations/img/adventure/tp3.jpg" height="256px" width="700px">
-            <img class="mySlides" src="destinations/img/historical/KOLKATA/howrah-1.jpg" height="256px" width="700px">
+            <img class="mySlides" src="destinations/img/historical/KOLKATA/howrah-2.jpg" height="256px" width="700px">
 
             <script>
               var myIndex = 0;
@@ -414,7 +431,7 @@
               style="margin-top: 0%; padding: 22px; background-color: #152328; color: white; font-family: 'Poppins', sans-serif;">
               Jaipur</h1>
 
-            <img class="mySlides4" src="destinations/img/historical/Jaipur/birla mandir 2.jpg" height="256px"
+            <img class="mySlides4" src="destinations/img/historical/Jaipur/birla mandir 3.jpg" height="256px"
               width="700px">
             <img class="mySlides4" src="destinations/img/adventure/river rafting 1.jpg" height="256px" width="700px">
             <img class="mySlides4" src="destinations/img/historical/Jaipur/jal mahal 1.jpg" height="256px"

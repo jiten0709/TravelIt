@@ -28,13 +28,14 @@ pip install psycopg2
 # -------------------------------------------------
 to get reviews via API ...travelit_venv/reviews_api.py
 to get sentiment of reviews ... on running index.html {head tag script}
-to get total count of positive reviews ... on running index.html {head tag script}
+to get total count of positive & negative reviews ... on running index.html {head tag script}
 
 # -------------------------------------------------
 
 current progress...
 rough.html 
 test3.js
+test.html ...graph
 
 # -------------------------------------------------
 

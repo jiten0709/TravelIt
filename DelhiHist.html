@@ -36,7 +36,7 @@
     <script>
         $(document).ready(function () {
             function displayGraph(city, kind) {
-                const url = http://127.0.0.1:3000/getChartData?city=${city}&kind=${kind};
+                const url = `http://127.0.0.1:3000/getChartData?city=${city}&kind=${kind}`;
                 $.ajax({
                     url: url, // Replace with the actual URL for fetching chart data
                     type: 'GET',
@@ -87,7 +87,7 @@
             }
             // Function to fetch and display places based on the selected city and kind
             function fetchAndDisplayPlaces(city, kind) {
-                const url = http://127.0.0.1:3000/getPlacesByCity?city=${city}&kind=${kind};
+                const url = `http://127.0.0.1:3000/getPlacesByCity?city=${city}&kind=${kind}`;
                 $.ajax({
                     type: 'GET',
                     url: url,
@@ -129,51 +129,7 @@
             fetchAndDisplayPlaces(selectedCity, selectedKind);
         });
     </script>
-    <script>
-        $(document).ready(function () {
-            // Function to fetch and display places based on the selected city and kind
-            function fetchAndDisplayPlaces(city, kind) {
-                const url = `http://127.0.0.1:3000/getPlacesByCity?city=${city}&kind=${kind}`;
-                $.ajax({
-                    type: 'GET',
-                    url: url,
-                    contentType: 'application/json',
-                    success: function (places) {
-                        // Clear the existing places
-                        $('#places-container').empty();
-
-                        // Iterate through the fetched places and create HTML elements
-                        places.forEach((place) => {
-                            const placeItem = `
-                                <div class="col-lg-4">
-                                    <div class="chef-item">
-                                        <div class="thumb">
-                                            <img src="destinations/img/${place.place}.jpg" alt="${place.place}" width="600" height="300" />
-                                        </div>
-                                        <div class="down-content">
-                                            <a href="destinations/${place.place}.html" target="_self">
-                                                <button type="submit" class="btn">${place.place}</button>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            `;
-                            $('#places-container').append(placeItem);
-                        });
-                        console.log('Data got from db: ', places);
-                    },
-                    error: function (error) {
-                        console.log('Error fetching places:', error);
-                    }
-                });
-            }
-
-            // Add event listener for the "Fetch Places" button
-            const selectedCity = 'Delhi'; // Change this to your desired city
-            const selectedKind = 'Historical'; // Change this to 'Adventurous' or 'Historical'
-            fetchAndDisplayPlaces(selectedCity, selectedKind);
-        });
-    </script>
+    
 
 </body>
 

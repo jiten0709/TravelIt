@@ -55,8 +55,23 @@
           }
         });
       }
+      function getNegativeCount() {
+        const url = 'http://127.0.0.1:3000/getNegativeCount';
+        $.ajax({
+          type: 'GET',
+          url: url,
+          contentType: 'application/json',
+          success: function (response) {
+            console.log("negatve count added: ", response);
+          },
+          error: function (error) {
+            console.log(error)
+          }
+        });
+      }
       addSentiment();
       getPositiveCount();
+      getNegativeCount();
     });
   </script>
 
@@ -124,7 +139,7 @@
       <img src="/TravelWebsite/TravelIt/assets/loading.gif" width="100%">
     </div>
   </div>  -->
-  <section class="Parallax">
+  <section class="Parallax" style="background-image: linear-gradient(to bottom, #ff8f8f, #fffc99);">
 
     <h2 id="text">TRAVEL IT!</h2>
     <img src="assets/monutain_01.png" id="m1">
@@ -206,7 +221,7 @@
   </Script>
 
   
-  <div class='yo' style="padding:40px">
+  <div style="padding:40px">
     <div class="card">
       <h1 style="color: black; padding-top: 0%; text-align: center; font-size: 80px;">Discover Top Destinations
       </h1>

@@ -233,13 +233,14 @@
             function displayReviews(reviews) {
               const reviewsContainer = $("#reviews-container");
               reviewsContainer.empty();
+            
     
               reviews.forEach((review) => {
                 const reviewElement = `
                                 <div class="carousel-item" href="#">
                                     <div class="testi">
                                         <div class="img-area">
-                                            <img src="${review.image_url}" alt="img">
+                                          <img src="${review.image_url}" alt="img">
                                         </div>
                                         <p>"${review.comment}"</p>
                                         <h4>${review.name}</h4>

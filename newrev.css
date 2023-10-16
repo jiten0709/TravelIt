@@ -5,14 +5,14 @@
   height: 700px;
   width: 1170px;
   text-align: center;
-  border: 6px solid #021323;
+  border: 6px solid black;
   padding: 15px;
   transition: all .5s;
   border-radius: 10px;
 } 
-.boxr:hover {
+/* .boxr:hover {
   border-color: #021323;
-}
+} */
 .carousel{
   height: 550px; 
   perspective: 250px;
@@ -42,7 +42,7 @@
 
 margin-bottom: 0px;  
 width: 400px;
-background: #021323;; 
+background: #dec6aa; 
 padding: 50px;
 height: 400px;
 text-align: center;
@@ -50,25 +50,25 @@ text-align: center;
   cursor: pointer;
 }
 .img-area {
-width: 100px;
-height: 100px;
+width: 80px;
+/* height: 100px; */
 margin: 0 auto;
 overflow: hidden;
 border-radius: 50%;
-border: inset 8px rgb(176, 223, 238);
+/* border: inset 8px rgb(176, 223, 238); */
 }
 .img-area img{
 width: 100%;
 }
 .testi p {
-color: white;
+color: black;
 font-size: 18px;
 line-height: 1.9;
 }
 .testi h4 {
 font-size: 20px;
 margin: 0;
-color: white;
+color: black;
 }
 .testi h5 {
 font-size: 14px;
@@ -78,11 +78,11 @@ margin: 7px 0;
 }
 .rBtn{
 /* background: #FB2576; */
-background: #c2185b;
+background: #dec6aa;
 border-radius: 999px;
-box-shadow: #2E0249 0 10px 20px -10px;
+/* box-shadow: #2E0249 0 10px 20px -10px; */
 box-sizing: border-box;
-color: #FFFFFF;
+color: black;
 cursor: pointer;
 font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
 font-size: 16px;
@@ -99,9 +99,9 @@ word-break: break-all;
 border: 0;
 }
 
-.rBtn:hover {
+/* .rBtn:hover {
   background: #021323;
-}
+} */
 #reviews-container{
   margin-top: 20px;
   margin-bottom: 100px;

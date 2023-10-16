@@ -195,9 +195,7 @@
     color: red;
   }
 
-   .Parallax {
-    background-image: linear-gradient(to bottom, #ff8f8f, #fffc99);
-   }
+  
 
   .yo {
       /* background-color: #e3fce3; */
@@ -1179,7 +1177,8 @@
     display :flex;
     justify-content: center;
     align-items: center;
-    height: 83vh;
+    height: 90vh;
+    background-image: linear-gradient(to bottom, #ff8f8f, #fffc99);
   }
   .Parallax img
   {

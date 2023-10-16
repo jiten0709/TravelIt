@@ -1,5 +1,4 @@
 # -------------------------------------------------
-
 Install express using npm
 npm install --save express
 
@@ -19,7 +18,6 @@ Now, start the backend server using:
 node index.js
 
 # -------------------------------------------------
-
 other installs...
 python -m pip install requests
 pip install psycopg2
@@ -31,19 +29,12 @@ to get sentiment of reviews ... on running index.html {head tag script}
 to get total count of positive reviews ... on running index.html {head tag script}
 
 # -------------------------------------------------
-
 current progress...
-rough.html 
+index.html 
 test3.js
 
 # -------------------------------------------------
-
 need to name images of places according to place column in db as well as their redirecting html file ... eg. placename.jpg and placename.html
 
 # -------------------------------------------------
 
-color changes...
-dark color = #021323
-nav
-Parallax
-yo

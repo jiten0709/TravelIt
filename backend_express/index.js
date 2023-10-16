@@ -151,68 +151,82 @@ app.post("/addFeedback", (req, res, next) => {
 // ---------- REVIEW'S DATA ------------
 
 app.get("/addSentiment", async (req, res) => {
-    try {
-      // Fetch all reviews
-      const query = "SELECT * FROM travelit.test";
-      const { rows } = await pool.query(query);
-  
-      // Initialize a map to store positive sentiment counts for each place
-      const placeSentimentCounts = new Map();
-  
-      const natural = require("natural");
-      const tokenizer = new natural.WordTokenizer();
-      const SentimentAnalyzer = natural.SentimentAnalyzer;
-      const stemmer = natural.PorterStemmer;
-      const analyzer = new SentimentAnalyzer("English", stemmer, "afinn");
-  
-      // Iterate through the reviews
-      for (const review of rows) {
-        const words = tokenizer.tokenize(review.comment);
-        const sentimentScore = analyzer.getSentiment(words);
-        let sentimentLabel;
-  
-        if (sentimentScore > 0) {
-          sentimentLabel = "positive";
-        } else if (sentimentScore < 0) {
-          sentimentLabel = "negative";
-        } else {
-          sentimentLabel = "neutral";
-        }
-  
-        // console.log(`Review ID: ${review.id}, Sentiment Label: ${sentimentLabel}`);
-  
-        // Update the sentiment label for this review in the database
-        const updateSentimentQuery = `
-            UPDATE travelit.test
-            SET sentiment = $1
-            WHERE rev_id = $2
-          `;
-        await pool.query(updateSentimentQuery, [sentimentLabel, review.rev_id]);
-  
-        if (sentimentScore > 0) {
-          // Update or initialize the positive count for this place
-          const place = review.place;
-          const currentCount = placeSentimentCounts.get(place) || 0;
-          placeSentimentCounts.set(place, currentCount + 1);
-        }
+  try {
+    // Fetch all reviews
+    const query = "SELECT * FROM travelit.test";
+    const { rows } = await pool.query(query);
+
+    // Initialize maps to store positive and negative sentiment counts for each place
+    const placeSentimentCounts = new Map();
+    const placeNegativeCounts = new Map();
+
+    const natural = require("natural");
+    const tokenizer = new natural.WordTokenizer();
+    const SentimentAnalyzer = natural.SentimentAnalyzer;
+    const stemmer = natural.PorterStemmer;
+    const analyzer = new SentimentAnalyzer("English", stemmer, "afinn");
+
+    // Iterate through the reviews
+    for (const review of rows) {
+      const words = tokenizer.tokenize(review.comment);
+      const sentimentScore = analyzer.getSentiment(words);
+      let sentimentLabel;
+
+      if (sentimentScore > 0) {
+        sentimentLabel = "positive";
+      } else {
+        sentimentLabel = "negative";
       }
-  
-      // Update the positive_count in the database
-      for (const [place, count] of placeSentimentCounts.entries()) {
-        const updateCountQuery = `
-            UPDATE travelit.test
-            SET positive_count = $1
-            WHERE place = $2
-          `;
-        await pool.query(updateCountQuery, [count, place]);
+
+      // Update the sentiment label for this review in the database
+      const updateSentimentQuery = `
+          UPDATE travelit.test
+          SET sentiment = $1
+          WHERE rev_id = $2
+        `;
+      await pool.query(updateSentimentQuery, [sentimentLabel, review.rev_id]);
+
+      if (sentimentScore > 0) {
+        // Update or initialize the positive count for this place
+        const place = review.place;
+        const currentPositiveCount = placeSentimentCounts.get(place) || 0;
+        placeSentimentCounts.set(place, currentPositiveCount + 1);
+      } else if (sentimentScore < 0) {
+        // Update or initialize the negative count for this place
+        const place = review.place;
+        const currentNegativeCount = placeNegativeCounts.get(place) || 0;
+        placeNegativeCounts.set(place, currentNegativeCount + 1);
       }
-  
-      res.json({ message: "Sentiment and positive counts updated successfully" });
-    } catch (error) {
-      console.error("Error updating sentiment and positive counts:", error);
-      res.status(500).json({ error: "Internal Server Error" });
     }
-  });
+
+    // Update the positive_count and negative_count in the database
+    for (const [place, positiveCount] of placeSentimentCounts.entries()) {
+      const negativeCount = placeNegativeCounts.get(place) || 0;
+
+      const updateCountsQuery = `
+          UPDATE travelit.test
+          SET positive_count = $1, negative_count = $2
+          WHERE place = $3
+        `;
+      await pool.query(updateCountsQuery, [
+        positiveCount,
+        negativeCount,
+        place,
+      ]);
+    }
+
+    res.json({
+      message:
+        "Sentiment, positive counts, and negative counts updated successfully",
+    });
+  } catch (error) {
+    console.error(
+      "Error updating sentiment, positive counts, and negative counts:",
+      error
+    );
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
 
 app.get("/getreviews", async (req, res) => {
   try {
@@ -279,6 +293,52 @@ app.get("/getPositiveCount", async (req, res) => {
   }
 });
 
+app.get("/getNegativeCount", async (req, res) => {
+  try {
+    res.header("Access-Control-Allow-Origin", "*");
+    // Get the city parameter from the request query
+    // const city = req.query.city
+    const query = "SELECT place, negative_count FROM travelit.test";
+    const { rows } = await pool.query(query);
+    const placeCounts = {};
+    rows.forEach((row) => {
+      placeCounts[row.place] = row.negative_count;
+    });
+    res.json(placeCounts);
+  } catch (error) {
+    console.log("Error fetching negative counts: ", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+app.get("/getChartData", async (req, res) => {
+  try {
+    res.header("Access-Control-Allow-Origin", "*");
+    const { city, kind } = req.query;
+    const query = `
+    SELECT DISTINCT place, positive_count, negative_count
+    FROM travelit.test
+    WHERE city = $1 AND kind = $2
+  `;
+    const { rows } = await pool.query(query, [city, kind]);
+
+    const places = rows.map((row) => row.place);
+    const positiveCounts = rows.map((row) => row.positive_count);
+    const negativeCounts = rows.map((row) => row.negative_count);
+
+    const chartData = {
+      places: places,
+      positiveCounts: positiveCounts,
+      negativeCounts: negativeCounts,
+    };
+
+    res.json(chartData);
+  } catch (error) {
+    console.error("Error fetching chart data:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
 app.get("/getPlacesByCity", async (req, res) => {
   try {
     res.header("Access-Control-Allow-Origin", "*");
@@ -297,7 +357,7 @@ app.get("/getPlacesByCity", async (req, res) => {
   }
 });
 
-app.get('/getPlaces', async (req, res) => {
+app.get("/getPlaces", async (req, res) => {
   try {
     const selectedCity = req.query.city;
     const selectedKind = req.query.kind;
@@ -308,14 +368,14 @@ app.get('/getPlaces', async (req, res) => {
       ORDER BY place ASC;
     `;
 
-    const {rows} = await pool.query(query, [selectedCity, selectedKind]);
+    const { rows } = await pool.query(query, [selectedCity, selectedKind]);
 
-    const placeNames = rows.map(row => row.place);
+    const placeNames = rows.map((row) => row.place);
 
     res.json(placeNames);
-  }catch (error) {
-    console.error('Error fetching place names of:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
+  } catch (error) {
+    console.error("Error fetching place names of:", error);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 });
 
@@ -335,23 +395,25 @@ app.get('/getPlaces', async (req, res) => {
 //   });
 // });
 
-app.post('/addReview', (req, res) => {
+app.post("/addReview", (req, res) => {
   const review = req.body;
-  console.log('Data added:', review);
+  console.log("Data added:", review);
 
   // Insert review into the database
-  pool.query('INSERT INTO travelit.test (name, city, kind, place, comment) VALUES ($1, $2, $3, $4, $5)', 
-    [review.name, review.city, review.kind, review.place, review.comment], (err, result) => {
-    if (err) {
-      res.status(500).json({ error: 'Error inserting review' });
-      console.log('Error inserting review:', err)
-    } else {
-      res.json({ message: 'Review added successfully' });
-      console.log('Review added successfully');
+  pool.query(
+    "INSERT INTO travelit.test (name, city, kind, place, comment) VALUES ($1, $2, $3, $4, $5)",
+    [review.name, review.city, review.kind, review.place, review.comment],
+    (err, result) => {
+      if (err) {
+        res.status(500).json({ error: "Error inserting review" });
+        console.log("Error inserting review:", err);
+      } else {
+        res.json({ message: "Review added successfully" });
+        console.log("Review added successfully");
+      }
     }
-  });
+  );
 });
-
 
 // ----------------------
 // Require the Routes API

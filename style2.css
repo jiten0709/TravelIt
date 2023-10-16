@@ -188,11 +188,11 @@ p {
 
 .btn {
 
-  background: #150050;
+  background: #dec6aa;
   border-radius: 999px;
-  box-shadow: #FB2576 0 10px 20px -10px;
+  /* box-shadow: #FB2576 0 10px 20px -10px; */
   box-sizing: border-box;
-  color: aliceblue;
+  color: black;
   cursor: pointer;
   font-family: Inter, Helvetica, "Apple Color Emoji", "Segoe UI Emoji", NotoColorEmoji, "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", EmojiSymbols, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", sans-serif;
   font-size: 16px;
@@ -209,9 +209,9 @@ p {
   border: 0;
 }
 
-.btn:hover {
-  color: #FB2576;
-}
+/* .btn:hover {
+  color: black;
+} */
 
 /* 
 ---------------------------------------------
@@ -285,15 +285,15 @@ chefs
 
 #chefs .chef-item {
   text-align: center;
-  border: 5px solid #3F0071;
+  border: 5px solid black;
   padding: 15px;
   transition: all .5s;
   border-radius: 10px;
 }
 
-#chefs .chef-item:hover {
+/* #chefs .chef-item:hover {
   border-color: #FB2576;
-}
+} */
 
 #chefs .chef-item:hover .down-content h4 {
   color: #FB2576;
@@ -312,7 +312,7 @@ chefs
 
 #chefs .chef-item .thumb .overlay {
   position: absolute;
-  background-color: #2a2a2a;
+  /* background-color: #2a2a2a; */
   border-radius: 3px;
   top: 0;
   bottom: 0;

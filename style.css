@@ -8,6 +8,10 @@
 
 /* body {} */
 body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
   display: grid;
   background: #e6ded7;
   -webkit-transform: translate3d(0,0,0);
@@ -23,7 +27,7 @@ body {
 /* review */
 
 nav {
-  background: black;
+  background: #021323;
   height: 83px;
   width: 100%;
   font-family: 'Poppins', sans-serif;
@@ -191,6 +195,30 @@ a:hover {
   color: red;
 }
 
+
+
+.yo {
+    /* background-color: #e3fce3; */
+  /* background-color: #cff5fa; */
+  background-color: aliceblue;
+  /* background-image: repeating-linear-gradient(to bottom, #d5ecef, #b3ddf3); */
+}
+/* .yo {
+  background: linear-gradient(45deg, #aae0ec, #70ace5, #74e09a, #41d64d);
+  background-size: 200% 200%;
+  animation: gradient 10s linear infinite;
+}
+
+@keyframes gradient {
+  0% {
+      background-position: 0% 50%;
+  }
+  100% {
+      background-position: 100% 50%;
+  }
+} */
+
+
 .card {
   margin: 0 auto;
   float: none;
@@ -199,22 +227,21 @@ a:hover {
   float: center;
   align-items: center;
   justify-content: center;
-  background-color:#cccac4;
+  /* background-color: #f4e8ed; */
   width: 120%;
-  
 }
 
 html {
-  font-size: 85%;
+  font-size: 100%;
 }
-
+/*   
 #navbar {
   width: 100%;
   padding-right: 2rem;
   background-color: black;
   font-family: 'Poppins', sans-serif;
   font-style: bold;
-}
+} */
 
 .sticky {
   position: fixed;
@@ -403,7 +430,7 @@ a:hover {
   max-width: 340px;
   max-height: 660px;
   width: 90%;
-  background: #3085a3;
+  background: rgb(181, 204, 231);
   text-align: center;
  
 }
@@ -503,9 +530,38 @@ figure.effect-chico p {
   transition: opacity 0.35s, transform 0.35s;
 }
 
+figure.effect-chico h1 {
+  padding: 10% 0 20px 0;
+  margin-top: 0%; 
+  padding: 22px; 
+  background-color: #021323; 
+  color: white; 
+  font-family: 'Poppins', sans-serif;
+}
+
+.ha-btn-bg {
+  margin-bottom: 0%; 
+  background-color: #021323;
+}
+
+.msgBtn {
+  margin-bottom: 0%;
+  padding: 20px;
+  background-color: #021323;
+  font-size: larger;
+  color: white;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+}
+
+.msgBtn:hover {
+  background-color: #001C30;
+}
+
 figure.effect-chico h2 {
   padding: 20% 0 20px 0;
-}
+} 
 
 figure.effect-chico p {
   margin: 0 auto;
@@ -520,7 +576,7 @@ figure.effect-chico:hover p {
   -webkit-transform: scale(1);
   transform: scale(1);
 }
-/* ----------------------------------------------- */
+/* -----------------------------------------------
 .content2 {
 display: flex;
 align-items: center;
@@ -651,7 +707,7 @@ figure.effect-chico2:hover p {
   opacity: 1;
   -webkit-transform: scale(1);
   transform: scale(1);
-}
+} */
 /* ----------------------------------------------- */
 @media screen and (max-width: 50em) {
   .content {
@@ -1114,42 +1170,15 @@ ul {
   /* width:100%; */
 }
 
-.msgBtn {
-  margin-bottom: 0%;
-  padding: 20px;
-  background-color: #152328;
-  font-size: larger;
-  color: white;
-  text-decoration: none;
-  font-family: 'Poppins', sans-serif;
-  cursor: pointer;
-}
 
-.msgBtn:hover {
-  background-color: #3d3a3a;
-}
-
- .msgBtn2 {
-  margin-bottom: 0%;
-  padding: 20px;
-  background-color: #152328;
-  text-decoration: none;
-  font-size: larger;
-  color: white;
-  font-family: 'Poppins', sans-serif;
-  cursor: pointer;
-} 
-
-.msgBtn2:hover {
-  background-color: #3d3a3a;
-}
 .Parallax
 {
   position: relative;
   display :flex;
   justify-content: center;
   align-items: center;
-  height: 83vh;
+  height: 90vh;
+  background-image: linear-gradient(to bottom, #ff8f8f, #fffc99);
 }
 .Parallax img
 {

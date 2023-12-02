@@ -26,18 +26,19 @@ const stemmer = natural.PorterStemmer;
 
 const analyzer = new SentimentAnalyzer('English', stemmer, 'afinn');
 
-const text = "bad place";
+// const text = "the place was good but i did not like the food places around";
+// const text = "the food places nearby were enjoyable but the place was quite not good";
+const text = "the guides of the tourist place were aggressive but indeed the tourist place was beautiful";
+
 const words = tokenizer.tokenize(text);
 
 const sentimentScore = analyzer.getSentiment(words);
 let sentimentLabel;
 
-if (sentimentScore > 0) {
+if (sentimentScore >= 0) {
 sentimentLabel = 'positive';
-} else if (sentimentScore < 0) {
-sentimentLabel = 'negative';
 } else {
-sentimentLabel = 'neutral';
+sentimentLabel = 'negative';
 }
 
 console.log(`Word: ${words}, Sentiment: ${sentimentLabel}, Score: ${sentimentScore}`);
@@ -51,7 +52,7 @@ console.log(`Word: ${words}, Sentiment: ${sentimentLabel}, Score: ${sentimentSco
 // const tokenizer = new natural.WordTokenizer();
 // const sentiment = new Sentiment();
 
-// const text = "I am leaving this poor review because I signed up for a tour, paid and was never contacted.Before using this company see if you can find an email, an address or a phone number that works, I challenge you.Luckily I realized this and made other plans, now I am left to try to figure out how to get my money back.";
+// const text = "the food places nearby were enjoyable but the place was quite dirty";
 // const sentences = text.split(/[.!?]/);
 
 // let totalSentimentScore = 0;

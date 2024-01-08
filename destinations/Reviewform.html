@@ -183,19 +183,44 @@
     </form>
     
     <script>
+        let socket;
+    
+        function connectWebSocket() {
+            const serverUrl = 'ws://127.0.0.1:5500/destinations/Reviewform.html/ws';
+            
+            socket = new WebSocket(serverUrl);
+    
+            socket.onopen = function(event) {
+                console.log('WebSocket connection opened:', event);
+            };
+    
+            socket.onmessage = function(event) {
+                console.log('WebSocket message received:', event.data);
+            };
+    
+            socket.onclose = function(event) {
+                console.error('WebSocket connection closed:', event);
+                setTimeout(connectWebSocket, 1000);
+            };
+    
+            socket.onerror = function(error) {
+                console.error('WebSocket error:', error);
+            };
+        }
+    
         function getPlaceNames() {
             const selectedCity = $('#city').val();
             const selectedKind = $('#kind').val();
-
+    
             console.log('selected city & kind:', selectedCity, selectedKind);
-
+    
             $.ajax({
                 type: 'GET',
                 url: `http://127.0.0.1:3000/getplaces?city=${selectedCity}&kind=${selectedKind}`,
                 success: function (placeNames) {
                     const placeSelect = document.getElementById('place');
                     placeSelect.innerHTML = '';
-
+    
                     placeNames.forEach(function (place) {
                         const option = document.createElement('option')
                         option.value = place;
@@ -209,14 +234,17 @@
                 },
             });
         }
-
+    
         function submitReview() {
+
+            const image_url = "https://cdn2.vectorstock.com/i/1000x1000/40/21/black-background-and-white-letter-t-grunge-vector-27974021.jpg"
             const jsonData = {
                 name: $('#name').val(),
                 city: $('#city').val(),
                 kind: $('#kind').val(),
                 place: $('#place').val(),
-                comment: $('#comment').val()
+                comment: $('#comment').val(),
+                image_url: image_url
             };
             $.ajax({
                 type: 'POST',
@@ -241,29 +269,31 @@
                 },
             });
         }
-
+    
         $(document).ready(function () {
+            connectWebSocket(); 
             getPlaceNames();
-
+    
             $.ajaxSetup({
                 headers: {
                     "Content-Type": "applications/json",
                 },
             });
-
+    
             $('#city').change(function () {
                 getPlaceNames();
             });
-
+    
             $('#kind').change(function () {
                 getPlaceNames();
             });
-
+    
             $('#submitb').click(function (){
                 submitReview();
             });
         });
     </script>
+    
 </body>
 
 </html>

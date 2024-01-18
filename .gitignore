@@ -4,5 +4,3 @@ backend_express/node_modules
 
 travelit_env/bin
 travelit_env/lib
-
-nextval('travelit.users_rev_id_seq'::regclass)

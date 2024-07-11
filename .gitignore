@@ -4,3 +4,6 @@ backend_express/node_modules
 
 travelit_env/bin
 travelit_env/lib
+
+test_crawler.js
+test_SA.js

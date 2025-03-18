@@ -1,0 +1,43 @@
+.
+├── BackendTravelit
+│   ├── README.md
+│   ├── index.js
+│   ├── node_modules
+│   └── package.json
+├── FrontendTravelit
+│   ├── DelhiAdv.html
+│   ├── DelhiHist.html
+│   ├── Dockerfile
+│   ├── KolkataAdv.html
+│   ├── KolkataHist.html
+│   ├── MumbaiAdv.html
+│   ├── MumbaiHist.html
+│   ├── README.md
+│   ├── ahemdabadAdv.html
+│   ├── ahemdabadHist.html
+│   ├── assets
+│   ├── destinations
+│   ├── feedback.css
+│   ├── feedback.html
+│   ├── index.html
+│   ├── jaipurAdv.html
+│   ├── jaipurHist.html
+│   ├── loginPage.css
+│   ├── loginPage.html
+│   ├── manaliAdv.html
+│   ├── manaliHist.html
+│   ├── newrev.css
+│   ├── newrev.html
+│   ├── node_modules
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── qw.html
+│   ├── review.css
+│   ├── reviewDisplay.html
+│   ├── reviewDisplay.js
+│   ├── rough.css
+│   ├── roughrev.css
+│   ├── style.css
+│   ├── style2.css
+├── directory_structure.txt
+

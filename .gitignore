@@ -7,3 +7,6 @@ travelit_env/lib
 
 test_crawler.js
 test_SA.js
+
+delete.js
+.env

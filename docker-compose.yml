@@ -1,0 +1,50 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:latest
+    container_name: travelit_db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: TravelIt
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build: ./BackendTravelit
+    container_name: travelit_backend
+    restart: always
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_USER: postgres
+      DB_HOST: db
+      DB_NAME: TravelIt
+      DB_PASSWORD: postgres
+      DB_PORT: 5432 # Use the container's port 5432
+    ports:
+      - "${DOCKER_BACKEND_PORT}:${LOCAL_BACKEND_PORT}"
+
+  frontend:
+    build: ./FrontendTravelit
+    container_name: travelit_frontend
+    restart: always
+    depends_on:
+      - backend
+    ports:
+      - "${DOCKER_FRONTEND_PORT}:${LOCAL_FRONTEND_PORT}"
+    # volumes:
+    #   - ./FrontendTravelit:/usr/share/nginx/html
+
+volumes:
+  postgres_data:

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <title>Adventurous</title>
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="destinations/css/bootstrap.css" />
+    <link rel="stylesheet" href="style2.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <section class="text-center pt-5">
+        <div class="section-heading pt-5">
+            <h2>Adventurous Destinations</h2>
+        </div>
+    </section>
+    <section class="section" id="chefs">
+        <div class="container">
+            <div class="row" id="places-container">
+                <!-- Placeholder for places and positive counts -->
+            </div>
+        </div>
+    </section>
+
+    <canvas id="barChart"
+        style="padding-left: 180px; padding-right: 180px; padding-bottom: 60px; padding-top: 1px;"></canvas>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            const backendPort = 5004; // Ensure this matches the backend port in your Docker setup
+            const backendUrl = `http://${window.location.hostname}:${backendPort}`;
+
+            let chartInstance = null; // Track existing chart instance
+
+            function displayGraph(city, kind) {
+                const url = `${backendUrl}/getChartData?city=${city}&kind=${kind}`;
+                $.ajax({
+                    url: url,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (data) {
+                        const { places, positiveCounts, negativeCounts } = data;
+
+                        const ctx = document.getElementById('barChart').getContext('2d');
+
+                        // Destroy existing chart if it exists
+                        if (chartInstance) {
+                            chartInstance.destroy();
+                        }
+
+                        chartInstance = new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                                labels: places,
+                                datasets: [
+                                    {
+                                        label: 'Positive Reviews',
+                                        data: positiveCounts,
+                                        backgroundColor: '#dec6aa',
+                                        borderColor: '#dec6aa',
+                                        borderWidth: 1,
+                                    },
+                                    {
+                                        label: 'Negative Reviews',
+                                        data: negativeCounts,
+                                        backgroundColor: 'black',
+                                        borderColor: 'black',
+                                        borderWidth: 1,
+                                    },
+                                ],
+                            },
+                            options: {
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                scales: {
+                                    y: {
+                                        beginAtZero: true,
+                                    },
+                                },
+                            },
+                        });
+
+                        console.log('Graph data:', data);
+                    },
+                    error: function (error) {
+                        console.error('Error fetching chart data:', error);
+                    },
+                });
+            }
+
+            function fetchAndDisplayPlaces(city, kind) {
+                const url = `${backendUrl}/getPlacesByCity?city=${city}&kind=${kind}`;
+                $.ajax({
+                    type: 'GET',
+                    url: url,
+                    contentType: 'application/json',
+                    success: function (places) {
+                        $('#places-container').empty(); // Clear existing places
+
+                        places.forEach((place) => {
+                            const placeImage = `destinations/img/${place.place}.jpg`;
+                            const fallbackImage = 'destinations/img/default.jpg'; // Ensure a default image is available
+
+                            const placeItem = `
+                                <div class="col-lg-4">
+                                    <div class="chef-item">
+                                        <div class="thumb">
+                                            <img src="${placeImage}" alt="${place.place}" width="600" height="300" onerror="this.onerror=null;this.src='${fallbackImage}';" />
+                                        </div>
+                                        <div class="down-content">
+                                            <a href="destinations/${place.place}.html">
+                                                <button type="button" class="btn">${place.place}</button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+
+                            $('#places-container').append(placeItem);
+                        });
+
+                        console.log('Fetched places:', places);
+                    },
+                    error: function (error) {
+                        console.error('Error fetching places:', error);
+                    }
+                });
+            }
+
+            // Initial Data Load
+            const selectedCity = 'Mumbai';
+            const selectedKind = 'Adventurous';
+
+            displayGraph(selectedCity, selectedKind);
+            fetchAndDisplayPlaces(selectedCity, selectedKind);
+        });
+    </script>
+</body>
+
+</html>

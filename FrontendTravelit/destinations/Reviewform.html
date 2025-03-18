@@ -15,9 +15,8 @@
         /* Styling the Body element i.e. Color,
         Font, Alignment */
         @import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
-
         body {
-            background: #dec6aa;
+  background: #dec6aa;
             font-family: 'Josefin Sans', sans-serif;
             text-align: center;
         }
@@ -91,8 +90,7 @@
         button:hover {
             background-image: linear-gradient(-180deg, #c91d8d 0%, #9c1719 100%);
         }
-
-        h1 {
+        h1{
             padding-top: 25px;
         }
     </style>
@@ -181,48 +179,48 @@
         <button class="rev" type="submit" id="submitb">
             SUBMIT
         </button>
-
+        
     </form>
-
+    
     <script>
         let socket;
-
+    
         function connectWebSocket() {
             const serverUrl = 'ws://127.0.0.1:5500/destinations/Reviewform.html/ws';
-
+            
             socket = new WebSocket(serverUrl);
-
-            socket.onopen = function (event) {
+    
+            socket.onopen = function(event) {
                 console.log('WebSocket connection opened:', event);
             };
-
-            socket.onmessage = function (event) {
+    
+            socket.onmessage = function(event) {
                 console.log('WebSocket message received:', event.data);
             };
-
-            socket.onclose = function (event) {
+    
+            socket.onclose = function(event) {
                 console.error('WebSocket connection closed:', event);
                 setTimeout(connectWebSocket, 1000);
             };
-
-            socket.onerror = function (error) {
+    
+            socket.onerror = function(error) {
                 console.error('WebSocket error:', error);
             };
         }
-
+    
         function getPlaceNames() {
             const selectedCity = $('#city').val();
             const selectedKind = $('#kind').val();
-
+    
             console.log('selected city & kind:', selectedCity, selectedKind);
-
+    
             $.ajax({
                 type: 'GET',
                 url: `http://127.0.0.1:3000/getplaces?city=${selectedCity}&kind=${selectedKind}`,
                 success: function (placeNames) {
                     const placeSelect = document.getElementById('place');
                     placeSelect.innerHTML = '';
-
+    
                     placeNames.forEach(function (place) {
                         const option = document.createElement('option')
                         option.value = place;
@@ -236,7 +234,7 @@
                 },
             });
         }
-
+    
         function submitReview() {
 
             const image_url = "https://cdn2.vectorstock.com/i/1000x1000/40/21/black-background-and-white-letter-t-grunge-vector-27974021.jpg"
@@ -271,31 +269,31 @@
                 },
             });
         }
-
+    
         $(document).ready(function () {
-            connectWebSocket();
+            connectWebSocket(); 
             getPlaceNames();
-
+    
             $.ajaxSetup({
                 headers: {
                     "Content-Type": "applications/json",
                 },
             });
-
+    
             $('#city').change(function () {
                 getPlaceNames();
             });
-
+    
             $('#kind').change(function () {
                 getPlaceNames();
             });
-
-            $('#submitb').click(function () {
+    
+            $('#submitb').click(function (){
                 submitReview();
             });
         });
     </script>
-
+    
 </body>
 
 </html>

@@ -46,9 +46,13 @@
             <div class="align--left">
               <h1>MARBLE PALACE</h1>
               <p>
-                The only colossal structure that stands in a small lane of Muktaram Babu Street of North Kolkata is Raja Rajendra Miullick’s palatial house, popularly known as the Marble Palace.
-                The façade of the privately-owned mansion is built in neoclassical style, and still continues to be the residence of Rajendra Mullick’s descendants and is considered the most preserved monuments of Kolkata.
-                The mansion is surrounded by sprawling lawns, along with fountains and a private zoo. The galleries of the mansion are overstuffed with statues, portraits, mirrors, chandeliers and paintings that are by English, Dutch and Italian artists.              </p>
+                The only colossal structure that stands in a small lane of Muktaram Babu Street of North Kolkata is Raja
+                Rajendra Miullick’s palatial house, popularly known as the Marble Palace.
+                The façade of the privately-owned mansion is built in neoclassical style, and still continues to be the
+                residence of Rajendra Mullick’s descendants and is considered the most preserved monuments of Kolkata.
+                The mansion is surrounded by sprawling lawns, along with fountains and a private zoo. The galleries of
+                the mansion are overstuffed with statues, portraits, mirrors, chandeliers and paintings that are by
+                English, Dutch and Italian artists. </p>
             </div>
 
           </div>
@@ -69,7 +73,7 @@
                   <h3 class="mb0">Best time to visit</h3>
                   <br>
                   <p>
-                    10:00 a.m. to 4:00 p.m. 
+                    10:00 a.m. to 4:00 p.m.
                     <br>
                     On Mondays and Thursdays
                   </p>
@@ -93,8 +97,8 @@
                 </div>
               </div>
             </div>
-            
-              <!-- review -->
+
+            <!-- review -->
             <div class="grid-column span-12 mt1 reveal-on-scroll is-revealing">
               <div class="square">
                 <div class="aspect-ratio__content bg--tan">
@@ -129,8 +133,9 @@
                       height: 100%;
                     }
                   </style>
-                  
-                </div>
+
+                            
+                </div>
               </div>
             </div>
             <!-- map -->
@@ -140,14 +145,14 @@
                 background: rgba(0, 0, 0, 0) url(img/map.png) no-repeat
                   scroll center center/cover;
               ">
-            <a href="https://goo.gl/maps/Dayv43mdTKEanpPC9" target="_blank" class="link block full-height"></a>
+                  <a href="https://goo.gl/maps/Dayv43mdTKEanpPC9" target="_blank" class="link block full-height"></a>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-      
+
         <!-- Building pic - tablet and desktop -->
         <div class="grid-column span-12 mt1 hide-on-mobile reveal-on-scroll is-revealing">
           <div class="square">
@@ -159,84 +164,84 @@
         </div>
       </div>
 
-      
+
 
     </main>
 
-    
-          <!-- Scroll reveal -->
-          <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
 
-          <!-- The compiled JavaScript file -->
-          <script src="js/production.js"></script>
+    <!-- Scroll reveal -->
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
 
-        </div>
-    
-        <div class="boxr">
-          <button style="margin-top: 50px;margin-left: 30px;" type="button" class="positive-btn rBtn"
-            id="positiveBtn">POSITIVE
-            REVIEWS</button>
-          <button style="margin-left: 180px;margin-top: 50px;" type="button" class="negative-btn rBtn"
-            id="negativeBtn">NEGATIVE
-            REVIEWS</button>
-          <div class="carousel" id="reviews-container">
-          </div>
-        </div>
-        <script>
-          $(document).ready(function () {
-            // Get the buttons by their IDs
-            const positiveBtn = document.getElementById('positiveBtn');
-            const negativeBtn = document.getElementById('negativeBtn');
-            const place = 'MARBLE PALACE';
-    
-            // Add click event listeners to the buttons
-            positiveBtn.addEventListener('click', function () {
-              fetchAndDisplayReviews2('fetchPositive', place);
-            });
-    
-            negativeBtn.addEventListener('click', function () {
-              fetchAndDisplayReviews2('fetchNegative', place);
-            });
-    
-            function fetchAndDisplayReviews(sentiment) {
-              const url = `http://127.0.0.1:3000/getreviews?place=${encodeURIComponent(place)}`;
-              $.ajax({
-                type: "GET",
-                url: url,
-                contentType: "application/json",
-                success: function (response) {
-                  console.log(`Received reviews for ${place}: `, response);
-                  displayReviews(response);
-                },
-                error: function (error) {
-                  console.error("Error fetching reviews:", error);
-                },
-              });
-            }
-    
-    
-            function fetchAndDisplayReviews2(action, place) {
-              $.ajax({
-                type: "POST",
-                url: "http://127.0.0.1:3000/action",
-                contentType: "application/json",
-                data: JSON.stringify({ action: action, place: place }),
-                success: function (response) {
-                  console.log("Received specific reviews:", place, response);
-                  displayReviews(response.data);
-                },
-                error: function (error) {
-                  console.error("Error fetching reviews:", error);
-                },
-              });
-            }
-    
-            function displayReviews(reviews) {
-              const reviewsContainer = $("#reviews-container");
-              reviewsContainer.empty();
-    
-              reviews.forEach((review) => {
-                const reviewElement = `
+    <!-- The compiled JavaScript file -->
+    <script src="js/production.js"></script>
+
+  </div>
+
+  <div class="boxr">
+    <button style="margin-top: 50px;margin-left: 30px;" type="button" class="positive-btn rBtn"
+      id="positiveBtn">POSITIVE
+      REVIEWS</button>
+    <button style="margin-left: 180px;margin-top: 50px;" type="button" class="negative-btn rBtn"
+      id="negativeBtn">NEGATIVE
+      REVIEWS</button>
+    <div class="carousel" id="reviews-container">
+    </div>
+  </div>
+  <script>
+    $(document).ready(function () {
+      // Get the buttons by their IDs
+      const positiveBtn = document.getElementById('positiveBtn');
+      const negativeBtn = document.getElementById('negativeBtn');
+      const place = 'MARBLE PALACE';
+
+      // Add click event listeners to the buttons
+      positiveBtn.addEventListener('click', function () {
+        fetchAndDisplayReviews2('fetchPositive', place);
+      });
+
+      negativeBtn.addEventListener('click', function () {
+        fetchAndDisplayReviews2('fetchNegative', place);
+      });
+
+      function fetchAndDisplayReviews(sentiment) {
+        const url = `http://localhost:5004/getreviews?place=${encodeURIComponent(place)}`;
+        $.ajax({
+          type: "GET",
+          url: url,
+          contentType: "application/json",
+          success: function (response) {
+            console.log(`Received reviews for ${place}: `, response);
+            displayReviews(response);
+          },
+          error: function (error) {
+            console.error("Error fetching reviews:", error);
+          },
+        });
+      }
+
+
+      function fetchAndDisplayReviews2(action, place) {
+        $.ajax({
+          type: "POST",
+          url: "http://localhost:5004/action",
+          contentType: "application/json",
+          data: JSON.stringify({ action: action, place: place }),
+          success: function (response) {
+            console.log("Received specific reviews:", place, response);
+            displayReviews(response.data);
+          },
+          error: function (error) {
+            console.error("Error fetching reviews:", error);
+          },
+        });
+      }
+
+      function displayReviews(reviews) {
+        const reviewsContainer = $("#reviews-container");
+        reviewsContainer.empty();
+
+        reviews.forEach((review) => {
+          const reviewElement = `
                                 <div class="carousel-item" href="#">
                                     <div class="testi">
                                         <div class="img-area">
@@ -247,24 +252,24 @@
                                     </div>
                                 </div>
                             `;
-    
-                reviewsContainer.append(reviewElement);
-              });
-    
-              // Initialize the carousel after reviews are loaded
-              $(".carousel").carousel({
-                padding: 200,
-              });
-            }
-    
-            // Call the fetchAndDisplayReviews function to load reviews when the page loads
-    
-            fetchAndDisplayReviews(place);
-            // fetchAndDisplayReviews2('fetchNegative', place)
-            // fetchAndDisplayReviews2('fetchNegativeNPositive', place)
-          });
-        </script>
 
-    </body>
+          reviewsContainer.append(reviewElement);
+        });
+
+        // Initialize the carousel after reviews are loaded
+        $(".carousel").carousel({
+          padding: 200,
+        });
+      }
+
+      // Call the fetchAndDisplayReviews function to load reviews when the page loads
+
+      fetchAndDisplayReviews(place);
+      // fetchAndDisplayReviews2('fetchNegative', place)
+      // fetchAndDisplayReviews2('fetchNegativeNPositive', place)
+    });
+  </script>
+
+</body>
 
 </html>

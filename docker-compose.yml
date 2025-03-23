@@ -1,50 +1,60 @@
 version: "3.8"
 
 services:
-  db:
-    image: postgres:latest
-    container_name: travelit_db
+  postgres:
+    image: postgres:13
+    container_name: travelit-postgres
     restart: always
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: TravelIt
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
     ports:
-      - "5433:5432"
+      - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    networks:
+      - travelit_network
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER}"]
       interval: 10s
       timeout: 5s
       retries: 5
 
   backend:
-    build: ./BackendTravelit
-    container_name: travelit_backend
-    restart: always
-    depends_on:
-      db:
-        condition: service_healthy
-    environment:
-      DB_USER: postgres
-      DB_HOST: db
-      DB_NAME: TravelIt
-      DB_PASSWORD: postgres
-      DB_PORT: 5432 # Use the container's port 5432
+    build:
+      context: ./BackendTravelit
+      dockerfile: Dockerfile
+    container_name: travelit-backend
+    restart: unless-stopped
+    env_file:
+      - ./BackendTravelit/.env
     ports:
-      - "${DOCKER_BACKEND_PORT}:${LOCAL_BACKEND_PORT}"
+      - "5004:5004"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - travelit_network
 
   frontend:
-    build: ./FrontendTravelit
-    container_name: travelit_frontend
-    restart: always
+    build:
+      context: ./FrontendTravelit
+      dockerfile: Dockerfile
+    container_name: travelit-frontend
+    restart: unless-stopped
+    env_file:
+      - ./FrontendTravelit/.env
+    ports:
+      - "3000:80"
     depends_on:
       - backend
-    ports:
-      - "${DOCKER_FRONTEND_PORT}:${LOCAL_FRONTEND_PORT}"
-    # volumes:
-    #   - ./FrontendTravelit:/usr/share/nginx/html
+    networks:
+      - travelit_network
 
 volumes:
   postgres_data:
+
+networks:
+  travelit_network:
+    driver: bridge

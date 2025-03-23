@@ -44,12 +44,20 @@
         <div class="square">
           <div class="aspect-ratio__content centered-content border--tan p2">
             <div class="align--left">
-              <h1> VICEREGAL LODGE       </h1>
-              <p> 
-                The Rashtrapati Niwas, formerly known as Viceregal Lodge, is located on the Observatory Hills of Shimla, Himachal Pradesh, India. It was formerly the residence of the British Viceroy of India. It houses some of the most ancient articles and photographs going back to the times of the British rule in India.
-                The Viceregal Lodge was designed by British architect Henry Irwin and built in the Jacobethan style during Lord Dufferins tenure as Viceroy. Its construction started in 1880 and was completed in 1888. Lord Dufferin occupied the lodge on 23 July 1888. The final cost of project was around 38 lakh rupees with the annual upkeep cost being around 1.5 lakh rupees in the 1880s. At that time the estate stood on an area of 331 acres , but today is reduced to 110 acres . The structure draws inspiration from the architectural style of the English Renaissance, and also reflects elements of the castles of the Scottish Highlands. The building is of light blue-grey stone masonry with tiled pitch roofing.
-                
-  
+              <h1> VICEREGAL LODGE </h1>
+              <p>
+                The Rashtrapati Niwas, formerly known as Viceregal Lodge, is located on the Observatory Hills of Shimla,
+                Himachal Pradesh, India. It was formerly the residence of the British Viceroy of India. It houses some
+                of the most ancient articles and photographs going back to the times of the British rule in India.
+                The Viceregal Lodge was designed by British architect Henry Irwin and built in the Jacobethan style
+                during Lord Dufferins tenure as Viceroy. Its construction started in 1880 and was completed in 1888.
+                Lord Dufferin occupied the lodge on 23 July 1888. The final cost of project was around 38 lakh rupees
+                with the annual upkeep cost being around 1.5 lakh rupees in the 1880s. At that time the estate stood on
+                an area of 331 acres , but today is reduced to 110 acres . The structure draws inspiration from the
+                architectural style of the English Renaissance, and also reflects elements of the castles of the
+                Scottish Highlands. The building is of light blue-grey stone masonry with tiled pitch roofing.
+
+
               </p>
             </div>
 
@@ -89,14 +97,14 @@
                     <br>
                     <a href=" https://maps.app.goo.gl/UAywPoDxMFxJ6HWu9 ">2.The Corner House Restaurant & Bar</a>
                     <br>
-                     <!-- <a href="   ">3.</a>   -->
+                    <!-- <a href="   ">3.</a>   -->
                     <br>
                   </p>
                 </div>
               </div>
             </div>
-            
-              <!-- review -->
+
+            <!-- review -->
             <div class="grid-column span-12 mt1 reveal-on-scroll is-revealing">
               <div class="square">
                 <div class="aspect-ratio__content bg--tan">
@@ -131,8 +139,9 @@
                       height: 100%;
                     }
                   </style>
-                  
-                </div>
+
+                            
+                </div>
               </div>
             </div>
             <!-- map -->
@@ -142,14 +151,15 @@
                 background: rgba(0, 0, 0, 0) url(img/map.png) no-repeat
                   scroll center center/cover;
               ">
-            <a href="      https://maps.app.goo.gl/usmp4zt3uCqKMxf58      " target="_blank" class="link block full-height"></a>
+                  <a href="      https://maps.app.goo.gl/usmp4zt3uCqKMxf58      " target="_blank"
+                    class="link block full-height"></a>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-      
+
         <!-- Building pic - tablet and desktop -->
         <div class="grid-column span-12 mt1 hide-on-mobile reveal-on-scroll is-revealing">
           <div class="square">
@@ -161,84 +171,84 @@
         </div>
       </div>
 
-      
+
 
     </main>
 
-    
-          <!-- Scroll reveal -->
-          <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
 
-          <!-- The compiled JavaScript file -->
-          <script src="js/production.js"></script>
+    <!-- Scroll reveal -->
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
 
-        </div>
-    
-        <div class="boxr">
-          <button style="margin-top: 50px;margin-left: 30px;" type="button" class="positive-btn rBtn"
-            id="positiveBtn">POSITIVE
-            REVIEWS</button>
-          <button style="margin-left: 180px;margin-top: 50px;" type="button" class="negative-btn rBtn"
-            id="negativeBtn">NEGATIVE
-            REVIEWS</button>
-          <div class="carousel" id="reviews-container">
-          </div>
-        </div>
-        <script>
-          $(document).ready(function () {
-            // Get the buttons by their IDs
-            const positiveBtn = document.getElementById('positiveBtn');
-            const negativeBtn = document.getElementById('negativeBtn');
-            const place = 'Viceregal Lodge';
-    
-            // Add click event listeners to the buttons
-            positiveBtn.addEventListener('click', function () {
-              fetchAndDisplayReviews2('fetchPositive', place);
-            });
-    
-            negativeBtn.addEventListener('click', function () {
-              fetchAndDisplayReviews2('fetchNegative', place);
-            });
-    
-            function fetchAndDisplayReviews(sentiment) {
-              const url = `http://127.0.0.1:3000/getreviews?place=${encodeURIComponent(place)}`;
-              $.ajax({
-                type: "GET",
-                url: url,
-                contentType: "application/json",
-                success: function (response) {
-                  console.log(`Received reviews for ${place}: `, response);
-                  displayReviews(response);
-                },
-                error: function (error) {
-                  console.error("Error fetching reviews:", error);
-                },
-              });
-            }
-    
-    
-            function fetchAndDisplayReviews2(action, place) {
-              $.ajax({
-                type: "POST",
-                url: "http://127.0.0.1:3000/action",
-                contentType: "application/json",
-                data: JSON.stringify({ action: action, place: place }),
-                success: function (response) {
-                  console.log("Received specific reviews:", place, response);
-                  displayReviews(response.data);
-                },
-                error: function (error) {
-                  console.error("Error fetching reviews:", error);
-                },
-              });
-            }
-    
-            function displayReviews(reviews) {
-              const reviewsContainer = $("#reviews-container");
-              reviewsContainer.empty();
-    
-              reviews.forEach((review) => {
-                const reviewElement = `
+    <!-- The compiled JavaScript file -->
+    <script src="js/production.js"></script>
+
+  </div>
+
+  <div class="boxr">
+    <button style="margin-top: 50px;margin-left: 30px;" type="button" class="positive-btn rBtn"
+      id="positiveBtn">POSITIVE
+      REVIEWS</button>
+    <button style="margin-left: 180px;margin-top: 50px;" type="button" class="negative-btn rBtn"
+      id="negativeBtn">NEGATIVE
+      REVIEWS</button>
+    <div class="carousel" id="reviews-container">
+    </div>
+  </div>
+  <script>
+    $(document).ready(function () {
+      // Get the buttons by their IDs
+      const positiveBtn = document.getElementById('positiveBtn');
+      const negativeBtn = document.getElementById('negativeBtn');
+      const place = 'Viceregal Lodge';
+
+      // Add click event listeners to the buttons
+      positiveBtn.addEventListener('click', function () {
+        fetchAndDisplayReviews2('fetchPositive', place);
+      });
+
+      negativeBtn.addEventListener('click', function () {
+        fetchAndDisplayReviews2('fetchNegative', place);
+      });
+
+      function fetchAndDisplayReviews(sentiment) {
+        const url = `http://localhost:5004/getreviews?place=${encodeURIComponent(place)}`;
+        $.ajax({
+          type: "GET",
+          url: url,
+          contentType: "application/json",
+          success: function (response) {
+            console.log(`Received reviews for ${place}: `, response);
+            displayReviews(response);
+          },
+          error: function (error) {
+            console.error("Error fetching reviews:", error);
+          },
+        });
+      }
+
+
+      function fetchAndDisplayReviews2(action, place) {
+        $.ajax({
+          type: "POST",
+          url: "http://localhost:5004/action",
+          contentType: "application/json",
+          data: JSON.stringify({ action: action, place: place }),
+          success: function (response) {
+            console.log("Received specific reviews:", place, response);
+            displayReviews(response.data);
+          },
+          error: function (error) {
+            console.error("Error fetching reviews:", error);
+          },
+        });
+      }
+
+      function displayReviews(reviews) {
+        const reviewsContainer = $("#reviews-container");
+        reviewsContainer.empty();
+
+        reviews.forEach((review) => {
+          const reviewElement = `
                                 <div class="carousel-item" href="#">
                                     <div class="testi">
                                         <div class="img-area">
@@ -249,26 +259,24 @@
                                     </div>
                                 </div>
                             `;
-    
-                reviewsContainer.append(reviewElement);
-              });
-    
-              // Initialize the carousel after reviews are loaded
-              $(".carousel").carousel({
-                padding: 200,
-              });
-            }
-    
-            // Call the fetchAndDisplayReviews function to load reviews when the page loads
-    
-            fetchAndDisplayReviews(place);
-            // fetchAndDisplayReviews2('fetchNegative', place)
-            // fetchAndDisplayReviews2('fetchNegativeNPositive', place)
-          });
-        </script>
 
-    </body>
+          reviewsContainer.append(reviewElement);
+        });
+
+        // Initialize the carousel after reviews are loaded
+        $(".carousel").carousel({
+          padding: 200,
+        });
+      }
+
+      // Call the fetchAndDisplayReviews function to load reviews when the page loads
+
+      fetchAndDisplayReviews(place);
+      // fetchAndDisplayReviews2('fetchNegative', place)
+      // fetchAndDisplayReviews2('fetchNegativeNPositive', place)
+    });
+  </script>
+
+</body>
 
 </html>
-
-

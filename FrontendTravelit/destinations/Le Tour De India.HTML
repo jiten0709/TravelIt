@@ -44,9 +44,18 @@
         <div class="square">
           <div class="aspect-ratio__content centered-content border--tan p2">
             <div class="align--left">
-              <h1> LE TOUR DE INDIA           </h1>
+              <h1> LE TOUR DE INDIA </h1>
               <p>
-                A Mix of Adventure in every trip, We are a company dedicated to long and short travel experiences with expertise in Bicycle, Motorcycle and Horse back safaris combined with culture and off beat destinations. Bringing in the best in class equipment, trained and qualified tour captains, best of the safety practices followed world over. We are a completely in-house tour operator that owns and runs its tours with minimal external contracting, thus keeping the prices in check and services to the maximum. Le Tour De India is a specialized tour operator that offers: 1. Cycling Tours: city cycle & village cycle tours at Jaipur and Udaipur. Dedicated cycling based itineraries in Rajasthan 2. Motorcycle Tours: We are the specialist for motorcycle trips in Rajasthan . Our Most popular Day trip around Jaipur is - Jaipur - Sambhar Motorcycle Trip 3.Horse Back Safari: We offer short day excursions on Horseback and a 6 days Horse safari in Rajasthan
+                A Mix of Adventure in every trip, We are a company dedicated to long and short travel experiences with
+                expertise in Bicycle, Motorcycle and Horse back safaris combined with culture and off beat destinations.
+                Bringing in the best in class equipment, trained and qualified tour captains, best of the safety
+                practices followed world over. We are a completely in-house tour operator that owns and runs its tours
+                with minimal external contracting, thus keeping the prices in check and services to the maximum. Le Tour
+                De India is a specialized tour operator that offers: 1. Cycling Tours: city cycle & village cycle tours
+                at Jaipur and Udaipur. Dedicated cycling based itineraries in Rajasthan 2. Motorcycle Tours: We are the
+                specialist for motorcycle trips in Rajasthan . Our Most popular Day trip around Jaipur is - Jaipur -
+                Sambhar Motorcycle Trip 3.Horse Back Safari: We offer short day excursions on Horseback and a 6 days
+                Horse safari in Rajasthan
               </p>
             </div>
           </div>
@@ -91,8 +100,8 @@
                 </div>
               </div>
             </div>
-            
-              <!-- review -->
+
+            <!-- review -->
             <div class="grid-column span-12 mt1 reveal-on-scroll is-revealing">
               <div class="square">
                 <div class="aspect-ratio__content bg--tan">
@@ -127,8 +136,9 @@
                       height: 100%;
                     }
                   </style>
-                  
-                </div>
+
+                            
+                </div>
               </div>
             </div>
             <!-- map -->
@@ -138,14 +148,15 @@
                 background: rgba(0, 0, 0, 0) url(img/map.png) no-repeat
                   scroll center center/cover;
               ">
-            <a href="      https://maps.app.goo.gl/2nTiNQWPY2cSp3zY7       " target="_blank" class="link block full-height"></a>
+                  <a href="      https://maps.app.goo.gl/2nTiNQWPY2cSp3zY7       " target="_blank"
+                    class="link block full-height"></a>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-      
+
         <!-- Building pic - tablet and desktop -->
         <div class="grid-column span-12 mt1 hide-on-mobile reveal-on-scroll is-revealing">
           <div class="square">
@@ -157,84 +168,84 @@
         </div>
       </div>
 
-      
+
 
     </main>
 
-    
-          <!-- Scroll reveal -->
-          <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
 
-          <!-- The compiled JavaScript file -->
-          <script src="js/production.js"></script>
+    <!-- Scroll reveal -->
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
 
-        </div>
-    
-        <div class="boxr">
-          <button style="margin-top: 50px;margin-left: 30px;" type="button" class="positive-btn rBtn"
-            id="positiveBtn">POSITIVE
-            REVIEWS</button>
-          <button style="margin-left: 180px;margin-top: 50px;" type="button" class="negative-btn rBtn"
-            id="negativeBtn">NEGATIVE
-            REVIEWS</button>
-          <div class="carousel" id="reviews-container">
-          </div>
-        </div>
-        <script>
-          $(document).ready(function () {
-            // Get the buttons by their IDs
-            const positiveBtn = document.getElementById('positiveBtn');
-            const negativeBtn = document.getElementById('negativeBtn');
-            const place = 'Le Tour De India';
-    
-            // Add click event listeners to the buttons
-            positiveBtn.addEventListener('click', function () {
-              fetchAndDisplayReviews2('fetchPositive', place);
-            });
-    
-            negativeBtn.addEventListener('click', function () {
-              fetchAndDisplayReviews2('fetchNegative', place);
-            });
-    
-            function fetchAndDisplayReviews(sentiment) {
-              const url = `http://127.0.0.1:3000/getreviews?place=${encodeURIComponent(place)}`;
-              $.ajax({
-                type: "GET",
-                url: url,
-                contentType: "application/json",
-                success: function (response) {
-                  console.log(`Received reviews for ${place}: `, response);
-                  displayReviews(response);
-                },
-                error: function (error) {
-                  console.error("Error fetching reviews:", error);
-                },
-              });
-            }
-    
-    
-            function fetchAndDisplayReviews2(action, place) {
-              $.ajax({
-                type: "POST",
-                url: "http://127.0.0.1:3000/action",
-                contentType: "application/json",
-                data: JSON.stringify({ action: action, place: place }),
-                success: function (response) {
-                  console.log("Received specific reviews:", place, response);
-                  displayReviews(response.data);
-                },
-                error: function (error) {
-                  console.error("Error fetching reviews:", error);
-                },
-              });
-            }
-    
-            function displayReviews(reviews) {
-              const reviewsContainer = $("#reviews-container");
-              reviewsContainer.empty();
-    
-              reviews.forEach((review) => {
-                const reviewElement = `
+    <!-- The compiled JavaScript file -->
+    <script src="js/production.js"></script>
+
+  </div>
+
+  <div class="boxr">
+    <button style="margin-top: 50px;margin-left: 30px;" type="button" class="positive-btn rBtn"
+      id="positiveBtn">POSITIVE
+      REVIEWS</button>
+    <button style="margin-left: 180px;margin-top: 50px;" type="button" class="negative-btn rBtn"
+      id="negativeBtn">NEGATIVE
+      REVIEWS</button>
+    <div class="carousel" id="reviews-container">
+    </div>
+  </div>
+  <script>
+    $(document).ready(function () {
+      // Get the buttons by their IDs
+      const positiveBtn = document.getElementById('positiveBtn');
+      const negativeBtn = document.getElementById('negativeBtn');
+      const place = 'Le Tour De India';
+
+      // Add click event listeners to the buttons
+      positiveBtn.addEventListener('click', function () {
+        fetchAndDisplayReviews2('fetchPositive', place);
+      });
+
+      negativeBtn.addEventListener('click', function () {
+        fetchAndDisplayReviews2('fetchNegative', place);
+      });
+
+      function fetchAndDisplayReviews(sentiment) {
+        const url = `http://localhost:5004/getreviews?place=${encodeURIComponent(place)}`;
+        $.ajax({
+          type: "GET",
+          url: url,
+          contentType: "application/json",
+          success: function (response) {
+            console.log(`Received reviews for ${place}: `, response);
+            displayReviews(response);
+          },
+          error: function (error) {
+            console.error("Error fetching reviews:", error);
+          },
+        });
+      }
+
+
+      function fetchAndDisplayReviews2(action, place) {
+        $.ajax({
+          type: "POST",
+          url: "http://localhost:5004/action",
+          contentType: "application/json",
+          data: JSON.stringify({ action: action, place: place }),
+          success: function (response) {
+            console.log("Received specific reviews:", place, response);
+            displayReviews(response.data);
+          },
+          error: function (error) {
+            console.error("Error fetching reviews:", error);
+          },
+        });
+      }
+
+      function displayReviews(reviews) {
+        const reviewsContainer = $("#reviews-container");
+        reviewsContainer.empty();
+
+        reviews.forEach((review) => {
+          const reviewElement = `
                                 <div class="carousel-item" href="#">
                                     <div class="testi">
                                         <div class="img-area">
@@ -245,26 +256,24 @@
                                     </div>
                                 </div>
                             `;
-    
-                reviewsContainer.append(reviewElement);
-              });
-    
-              // Initialize the carousel after reviews are loaded
-              $(".carousel").carousel({
-                padding: 200,
-              });
-            }
-    
-            // Call the fetchAndDisplayReviews function to load reviews when the page loads
-    
-            fetchAndDisplayReviews(place);
-            // fetchAndDisplayReviews2('fetchNegative', place)
-            // fetchAndDisplayReviews2('fetchNegativeNPositive', place)
-          });
-        </script>
 
-    </body>
+          reviewsContainer.append(reviewElement);
+        });
+
+        // Initialize the carousel after reviews are loaded
+        $(".carousel").carousel({
+          padding: 200,
+        });
+      }
+
+      // Call the fetchAndDisplayReviews function to load reviews when the page loads
+
+      fetchAndDisplayReviews(place);
+      // fetchAndDisplayReviews2('fetchNegative', place)
+      // fetchAndDisplayReviews2('fetchNegativeNPositive', place)
+    });
+  </script>
+
+</body>
 
 </html>
-
-

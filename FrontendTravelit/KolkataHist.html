@@ -27,14 +27,15 @@
         </div>
     </section>
 
-    
-    <canvas id="barChart" style="padding-left: 180px;padding-right: 180px;padding-bottom: 60px;padding-top: 1px;"></canvas>
+
+    <canvas id="barChart"
+        style="padding-left: 180px;padding-right: 180px;padding-bottom: 60px;padding-top: 1px;"></canvas>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function () {
             function displayGraph(city, kind) {
-                const url = `http://127.0.0.1:3000/getChartData?city=${city}&kind=${kind}`;
+                const url = `http://localhost:5004/getChartData?city=${city}&kind=${kind}`;
                 $.ajax({
                     url: url, // Replace with the actual URL for fetching chart data
                     type: 'GET',
@@ -77,7 +78,7 @@
                         });
                         console.log('Data got from db for graph: ', data);
                     },
-                    
+
                     error: function (error) {
                         console.error('Error fetching chart data:', error);
                     },
@@ -85,7 +86,7 @@
             }
             // Function to fetch and display places based on the selected city and kind
             function fetchAndDisplayPlaces(city, kind) {
-                const url = `http://127.0.0.1:3000/getPlacesByCity?city=${city}&kind=${kind}`;
+                const url = `http://localhost:5004/getPlacesByCity?city=${city}&kind=${kind}`;
                 $.ajax({
                     type: 'GET',
                     url: url,
@@ -126,7 +127,7 @@
             displayGraph(selectedCity, selectedKind);
             fetchAndDisplayPlaces(selectedCity, selectedKind);
         });
-    </script>
+    </script>
 
 </body>
 

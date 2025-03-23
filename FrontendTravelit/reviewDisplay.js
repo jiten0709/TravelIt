@@ -2,7 +2,7 @@ $(document).ready(function () {
   function fetchAndDisplayReviews(sentiment) {
     $.ajax({
       type: "GET",
-      url: "http://127.0.0.1:3000/getreviews",
+      url: "http://localhost:5004/getreviews",
       data: {
         sentiment: sentiment, // 'positive' or 'negative'
       },
@@ -47,7 +47,7 @@ $(document).ready(function () {
       //       </div>
       //     </a>
       //   `;
-        const reviewElement = `
+      const reviewElement = `
           <a class="carousel-item" href="#">
             <div class="testi">
               <p>"${review.comment}"</p>

@@ -103,7 +103,7 @@
         console.log(jsonData);
         $.ajax({
           type: "POST",
-          url: "http://127.0.0.1:3000/isValidUser",
+          url: "http://localhost:5004/isValidUser",
           contentType: "application/json",
           headers: {
             "Access-Control-Allow-Origin": "*",
@@ -157,7 +157,7 @@
         console.log(jsonData);
         $.ajax({
           type: "POST",
-          url: "http://127.0.0.1:3000/addNewUser",
+          url: "http://localhost:5004/addNewUser",
           contentType: "application/json",
           headers: {
             "Access-Control-Allow-Origin": "*",

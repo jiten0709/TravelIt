@@ -1,0 +1,6 @@
+travelit_venv
+npm-debug.log
+.DS_Store
+.env
+delete.js
+node_modules

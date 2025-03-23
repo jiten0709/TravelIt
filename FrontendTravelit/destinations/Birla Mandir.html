@@ -146,24 +146,24 @@
                       background: rgba(0, 0, 0, 0) url(img/map.png) no-repeat
                         scroll center center/cover;
                     ">
-                    
-                  <a href="https://goo.gl/maps/tcG4U1pUDGr5Jaw" > </a>
-                      </div>
-                    </div>
-                  </div>
+
+                  <a href="https://goo.gl/maps/tcG4U1pUDGr5Jaw"> </a>
                 </div>
               </div>
-      
-              <!-- Building pic - tablet and desktop -->
-              <div class=" grid-column span-12 mt1 hide-on-mobile reveal-on-scroll is-revealing">
-                    <div class="square">
-                      <div class="aspect-ratio__content bg--tan" style="
+            </div>
+          </div>
+        </div>
+
+        <!-- Building pic - tablet and desktop -->
+        <div class=" grid-column span-12 mt1 hide-on-mobile reveal-on-scroll is-revealing">
+          <div class="square">
+            <div class="aspect-ratio__content bg--tan" style="
               background: rgba(0, 0, 0, 0) url(img/historical/Jaipur/birla\ mandir\ 3.jpg) no-repeat
                 scroll center center/cover;
             "></div>
-                    </div>
-                </div>
-              </div>
+          </div>
+        </div>
+      </div>
 
 
     </main>
@@ -204,7 +204,7 @@
       });
 
       function fetchAndDisplayReviews(sentiment) {
-        const url = `http://127.0.0.1:3000/getreviews?place=${encodeURIComponent(place)}`;
+        const url = `http://localhost:5004/getreviews?place=${encodeURIComponent(place)}`;
         $.ajax({
           type: "GET",
           url: url,
@@ -223,7 +223,7 @@
       function fetchAndDisplayReviews2(action, place) {
         $.ajax({
           type: "POST",
-          url: "http://127.0.0.1:3000/action",
+          url: "http://localhost:5004/action",
           contentType: "application/json",
           data: JSON.stringify({ action: action, place: place }),
           success: function (response) {

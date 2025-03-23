@@ -1,12 +1,14 @@
-FROM nginx:latest
+# Use Nginx to serve the frontend
+FROM nginx:alpine
 
-# Copy custom Nginx config
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-# Copy frontend files
+# Copy the static files (HTML, CSS, JS) to Nginx's HTML directory
 COPY . /usr/share/nginx/html
 
-# Nginx runs inside the container on port 80
-EXPOSE 80  
+# Copy the custom Nginx configuration file
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
+# Expose the frontend port
+EXPOSE 80
+
+# Start Nginx
 CMD ["nginx", "-g", "daemon off;"]

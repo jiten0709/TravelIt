@@ -207,7 +207,7 @@
       });
 
       function fetchAndDisplayReviews(sentiment) {
-        const url = `http://127.0.0.1:3000/getreviews?place=${encodeURIComponent(place)}`;
+        const url = `http://localhost:5004/getreviews?place=${encodeURIComponent(place)}`;
         $.ajax({
           type: "GET",
           url: url,
@@ -226,7 +226,7 @@
       function fetchAndDisplayReviews2(action, place) {
         $.ajax({
           type: "POST",
-          url: "http://127.0.0.1:3000/action",
+          url: "http://localhost:5004/action",
           contentType: "application/json",
           data: JSON.stringify({ action: action, place: place }),
           success: function (response) {

@@ -26,10 +26,31 @@ const pool = new Pool({
   port: process.env.DB_PORT || 5432,
 });
 
-// Handle database errors
-pool.on("error", (err) => {
-  console.error("Unexpected database error:", err);
-  process.exit(-1);
+// Set the search_path to include the "travelit" schema
+pool.query('SET search_path TO "travelit", public', (err) => {
+  if (err) {
+    console.error("Error setting search_path:", err);
+  } else {
+    console.log('search_path set to "travelit"');
+  }
+});
+
+// Log the current search_path
+pool.query("SHOW search_path", (err, res) => {
+  if (err) {
+    console.error("Error fetching search_path:", err);
+  } else {
+    console.log("Current search_path:", res.rows[0].search_path);
+  }
+});
+
+// Test the database connection
+pool.query('SELECT * FROM "travelit"."review" LIMIT 1', (err, res) => {
+  if (err) {
+    console.error("Error testing database connection:", err);
+  } else {
+    console.log("Database connection successful. Sample data:", res.rows);
+  }
 });
 
 // Serve the home page
@@ -40,92 +61,93 @@ app.get("/", (req, res) => {
 
 // ---------- USER'S DATA ------------
 app.get("/testdatausers", (req, res, next) => {
-  console.log("TEST DATA :");
-  pool.query('SELECT * FROM "travelit"."users"').then((testData) => {
-    console.log(testData);
-    res.status(200).json(testData.rows);
-  });
+  try {
+    console.log("TEST DATA :");
+    pool.query('SELECT * FROM "travelit"."users"').then((testData) => {
+      console.log(testData);
+      res.status(200).json(testData.rows);
+    });
+  } catch (error) {
+    console.error("Error fetching users data:", error);
+    next(error);
+  }
 });
 
-app.post("/addNewUser", (req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  console.log("Add DATA :");
-  console.log(req.body);
-  const { username, user_password, user_email } = req.body;
-  let count = 0;
+app.post("/addNewUser", async (req, res, next) => {
+  try {
+    const { username, user_password, user_email } = req.body;
 
-  pool.query(
-    'SELECT count(*) FROM "travelit"."users" u WHERE u.username = $1',
-    [username],
-    (error, result) => {
-      console.log(result.rows);
-      if (error) {
-        throw error;
-      } else {
-        count = result.rows[0].count;
-        if (count == 0) {
-          const instQ =
-            'INSERT INTO "travelit"."users" (username, user_password, user_email) VALUES($1, $2, $3) RETURNING *';
-          pool.query(
-            instQ,
-            [username, user_password, user_email],
-            (error, result) => {
-              if (error) {
-                throw error;
-              }
-              res.status(201).send(result.rows);
-            }
-          );
-        } else {
-          res.status(201).send({ errors: "username already exists" });
-        }
-      }
+    const result = await pool.query(
+      'SELECT count(*) FROM users WHERE username = $1',
+      [username]
+    );
+
+    const count = parseInt(result.rows[0].count, 10);
+    if (count === 0) {
+      const insertResult = await pool.query(
+        'INSERT INTO users (username, user_password, user_email) VALUES ($1, $2, $3) RETURNING *',
+        [username, user_password, user_email]
+      );
+      res.status(201).json(insertResult.rows);
+    } else {
+      res.status(409).json({ error: "Username already exists" });
     }
-  );
+  } catch (error) {
+    console.error("Error adding new user:", error);
+    next(error);
+  }
 });
 
 app.post("/isValidUser", (req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  console.log("TEST DATA :");
-  const { username, user_password } = req.body;
+  try {
+    console.log("TEST DATA :");
+    const { username, user_password } = req.body;
 
-  pool.query(
-    'SELECT * FROM "travelit"."users" u WHERE u.username = $1 AND u.user_password = $2',
-    [username, user_password],
-    (error, result) => {
-      console.log(result.rows);
-      if (error) {
-        throw error;
-      } else {
-        if (result.rowCount >= 1) {
-          console.log(" ok .... ");
-          res.status(200).json(result.rows);
+    pool.query(
+      'SELECT * FROM "travelit"."users" u WHERE u.username = $1 AND u.user_password = $2',
+      [username, user_password],
+      (error, result) => {
+        console.log(result.rows);
+        if (error) {
+          throw error;
         } else {
-          res.status(200).json({ errors: "Invalid User/Password." });
+          if (result.rowCount >= 1) {
+            console.log(" ok .... ");
+            res.status(200).json(result.rows);
+          } else {
+            res.status(200).json({ errors: "Invalid User/Password." });
+          }
         }
       }
-    }
-  );
+    );
+  } catch (error) {
+    console.error("Error validating user:", error);
+    next(error);
+  }
 });
 
 // ---------- FEEDBACK'S DATA ------------
 app.post("/addFeedback", (req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  console.log("Add DATA :");
-  console.log(req.body);
-  const { username, user_feedback } = req.body;
-  const instQ =
-    'INSERT INTO "travelit"."feedback" (username, user_feedback) VALUES($1, $2) RETURNING * ';
-  pool.query(instQ, [username, user_feedback], (error) => {
-    if (error) {
-      throw error;
-    }
-    res.status(201).send();
-  });
+  try {
+    console.log("Add DATA :");
+    console.log(req.body);
+    const { username, user_feedback } = req.body;
+    const instQ =
+      'INSERT INTO "travelit"."feedback" (username, user_feedback) VALUES($1, $2) RETURNING * ';
+    pool.query(instQ, [username, user_feedback], (error) => {
+      if (error) {
+        throw error;
+      }
+      res.status(201).send();
+    });
+  } catch (error) {
+    console.error("Error adding feedback:", error);
+    next(error);
+  }
 });
 
 // ---------- REVIEW'S DATA ------------
-app.get("/addSentiment", async (req, res) => {
+app.get("/addSentiment", async (req, res, next) => {
   try {
     const query = 'SELECT * FROM "travelit"."review"';
     const { rows } = await pool.query(query);
@@ -191,25 +213,24 @@ app.get("/addSentiment", async (req, res) => {
       "Error updating sentiment, positive counts, and negative counts:",
       error
     );
-    res.status(500).json({ error: "Internal Server Error" });
+    next(error);
   }
 });
 
-app.get("/getreviews", async (req, res) => {
+app.get("/getreviews", async (req, res, next) => {
   try {
-    var place = req.query.place;
-    const query = 'SELECT * FROM "travelit"."review" WHERE place=$1';
+    const place = req.query.place;
+    const query = 'SELECT * FROM review WHERE place = $1';
     const { rows } = await pool.query(query, [place]);
     res.json(rows);
   } catch (error) {
     console.error("Error fetching reviews:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    next(error); // Pass the error to the global error handler
   }
 });
 
-app.post("/action", async (req, res) => {
+app.post("/action", async (req, res, next) => {
   try {
-    res.header("Access-Control-Allow-Origin", "*");
     var action = req.body.action;
     var place = req.body.place;
     if (action == "fetchPositive") {
@@ -236,13 +257,12 @@ app.post("/action", async (req, res) => {
     }
   } catch (error) {
     console.error("Error fetching reviews:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    next(error);
   }
 });
 
-app.get("/getPositiveCount", async (req, res) => {
+app.get("/getPositiveCount", async (req, res, next) => {
   try {
-    res.header("Access-Control-Allow-Origin", "*");
     const query = 'SELECT place, positive_count FROM "travelit"."review"';
     const { rows } = await pool.query(query);
     const placeCounts = {};
@@ -252,13 +272,12 @@ app.get("/getPositiveCount", async (req, res) => {
     res.json(placeCounts);
   } catch (error) {
     console.log("Error fetching positive counts: ", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    next(error);
   }
 });
 
-app.get("/getNegativeCount", async (req, res) => {
+app.get("/getNegativeCount", async (req, res, next) => {
   try {
-    res.header("Access-Control-Allow-Origin", "*");
     const query = 'SELECT place, negative_count FROM "travelit"."review"';
     const { rows } = await pool.query(query);
     const placeCounts = {};
@@ -268,14 +287,15 @@ app.get("/getNegativeCount", async (req, res) => {
     res.json(placeCounts);
   } catch (error) {
     console.log("Error fetching negative counts: ", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    next(error);
   }
 });
 
-app.get("/getChartData", async (req, res) => {
+app.get("/getChartData", async (req, res, next) => {
   try {
-    res.header("Access-Control-Allow-Origin", "*");
     const { city, kind } = req.query;
+    console.log("Fetching chart data for city:", city, "and kind:", kind);
+
     const query = `
       SELECT DISTINCT place, positive_count, negative_count
       FROM "travelit"."review"
@@ -283,26 +303,21 @@ app.get("/getChartData", async (req, res) => {
     `;
     const { rows } = await pool.query(query, [city, kind]);
 
-    const places = rows.map((row) => row.place);
-    const positiveCounts = rows.map((row) => row.positive_count);
-    const negativeCounts = rows.map((row) => row.negative_count);
-
     const chartData = {
-      places: places,
-      positiveCounts: positiveCounts,
-      negativeCounts: negativeCounts,
+      places: rows.map((row) => row.place),
+      positiveCounts: rows.map((row) => row.positive_count),
+      negativeCounts: rows.map((row) => row.negative_count),
     };
 
     res.json(chartData);
   } catch (error) {
     console.error("Error fetching chart data:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    next(error);
   }
 });
 
-app.get("/getPlacesByCity", async (req, res) => {
+app.get("/getPlacesByCity", async (req, res, next) => {
   try {
-    res.header("Access-Control-Allow-Origin", "*");
     const { city, kind } = req.query;
     const query = `
       SELECT DISTINCT place, positive_count
@@ -314,11 +329,11 @@ app.get("/getPlacesByCity", async (req, res) => {
     res.json(rows);
   } catch (error) {
     console.error("Error fetching places by city and kind:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    next(error);
   }
 });
 
-app.get("/getPlaces", async (req, res) => {
+app.get("/getPlaces", async (req, res, next) => {
   try {
     const selectedCity = req.query.city;
     const selectedKind = req.query.kind;
@@ -336,27 +351,40 @@ app.get("/getPlaces", async (req, res) => {
     res.json(placeNames);
   } catch (error) {
     console.error("Error fetching place names of:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    next(error);
   }
 });
 
-app.post("/addReview", (req, res) => {
-  const review = req.body;
-  console.log("Data added:", review);
+app.post("/addReview", async (req, res, next) => {
+  try {
+    const review = req.body;
+    console.log("Data added:", review);
 
-  pool.query(
-    'INSERT INTO "travelit"."review" (name, city, kind, place, comment, image_url) VALUES ($1, $2, $3, $4, $5, $6)',
-    [review.name, review.city, review.kind, review.place, review.comment, review.image_url],
-    (err, result) => {
-      if (err) {
-        res.status(500).json({ error: "Error inserting review" });
-        console.log("Error inserting review:", err);
-      } else {
-        res.json({ message: "Review added successfully" });
-        console.log("Review added successfully");
-      }
-    }
-  );
+    const query = `
+      INSERT INTO "travelit"."review" (name, city, kind, place, comment, image_url)
+      VALUES ($1, $2, $3, $4, $5, $6)
+    `;
+    await pool.query(query, [
+      review.name,
+      review.city,
+      review.kind,
+      review.place,
+      review.comment,
+      review.image_url,
+    ]);
+
+    res.json({ message: "Review added successfully" });
+    console.log("Review added successfully");
+  } catch (error) {
+    console.error("Error adding review:", error);
+    next(error); // Pass the error to the global error handler
+  }
+});
+
+// ---------- GLOBAL ERROR HANDLING ----------
+app.use((err, req, res, next) => {
+  console.error("Unhandled error:", err);
+  res.status(500).json({ error: "Internal Server Error" });
 });
 
 // Start the server

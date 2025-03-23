@@ -44,11 +44,16 @@
         <div class="square">
           <div class="aspect-ratio__content centered-content border--tan p2">
             <div class="align--left">
-              <h1>   ADLAJ STEPWELL         </h1>
+              <h1> ADLAJ STEPWELL </h1>
               <p>
-                Adlaj stepwell is also renowned for its plethora of historical monuments that gives an insight into its rich culture and heritage. Ahmedabad is ornamented with step wells and the most prominent among them is the Adalaj Step Well which is also popular as Adalaj ni Vav.
-                Visitors would feel history as they step down the step well with its cool ambiance and colossal architecture. Visiting the historic monument is a captivating experience especially for history buffs. The spectacular edifice was often visited by locals for performing traditional rituals. A striking sandstone structure with a square stepped platform leads to a deep well below.
-  
+                Adlaj stepwell is also renowned for its plethora of historical monuments that gives an insight into its
+                rich culture and heritage. Ahmedabad is ornamented with step wells and the most prominent among them is
+                the Adalaj Step Well which is also popular as Adalaj ni Vav.
+                Visitors would feel history as they step down the step well with its cool ambiance and colossal
+                architecture. Visiting the historic monument is a captivating experience especially for history buffs.
+                The spectacular edifice was often visited by locals for performing traditional rituals. A striking
+                sandstone structure with a square stepped platform leads to a deep well below.
+
               </p>
             </div>
 
@@ -73,7 +78,7 @@
                     October, November, December, January, February, March
 
                     <br>
-                     
+
                   </p>
                 </div>
               </div>
@@ -86,7 +91,7 @@
                   <h3 class="mb0">Popular Food Places</h3>
                   <br>
                   <p> <a href=" https://maps.app.goo.gl/sqGmgUk1E7FBtzw19 ">1.Marutinandan Restaurant
-                  </a>
+                    </a>
                     <br>
                     <a href=" https://maps.app.goo.gl/rQSarFj65opxA1ex9  ">2.Eden Garden Restaurant</a>
                     <br>
@@ -96,8 +101,8 @@
                 </div>
               </div>
             </div>
-            
-              <!-- review -->
+
+            <!-- review -->
             <div class="grid-column span-12 mt1 reveal-on-scroll is-revealing">
               <div class="square">
                 <div class="aspect-ratio__content bg--tan">
@@ -132,8 +137,9 @@
                       height: 100%;
                     }
                   </style>
-                  
-                </div>
+
+                            
+                </div>
               </div>
             </div>
             <!-- map -->
@@ -143,14 +149,15 @@
                 background: rgba(0, 0, 0, 0) url(img/map.png) no-repeat
                   scroll center center/cover;
               ">
-            <a href="     https://maps.app.goo.gl/zQwwbbPChWmJRYQs5        " target="_blank" class="link block full-height"></a>
+                  <a href="     https://maps.app.goo.gl/zQwwbbPChWmJRYQs5        " target="_blank"
+                    class="link block full-height"></a>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-      
+
         <!-- Building pic - tablet and desktop -->
         <div class="grid-column span-12 mt1 hide-on-mobile reveal-on-scroll is-revealing">
           <div class="square">
@@ -162,84 +169,84 @@
         </div>
       </div>
 
-      
+
 
     </main>
 
-    
-          <!-- Scroll reveal -->
-          <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
 
-          <!-- The compiled JavaScript file -->
-          <script src="js/production.js"></script>
+    <!-- Scroll reveal -->
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
 
-        </div>
-    
-        <div class="boxr">
-          <button style="margin-top: 50px;margin-left: 30px;" type="button" class="positive-btn rBtn"
-            id="positiveBtn">POSITIVE
-            REVIEWS</button>
-          <button style="margin-left: 180px;margin-top: 50px;" type="button" class="negative-btn rBtn"
-            id="negativeBtn">NEGATIVE
-            REVIEWS</button>
-          <div class="carousel" id="reviews-container">
-          </div>
-        </div>
-        <script>
-          $(document).ready(function () {
-            // Get the buttons by their IDs
-            const positiveBtn = document.getElementById('positiveBtn');
-            const negativeBtn = document.getElementById('negativeBtn');
-            const place = 'Adalaj Step-well';
-    
-            // Add click event listeners to the buttons
-            positiveBtn.addEventListener('click', function () {
-              fetchAndDisplayReviews2('fetchPositive', place);
-            });
-    
-            negativeBtn.addEventListener('click', function () {
-              fetchAndDisplayReviews2('fetchNegative', place);
-            });
-    
-            function fetchAndDisplayReviews(sentiment) {
-              const url = `http://127.0.0.1:3000/getreviews?place=${encodeURIComponent(place)}`;
-              $.ajax({
-                type: "GET",
-                url: url,
-                contentType: "application/json",
-                success: function (response) {
-                  console.log(`Received reviews for ${place}: `, response);
-                  displayReviews(response);
-                },
-                error: function (error) {
-                  console.error("Error fetching reviews:", error);
-                },
-              });
-            }
-    
-    
-            function fetchAndDisplayReviews2(action, place) {
-              $.ajax({
-                type: "POST",
-                url: "http://127.0.0.1:3000/action",
-                contentType: "application/json",
-                data: JSON.stringify({ action: action, place: place }),
-                success: function (response) {
-                  console.log("Received specific reviews:", place, response);
-                  displayReviews(response.data);
-                },
-                error: function (error) {
-                  console.error("Error fetching reviews:", error);
-                },
-              });
-            }
-    
-            function displayReviews(reviews) {
-              const reviewsContainer = $("#reviews-container");
-              reviewsContainer.empty();
-    
-              reviews.forEach((review) => {
-                const reviewElement = `
+    <!-- The compiled JavaScript file -->
+    <script src="js/production.js"></script>
+
+  </div>
+
+  <div class="boxr">
+    <button style="margin-top: 50px;margin-left: 30px;" type="button" class="positive-btn rBtn"
+      id="positiveBtn">POSITIVE
+      REVIEWS</button>
+    <button style="margin-left: 180px;margin-top: 50px;" type="button" class="negative-btn rBtn"
+      id="negativeBtn">NEGATIVE
+      REVIEWS</button>
+    <div class="carousel" id="reviews-container">
+    </div>
+  </div>
+  <script>
+    $(document).ready(function () {
+      // Get the buttons by their IDs
+      const positiveBtn = document.getElementById('positiveBtn');
+      const negativeBtn = document.getElementById('negativeBtn');
+      const place = 'Adalaj Step-well';
+
+      // Add click event listeners to the buttons
+      positiveBtn.addEventListener('click', function () {
+        fetchAndDisplayReviews2('fetchPositive', place);
+      });
+
+      negativeBtn.addEventListener('click', function () {
+        fetchAndDisplayReviews2('fetchNegative', place);
+      });
+
+      function fetchAndDisplayReviews(sentiment) {
+        const url = `http://localhost:5004/getreviews?place=${encodeURIComponent(place)}`;
+        $.ajax({
+          type: "GET",
+          url: url,
+          contentType: "application/json",
+          success: function (response) {
+            console.log(`Received reviews for ${place}: `, response);
+            displayReviews(response);
+          },
+          error: function (error) {
+            console.error("Error fetching reviews:", error);
+          },
+        });
+      }
+
+
+      function fetchAndDisplayReviews2(action, place) {
+        $.ajax({
+          type: "POST",
+          url: "http://localhost:5004/action",
+          contentType: "application/json",
+          data: JSON.stringify({ action: action, place: place }),
+          success: function (response) {
+            console.log("Received specific reviews:", place, response);
+            displayReviews(response.data);
+          },
+          error: function (error) {
+            console.error("Error fetching reviews:", error);
+          },
+        });
+      }
+
+      function displayReviews(reviews) {
+        const reviewsContainer = $("#reviews-container");
+        reviewsContainer.empty();
+
+        reviews.forEach((review) => {
+          const reviewElement = `
                                 <div class="carousel-item" href="#">
                                     <div class="testi">
                                         <div class="img-area">
@@ -250,26 +257,24 @@
                                     </div>
                                 </div>
                             `;
-    
-                reviewsContainer.append(reviewElement);
-              });
-    
-              // Initialize the carousel after reviews are loaded
-              $(".carousel").carousel({
-                padding: 200,
-              });
-            }
-    
-            // Call the fetchAndDisplayReviews function to load reviews when the page loads
-    
-            fetchAndDisplayReviews(place);
-            // fetchAndDisplayReviews2('fetchNegative', place)
-            // fetchAndDisplayReviews2('fetchNegativeNPositive', place)
-          });
-        </script>
 
-    </body>
+          reviewsContainer.append(reviewElement);
+        });
+
+        // Initialize the carousel after reviews are loaded
+        $(".carousel").carousel({
+          padding: 200,
+        });
+      }
+
+      // Call the fetchAndDisplayReviews function to load reviews when the page loads
+
+      fetchAndDisplayReviews(place);
+      // fetchAndDisplayReviews2('fetchNegative', place)
+      // fetchAndDisplayReviews2('fetchNegativeNPositive', place)
+    });
+  </script>
+
+</body>
 
 </html>
-
-
